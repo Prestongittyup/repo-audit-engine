@@ -1,0 +1,30 @@
+{
+  "graph_summary": {
+    "node_count": 2,
+    "edge_count": 1,
+    "deduplicated_edges": 0
+  },
+  "classification": {
+    "REACHABLE": [
+      "canonical://authority_pass_repo/_root:run.ps1",
+      "canonical://authority_pass_repo/src:runtime_common.ps1"
+    ],
+    "REFERENCED": [],
+    "ISOLATED": [],
+    "SUSPICIOUS": [],
+    "DEAD": [],
+    "EXEMPT": []
+  },
+  "validation": {
+    "status": "VALID",
+    "issues": null,
+    "metrics": {
+      "orphan_nodes": 0,
+      "disconnected_clusters": 0,
+      "di_nodes_missing_edges": 0
+    }
+  },
+  "resolver_metrics": {
+    "CONFIG": 1
+  }
+}

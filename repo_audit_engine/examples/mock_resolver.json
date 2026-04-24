@@ -1,0 +1,28 @@
+{
+  "edges": [
+    {
+      "from": "canonical://service/App",
+      "to": "canonical://service/Foo",
+      "type": "IMPORT",
+      "source": "AST"
+    },
+    {
+      "from": "canonical://service/Foo",
+      "to": "canonical://service/Bar",
+      "type": "DI",
+      "source": "DI"
+    },
+    {
+      "from": "canonical://service/Foo",
+      "to": "canonical://service/Missing",
+      "type": "DI",
+      "source": "DI"
+    },
+    {
+      "from": "canonical://service/Bar",
+      "to": "canonical://service/Foo",
+      "type": "IMPORT",
+      "source": "AST"
+    }
+  ]
+}

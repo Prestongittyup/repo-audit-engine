@@ -1,0 +1,41 @@
+{
+  "graph": {
+    "nodes": [
+      {
+        "id": "canonical://repo/_root:main.py",
+        "file_path": "main.py",
+        "module_path": "main",
+        "type": "FILE"
+      },
+      {
+        "id": "canonical://repo/_root:service.py",
+        "file_path": "service.py",
+        "module_path": "service",
+        "type": "FILE"
+      },
+      {
+        "id": "canonical://repo/_root:util.py",
+        "file_path": "util.py",
+        "module_path": "util",
+        "type": "FILE"
+      }
+    ],
+    "edges": [
+      {
+        "from": "canonical://repo/_root:service.py",
+        "to": "canonical://repo/_root:util.py",
+        "type": "IMPORT",
+        "confidence": 0.9,
+        "source": "AST",
+        "source_metadata": [
+          "AST"
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "node_count": 3,
+    "edge_count": 1,
+    "deduplicated_edges": 0
+  }
+}

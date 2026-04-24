@@ -1,0 +1,103 @@
+{
+  "system_valid": false,
+  "failure_domains": [
+    "reachability",
+    "resolver",
+    "semantic"
+  ],
+  "trust_score": 0.0,
+  "results": {
+    "structural": {
+      "invalid_edges": [],
+      "node_count": 5,
+      "edge_count": 4
+    },
+    "reachability": {
+      "reachable_count": 3,
+      "unreachable_count": 2,
+      "false_dead_nodes": [],
+      "unmarked_unreachable_nodes": [
+        "canonical://repo/_root:island_a.py",
+        "canonical://repo/_root:island_b.py"
+      ],
+      "entrypoints_used": [
+        "canonical://repo/_root:main.py"
+      ],
+      "entrypoints_without_outgoing": [],
+      "di_unreachable_edges": []
+    },
+    "resolver": {
+      "ast_edges": 4,
+      "di_edges": 0,
+      "config_edges": 0,
+      "heuristic_edges": 0,
+      "missing_di_nodes": [],
+      "heuristic_only_nodes": [],
+      "missing_references": [],
+      "missing_ast_edges": [],
+      "missing_di_edges": [],
+      "missing_config_edges": [],
+      "di_not_derived_from_ast_pairs": [],
+      "coverage": {
+        "ast": 1.0,
+        "di": 1.0,
+        "config": 1.0,
+        "heuristic": 1.0
+      },
+      "divergence": {
+        "ast": 0.0,
+        "di": 0.0,
+        "config": 0.0,
+        "heuristic": 0.0
+      },
+      "drift_score": 1.0,
+      "ast_di_pair_delta_count": 4,
+      "enforcement": {
+        "min_ast_coverage": 0.9,
+        "max_drift_score": 0.1,
+        "violations": [
+          {
+            "rule": "DRIFT_SCORE_MAX",
+            "expected": 0.1,
+            "actual": 1.0
+          }
+        ]
+      }
+    },
+    "semantic": {
+      "entrypoint_isolated": [],
+      "di_wired_missing_edges": [],
+      "disconnected_islands": [
+        {
+          "size": 2,
+          "nodes": [
+            "canonical://repo/_root:island_a.py",
+            "canonical://repo/_root:island_b.py"
+          ],
+          "internal_edge_count": 2,
+          "is_cyclic": true
+        }
+      ],
+      "cyclic_islands": [
+        [
+          "canonical://repo/_root:island_a.py",
+          "canonical://repo/_root:island_b.py"
+        ]
+      ],
+      "false_healthy_subgraphs": [
+        [
+          "canonical://repo/_root:island_a.py",
+          "canonical://repo/_root:island_b.py"
+        ]
+      ],
+      "disconnected_unquarantined_nodes": [
+        "canonical://repo/_root:island_a.py",
+        "canonical://repo/_root:island_b.py"
+      ],
+      "cycle_policy_violations": [
+        "canonical://repo/_root:island_a.py",
+        "canonical://repo/_root:island_b.py"
+      ]
+    }
+  }
+}

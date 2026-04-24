@@ -1,0 +1,60 @@
+{
+  "graph": {
+    "nodes": [
+      {
+        "id": "canonical://service/App",
+        "tags": ["entrypoint"]
+      },
+      {
+        "id": "canonical://service/Foo"
+      },
+      {
+        "id": "canonical://service/Bar"
+      },
+      {
+        "id": "canonical://service/Isolated",
+        "tags": ["isolated_module"]
+      },
+      {
+        "id": "bad-node-id"
+      }
+    ],
+    "edges": [
+      {
+        "from": "canonical://service/App",
+        "to": "canonical://service/Foo",
+        "type": "IMPORT",
+        "confidence": 0.98,
+        "source": "AST"
+      },
+      {
+        "from": "canonical://service/Foo",
+        "to": "canonical://service/Bar",
+        "type": "DI",
+        "confidence": 0.91,
+        "source": "DI"
+      },
+      {
+        "from": "canonical://service/Bar",
+        "to": "canonical://service/Foo",
+        "type": "DYNAMIC",
+        "confidence": 0.65,
+        "source": "AST"
+      },
+      {
+        "from": "canonical://service/Foo",
+        "to": "canonical://service/Missing",
+        "type": "DI",
+        "confidence": 0.75,
+        "source": "DI"
+      },
+      {
+        "from": "canonical://service/App",
+        "to": "bad-node-id",
+        "type": "CONFIG",
+        "confidence": 0.6,
+        "source": "CONFIG"
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {
+      "id": "canonical://repo/_root:hidden_a.py",
+      "file_path": "hidden_a.py",
+      "module_path": "hidden_a",
+      "type": "FILE"
+    },
+    {
+      "id": "canonical://repo/_root:hidden_b.py",
+      "file_path": "hidden_b.py",
+      "module_path": "hidden_b",
+      "type": "FILE"
+    },
+    {
+      "id": "canonical://repo/_root:main.py",
+      "file_path": "main.py",
+      "module_path": "main",
+      "type": "FILE"
+    },
+    {
+      "id": "canonical://repo/_root:service.py",
+      "file_path": "service.py",
+      "module_path": "service",
+      "type": "FILE"
+    }
+  ]
+}

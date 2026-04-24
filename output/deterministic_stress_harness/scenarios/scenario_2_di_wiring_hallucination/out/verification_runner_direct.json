@@ -1,0 +1,8 @@
+{
+  "system_valid": false,
+  "failure_domains": [
+    "structural"
+  ],
+  "trust_score": 0.0,
+  "results": {}
+}

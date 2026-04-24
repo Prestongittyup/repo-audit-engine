@@ -1,0 +1,353 @@
+{
+  "metrics": {
+    "node_count": 2,
+    "edge_count": 1,
+    "structural_integrity.node_count": 2,
+    "structural_integrity.valid_node_count": 2,
+    "structural_integrity.edge_count": 1,
+    "structural_integrity.valid_edge_count": 1,
+    "structural_integrity.malformed_node_count": 0,
+    "structural_integrity.duplicate_node_count": 0,
+    "structural_integrity.invalid_namespace_count": 0,
+    "structural_integrity.malformed_edge_count": 0,
+    "structural_integrity.unresolved_edge_count": 0,
+    "structural_integrity.invalid_type_edge_count": 0,
+    "structural_integrity.invalid_edge_count": 0,
+    "dependency_consistency.resolver_edge_count": 1,
+    "dependency_consistency.missing_di_nodes_count": 0,
+    "dependency_consistency.di_nodes_referenced_count": 0,
+    "dependency_consistency.ast_edge_count": 0,
+    "dependency_consistency.di_edge_count": 0,
+    "dependency_consistency.config_edge_count": 1,
+    "dependency_consistency.heuristic_edge_count": 0,
+    "dependency_consistency.ast_represented_count": 0,
+    "dependency_consistency.di_represented_count": 0,
+    "dependency_consistency.config_represented_count": 2,
+    "dependency_consistency.heuristic_represented_count": 0,
+    "dependency_consistency.ast_di_divergence_score": 0.0,
+    "dependency_consistency.config_heuristic_alignment_score": 0.0,
+    "dependency_consistency.inferred_dependency_pair_count": 0,
+    "topology_validation.entrypoint_count": 1,
+    "topology_validation.entrypoint_present_count": 1,
+    "topology_validation.entrypoint_missing_count": 0,
+    "topology_validation.reachable_node_count": 2,
+    "topology_validation.unreachable_node_count": 0,
+    "topology_validation.unreachable_nodes_ratio": 0.0,
+    "topology_validation.di_edge_count": 0,
+    "topology_validation.di_unreachable_edge_count": 0,
+    "topology_validation.cycle_node_count": 0,
+    "topology_validation.cycle_policy_violation_count": 0,
+    "topology_validation.disconnected_island_count": 0,
+    "topology_validation.isolated_module_count": 0,
+    "topology_validation.orphan_subgraph_count": 0,
+    "topology_validation.cyclic_island_count": 0,
+    "topology_validation.unexpected_island_count": 0,
+    "topology_validation.isolated_module_node_count": 0,
+    "topology_validation.orphan_subgraph_node_count": 0,
+    "topology_validation.cyclic_island_node_count": 0,
+    "topology_validation.unexpected_island_node_count": 0,
+    "semantic_observations.semantic_note_count": 0,
+    "semantic_observations.semantic_warning_count": 0,
+    "semantic_observations.ast_di_divergence_score": 0.0,
+    "unreachable_node_count": 0,
+    "missing_dependency_count": 0,
+    "ast_di_divergence_score": 0.0,
+    "cycle_policy_violation_count": 0,
+    "disconnected_island_count": 0,
+    "orphan_subgraph_count": 0,
+    "cyclic_island_count": 0
+  },
+  "scores": {
+    "structural_integrity": 1.0,
+    "dependency_consistency": 1.0,
+    "topology_validation": 1.0,
+    "semantic_observations": 1.0,
+    "structural": 1.0,
+    "reachability": 1.0,
+    "resolver": 1.0,
+    "semantic": 1.0,
+    "trust": 1.0
+  },
+  "issues": [],
+  "critical_failure": false,
+  "warnings": [],
+  "recommendations": [
+    "No blocking recommendations. Continue monitoring drift and topology telemetry."
+  ],
+  "trust_model": {
+    "penalties": {
+      "structural_penalty": 0.0,
+      "reachability_penalty": 0.0,
+      "resolver_penalty": 0.0,
+      "semantic_penalty": 0.0,
+      "total_penalty": 0.0
+    },
+    "failure_analysis": {
+      "primary_cause": "none",
+      "ranked_causes": [],
+      "causal_chain": [],
+      "first_failure_dominance": {
+        "enabled": true,
+        "first_originating_domain": null
+      }
+    },
+    "policy_decision": {
+      "system_valid": true,
+      "critical_failure": false,
+      "hard_fail_reasons": [],
+      "soft_fail_reasons": [],
+      "thresholds": {
+        "min_trust": 0.4,
+        "max_missing_di_node_ratio": 0.1,
+        "max_unexpected_island_ratio": 0.85
+      },
+      "policy_metrics": {
+        "trust_score": 1.0,
+        "missing_di_node_ratio": 0.0,
+        "unexpected_island_ratio": 0.0
+      }
+    }
+  },
+  "summary": {
+    "status": "SUCCESS",
+    "message": "Pipeline completed successfully.",
+    "authority_valid": true,
+    "system_valid": true
+  },
+  "context": {
+    "report_version": "FINAL_REPORT.v2",
+    "generated_utc": "2026-04-24T20:48:45.7946015Z",
+    "repo_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.tmp\\authority_pass_repo",
+    "system_state_version": 14,
+    "entrypoints": [
+      "canonical://authority_pass_repo/_root:run.ps1"
+    ]
+  },
+  "classification": {
+    "REACHABLE": [
+      "canonical://authority_pass_repo/_root:run.ps1",
+      "canonical://authority_pass_repo/src:runtime_common.ps1"
+    ],
+    "REFERENCED": [],
+    "ISOLATED": [],
+    "SUSPICIOUS": [],
+    "DEAD": [],
+    "EXEMPT": []
+  },
+  "diagnostic_synthesis": {
+    "diagnostic_model_version": "1.0",
+    "system_health": {
+      "health_state": "HEALTHY",
+      "health_score": 1.0
+    },
+    "root_causes": [],
+    "failure_clusters": [],
+    "causal_chains": [],
+    "system_anomalies": []
+  },
+  "validation_facts": {
+    "layers": {
+      "structural_integrity": {
+        "domain": "structural_integrity",
+        "metrics": {
+          "node_count": 2,
+          "valid_node_count": 2,
+          "edge_count": 1,
+          "valid_edge_count": 1,
+          "malformed_node_count": 0,
+          "duplicate_node_count": 0,
+          "invalid_namespace_count": 0,
+          "malformed_edge_count": 0,
+          "unresolved_edge_count": 0,
+          "invalid_type_edge_count": 0,
+          "invalid_edge_count": 0
+        },
+        "violations": [],
+        "warnings": [],
+        "details": {
+          "node_count_mismatch": 0,
+          "invalid_edges": {
+            "malformed": 0,
+            "unresolved": 0,
+            "invalid_type": 0
+          }
+        }
+      },
+      "dependency_consistency": {
+        "domain": "dependency_consistency",
+        "metrics": {
+          "resolver_edge_count": 1,
+          "missing_di_nodes_count": 0,
+          "di_nodes_referenced_count": 0,
+          "ast_edge_count": 0,
+          "di_edge_count": 0,
+          "config_edge_count": 1,
+          "heuristic_edge_count": 0,
+          "ast_represented_count": 0,
+          "di_represented_count": 0,
+          "config_represented_count": 2,
+          "heuristic_represented_count": 0,
+          "ast_di_divergence_score": 0.0,
+          "config_heuristic_alignment_score": 0.0,
+          "inferred_dependency_pair_count": 0
+        },
+        "violations": [],
+        "warnings": [],
+        "details": {
+          "missing_di_nodes": [],
+          "inferred_dependency_pairs": [],
+          "coverage": {
+            "ast": {
+              "represented": 0,
+              "total": 0,
+              "ratio": 0.0
+            },
+            "di": {
+              "represented": 0,
+              "total": 0,
+              "ratio": 0.0
+            },
+            "config": {
+              "represented": 2,
+              "total": 1,
+              "ratio": 2.0
+            },
+            "heuristic": {
+              "represented": 0,
+              "total": 0,
+              "ratio": 0.0
+            }
+          },
+          "divergence": {
+            "ast_di_divergence_score": 0.0,
+            "config_heuristic_alignment_score": 0.0
+          }
+        }
+      },
+      "topology_validation": {
+        "domain": "topology_validation",
+        "metrics": {
+          "entrypoint_count": 1,
+          "entrypoint_present_count": 1,
+          "entrypoint_missing_count": 0,
+          "reachable_node_count": 2,
+          "unreachable_node_count": 0,
+          "unreachable_nodes_ratio": 0.0,
+          "di_edge_count": 0,
+          "di_unreachable_edge_count": 0,
+          "cycle_node_count": 0,
+          "cycle_policy_violation_count": 0,
+          "disconnected_island_count": 0,
+          "isolated_module_count": 0,
+          "orphan_subgraph_count": 0,
+          "cyclic_island_count": 0,
+          "unexpected_island_count": 0,
+          "isolated_module_node_count": 0,
+          "orphan_subgraph_node_count": 0,
+          "cyclic_island_node_count": 0,
+          "unexpected_island_node_count": 0
+        },
+        "violations": [],
+        "warnings": [],
+        "details": {
+          "reachability": {
+            "entrypoints_used": [
+              "canonical://authority_pass_repo/_root:run.ps1"
+            ],
+            "entrypoints_missing": [],
+            "reachable_nodes": [
+              "canonical://authority_pass_repo/_root:run.ps1",
+              "canonical://authority_pass_repo/src:runtime_common.ps1"
+            ],
+            "unreachable_nodes": [],
+            "di_unreachable_edges": []
+          },
+          "topology": {
+            "cycle_nodes": [],
+            "cycle_policy_violations": [],
+            "isolation_report": []
+          }
+        }
+      },
+      "semantic_observations": {
+        "domain": "semantic_observations",
+        "metrics": {
+          "semantic_note_count": 0,
+          "semantic_warning_count": 0,
+          "ast_di_divergence_score": 0.0
+        },
+        "violations": [],
+        "warnings": [],
+        "details": {
+          "notes": [],
+          "island_classification_summary": {
+            "isolated_module": 0,
+            "orphan_subgraph": 0,
+            "cyclic_island": 0
+          },
+          "ast_di_divergence_score": 0.0
+        }
+      }
+    },
+    "metrics": {
+      "structural_integrity.node_count": 2,
+      "structural_integrity.valid_node_count": 2,
+      "structural_integrity.edge_count": 1,
+      "structural_integrity.valid_edge_count": 1,
+      "structural_integrity.malformed_node_count": 0,
+      "structural_integrity.duplicate_node_count": 0,
+      "structural_integrity.invalid_namespace_count": 0,
+      "structural_integrity.malformed_edge_count": 0,
+      "structural_integrity.unresolved_edge_count": 0,
+      "structural_integrity.invalid_type_edge_count": 0,
+      "structural_integrity.invalid_edge_count": 0,
+      "dependency_consistency.resolver_edge_count": 1,
+      "dependency_consistency.missing_di_nodes_count": 0,
+      "dependency_consistency.di_nodes_referenced_count": 0,
+      "dependency_consistency.ast_edge_count": 0,
+      "dependency_consistency.di_edge_count": 0,
+      "dependency_consistency.config_edge_count": 1,
+      "dependency_consistency.heuristic_edge_count": 0,
+      "dependency_consistency.ast_represented_count": 0,
+      "dependency_consistency.di_represented_count": 0,
+      "dependency_consistency.config_represented_count": 2,
+      "dependency_consistency.heuristic_represented_count": 0,
+      "dependency_consistency.ast_di_divergence_score": 0.0,
+      "dependency_consistency.config_heuristic_alignment_score": 0.0,
+      "dependency_consistency.inferred_dependency_pair_count": 0,
+      "topology_validation.entrypoint_count": 1,
+      "topology_validation.entrypoint_present_count": 1,
+      "topology_validation.entrypoint_missing_count": 0,
+      "topology_validation.reachable_node_count": 2,
+      "topology_validation.unreachable_node_count": 0,
+      "topology_validation.unreachable_nodes_ratio": 0.0,
+      "topology_validation.di_edge_count": 0,
+      "topology_validation.di_unreachable_edge_count": 0,
+      "topology_validation.cycle_node_count": 0,
+      "topology_validation.cycle_policy_violation_count": 0,
+      "topology_validation.disconnected_island_count": 0,
+      "topology_validation.isolated_module_count": 0,
+      "topology_validation.orphan_subgraph_count": 0,
+      "topology_validation.cyclic_island_count": 0,
+      "topology_validation.unexpected_island_count": 0,
+      "topology_validation.isolated_module_node_count": 0,
+      "topology_validation.orphan_subgraph_node_count": 0,
+      "topology_validation.cyclic_island_node_count": 0,
+      "topology_validation.unexpected_island_node_count": 0,
+      "semantic_observations.semantic_note_count": 0,
+      "semantic_observations.semantic_warning_count": 0,
+      "semantic_observations.ast_di_divergence_score": 0.0,
+      "node_count": 2,
+      "edge_count": 1,
+      "unreachable_node_count": 0,
+      "missing_dependency_count": 0,
+      "ast_di_divergence_score": 0.0,
+      "cycle_policy_violation_count": 0,
+      "disconnected_island_count": 0,
+      "orphan_subgraph_count": 0,
+      "cyclic_island_count": 0
+    },
+    "issues": [],
+    "warnings": []
+  }
+}

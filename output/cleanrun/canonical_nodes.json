@@ -1,0 +1,40 @@
+{
+  "nodes": [
+    {
+      "id": "canonical://clean_repo/_root:.gitignore",
+      "file_path": ".gitignore",
+      "module_path": "",
+      "type": "FILE"
+    },
+    {
+      "id": "canonical://clean_repo/config:ignore_patterns.txt",
+      "file_path": "config/ignore_patterns.txt",
+      "module_path": "ignore_patterns",
+      "type": "FILE"
+    },
+    {
+      "id": "canonical://clean_repo/_root:README.md",
+      "file_path": "README.md",
+      "module_path": "README",
+      "type": "FILE"
+    },
+    {
+      "id": "canonical://clean_repo/_root:run.ps1",
+      "file_path": "run.ps1",
+      "module_path": "run",
+      "type": "FILE"
+    },
+    {
+      "id": "canonical://clean_repo/src:02_batch_runner_v3.ps1",
+      "file_path": "src/02_batch_runner_v3.ps1",
+      "module_path": "02_batch_runner_v3",
+      "type": "FILE"
+    },
+    {
+      "id": "canonical://clean_repo/src:runtime_common.ps1",
+      "file_path": "src/runtime_common.ps1",
+      "module_path": "runtime_common",
+      "type": "FILE"
+    }
+  ]
+}

@@ -1,0 +1,490 @@
+{
+  "schema": "SystemState.v1",
+  "state_version": 13,
+  "data": {
+    "inventory": {
+      "files": [
+        {
+          "file_id": "run.ps1",
+          "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.tmp\\authority_pass_repo\\run.ps1",
+          "extension": ".ps1",
+          "size_bytes": 17149,
+          "line_count": 417,
+          "is_binary": false
+        },
+        {
+          "file_id": "src/runtime_common.ps1",
+          "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.tmp\\authority_pass_repo\\src\\runtime_common.ps1",
+          "extension": ".ps1",
+          "size_bytes": 1330,
+          "line_count": 60,
+          "is_binary": false
+        }
+      ],
+      "stats": {
+        "total_files": 2,
+        "total_lines": 477
+      }
+    },
+    "canonical_nodes": {
+      "nodes": [
+        {
+          "id": "canonical://authority_pass_repo/_root:run.ps1",
+          "file_path": "run.ps1",
+          "module_path": "run",
+          "type": "FILE"
+        },
+        {
+          "id": "canonical://authority_pass_repo/src:runtime_common.ps1",
+          "file_path": "src/runtime_common.ps1",
+          "module_path": "runtime_common",
+          "type": "FILE"
+        }
+      ]
+    },
+    "entrypoint_resolution": {
+      "source": "CANONICAL_METADATA_OR_FILENAME",
+      "entrypoints": [
+        "canonical://authority_pass_repo/_root:run.ps1"
+      ]
+    },
+    "edges": {
+      "edges": [
+        {
+          "from": "canonical://authority_pass_repo/_root:run.ps1",
+          "to": "canonical://authority_pass_repo/src:runtime_common.ps1",
+          "type": "CONFIG",
+          "confidence": 0.45,
+          "source": "CONFIG"
+        }
+      ],
+      "stats": {
+        "total_edges_before_strict_di": 1,
+        "total_edges_after_strict_di": 1,
+        "removed_di_edges": []
+      }
+    },
+    "unified_graph": {
+      "graph": {
+        "nodes": [
+          {
+            "id": "canonical://authority_pass_repo/_root:run.ps1",
+            "file_path": "run.ps1",
+            "module_path": "run",
+            "type": "FILE"
+          },
+          {
+            "id": "canonical://authority_pass_repo/src:runtime_common.ps1",
+            "file_path": "src/runtime_common.ps1",
+            "module_path": "runtime_common",
+            "type": "FILE"
+          }
+        ],
+        "edges": [
+          {
+            "from": "canonical://authority_pass_repo/_root:run.ps1",
+            "to": "canonical://authority_pass_repo/src:runtime_common.ps1",
+            "type": "CONFIG",
+            "confidence": 0.45,
+            "source": "CONFIG",
+            "source_metadata": [
+              "CONFIG"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "node_count": 2,
+        "edge_count": 1,
+        "deduplicated_edges": 0
+      }
+    },
+    "graph_validation": {
+      "status": "VALID",
+      "critical_failure": false,
+      "metrics": {
+        "node_count": 2,
+        "edge_count": 1,
+        "valid_node_count": 2,
+        "malformed_node_count": 0,
+        "duplicate_node_count": 0,
+        "invalid_namespace_count": 0,
+        "malformed_edge_count": 0,
+        "invalid_edge_type_count": 0,
+        "unresolved_edge_count": 0,
+        "cross_namespace_edge_count": 0
+      },
+      "issues": [],
+      "warnings": []
+    },
+    "graph_structural_validation": {
+      "valid": true,
+      "status": "ANALYZED",
+      "errors": [],
+      "stats": {
+        "nodes": 2,
+        "edges": 1,
+        "invalid_edges": 0
+      }
+    },
+    "resolver_consistency": {
+      "status": "ANALYZED",
+      "ast_edges": 0,
+      "di_edges": 0,
+      "config_edges": 1,
+      "heuristic_edges": 0,
+      "drift_score": 0.0,
+      "drift_threshold": 1.0,
+      "ast_di_pair_delta_count": 0,
+      "disagreements": []
+    },
+    "semantic_validation": {
+      "semantic_valid": true,
+      "status": "ANALYZED",
+      "metrics": {
+        "node_count": 2,
+        "di_wired_count": 0,
+        "broken_di_count": 0,
+        "cycle_node_count": 0,
+        "cycle_policy_violation_count": 0,
+        "structural_island_count": 0,
+        "island_failure_count": 0
+      },
+      "anomalies": [],
+      "warnings": [],
+      "isolation_report": []
+    },
+    "authority_verdict": {
+      "authority": "VERIFICATION_RUNNER",
+      "authority_valid": true,
+      "policy": {
+        "min_trust": 0.55,
+        "require_no_critical_failure": true,
+        "evaluated_utc": "2026-04-24T14:39:21.518429-05:00"
+      },
+      "entrypoints_used": [
+        "canonical://authority_pass_repo/_root:run.ps1"
+      ],
+      "verification": {
+        "metrics": {
+          "structural_cross_namespace_edge_count": 0,
+          "structural_duplicate_node_count": 0,
+          "structural_edge_count": 1,
+          "structural_invalid_edge_type_count": 0,
+          "structural_invalid_namespace_count": 0,
+          "structural_malformed_edge_count": 0,
+          "structural_malformed_node_count": 0,
+          "structural_node_count": 2,
+          "structural_unresolved_edge_count": 0,
+          "structural_valid_edge_count": 1,
+          "structural_valid_node_count": 2,
+          "reachability_component_count": 1,
+          "reachability_disconnected_component_count": 0,
+          "reachability_entrypoints_provided_count": 1,
+          "reachability_entrypoints_used_count": 1,
+          "reachability_missing_entrypoints_count": 0,
+          "reachability_reachable_count": 2,
+          "reachability_unreachable_count": 0,
+          "resolver_ast_coverage": 1.0,
+          "resolver_ast_edge_count": 0,
+          "resolver_config_coverage": 1.0,
+          "resolver_config_edge_count": 1,
+          "resolver_di_coverage": 1.0,
+          "resolver_di_edge_count": 0,
+          "resolver_heuristic_coverage": 1.0,
+          "resolver_heuristic_edge_count": 0,
+          "resolver_inferred_dependency_count": 0,
+          "resolver_missing_reference_node_count": 0,
+          "resolver_overlap_quality": 0.333,
+          "semantic_broken_di_count": 0,
+          "semantic_cycle_node_count": 0,
+          "semantic_cycle_policy_violation_count": 0,
+          "semantic_di_wired_count": 0,
+          "semantic_island_failure_count": 0,
+          "semantic_module_isolation_violation_count": 0,
+          "semantic_structural_island_count": 0,
+          "node_count": 2,
+          "edge_count": 1
+        },
+        "scores": {
+          "structural": 1.0,
+          "reachability": 1.0,
+          "resolver": 0.714,
+          "semantic": 1.0,
+          "trust": 0.943
+        },
+        "issues": [],
+        "critical_failure": false,
+        "warnings": [],
+        "recommendations": [],
+        "system_valid": true,
+        "failure_domains": [
+          "resolver"
+        ],
+        "trust_score": 0.943,
+        "results": {
+          "structural": {
+            "metrics": {
+              "node_count": 2,
+              "edge_count": 1,
+              "valid_node_count": 2,
+              "valid_edge_count": 1,
+              "malformed_node_count": 0,
+              "duplicate_node_count": 0,
+              "invalid_namespace_count": 0,
+              "malformed_edge_count": 0,
+              "invalid_edge_type_count": 0,
+              "unresolved_edge_count": 0,
+              "cross_namespace_edge_count": 0
+            },
+            "cross_namespace_edges": []
+          },
+          "reachability": {
+            "metrics": {
+              "entrypoints_provided_count": 1,
+              "entrypoints_used_count": 1,
+              "missing_entrypoints_count": 0,
+              "reachable_count": 2,
+              "unreachable_count": 0,
+              "component_count": 1,
+              "disconnected_component_count": 0
+            },
+            "entrypoints_used": [
+              "canonical://authority_pass_repo/_root:run.ps1"
+            ],
+            "missing_entrypoints": [],
+            "unreachable_nodes": [],
+            "structural_islands": []
+          },
+          "resolver": {
+            "metrics": {
+              "ast_edge_count": 0,
+              "di_edge_count": 0,
+              "config_edge_count": 1,
+              "heuristic_edge_count": 0,
+              "ast_coverage": 1.0,
+              "di_coverage": 1.0,
+              "config_coverage": 1.0,
+              "heuristic_coverage": 1.0,
+              "overlap_quality": 0.333,
+              "inferred_dependency_count": 0,
+              "missing_reference_node_count": 0
+            },
+            "coverage": {
+              "AST": 1.0,
+              "DI": 1.0,
+              "CONFIG": 1.0,
+              "HEURISTIC": 1.0
+            },
+            "represented_edges": {
+              "AST": 0,
+              "DI": 0,
+              "CONFIG": 1,
+              "HEURISTIC": 0
+            },
+            "inferred_dependencies": [],
+            "overlap": {
+              "ast_di": 1.0,
+              "ast_config": 0.0,
+              "di_config": 0.0
+            }
+          },
+          "semantic": {
+            "metrics": {
+              "di_wired_count": 0,
+              "broken_di_count": 0,
+              "cycle_node_count": 0,
+              "cycle_policy_violation_count": 0,
+              "module_isolation_violation_count": 0,
+              "structural_island_count": 0,
+              "island_failure_count": 0
+            },
+            "broken_di_nodes": [],
+            "cycle_policy_violations": [],
+            "module_isolation_violations": [],
+            "isolation_report": [],
+            "structural_islands": []
+          }
+        }
+      }
+    },
+    "classification": {
+      "classification": {
+        "REACHABLE": [
+          "canonical://authority_pass_repo/_root:run.ps1",
+          "canonical://authority_pass_repo/src:runtime_common.ps1"
+        ],
+        "REFERENCED": [],
+        "ISOLATED": [],
+        "SUSPICIOUS": [],
+        "DEAD": [],
+        "EXEMPT": []
+      }
+    },
+    "trust": {
+      "trust_model": "TRUST_FROM_SYSTEM_STATE_WEIGHTED",
+      "critical_failure": false,
+      "system_valid": true,
+      "trust_score": 0.943,
+      "failure_domains": [
+        "resolver"
+      ],
+      "scores": {
+        "structural": 1.0,
+        "reachability": 1.0,
+        "resolver": 0.714,
+        "semantic": 1.0,
+        "trust": 0.943
+      }
+    }
+  },
+  "summary": {
+    "status": "SUCCESS",
+    "message": "Pipeline completed successfully.",
+    "failed_stage": null
+  },
+  "stages": [
+    {
+      "stage": "layer1-inventory",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.2643856Z",
+      "ended_utc": "2026-04-24T19:39:21.2809073Z",
+      "duration_ms": 17,
+      "from_version": 0,
+      "to_version": 1,
+      "error": null
+    },
+    {
+      "stage": "layer2-canonical",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.2830855Z",
+      "ended_utc": "2026-04-24T19:39:21.2951494Z",
+      "duration_ms": 12,
+      "from_version": 1,
+      "to_version": 2,
+      "error": null
+    },
+    {
+      "stage": "entrypoint-resolve",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.2972117Z",
+      "ended_utc": "2026-04-24T19:39:21.2990734Z",
+      "duration_ms": 2,
+      "from_version": 2,
+      "to_version": 3,
+      "error": null
+    },
+    {
+      "stage": "layer3-resolve",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.3011632Z",
+      "ended_utc": "2026-04-24T19:39:21.3602411Z",
+      "duration_ms": 59,
+      "from_version": 3,
+      "to_version": 4,
+      "error": null
+    },
+    {
+      "stage": "layer4-graph",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.3623627Z",
+      "ended_utc": "2026-04-24T19:39:21.3742977Z",
+      "duration_ms": 12,
+      "from_version": 4,
+      "to_version": 5,
+      "error": null
+    },
+    {
+      "stage": "layer5-validate",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.3775387Z",
+      "ended_utc": "2026-04-24T19:39:21.3880526Z",
+      "duration_ms": 11,
+      "from_version": 5,
+      "to_version": 6,
+      "error": null
+    },
+    {
+      "stage": "validate-graph-structure",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.3910854Z",
+      "ended_utc": "2026-04-24T19:39:21.4028673Z",
+      "duration_ms": 12,
+      "from_version": 6,
+      "to_version": 7,
+      "error": null
+    },
+    {
+      "stage": "compare-resolvers",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.4049990Z",
+      "ended_utc": "2026-04-24T19:39:21.4192609Z",
+      "duration_ms": 14,
+      "from_version": 7,
+      "to_version": 8,
+      "error": null
+    },
+    {
+      "stage": "semantic-validate",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.4224008Z",
+      "ended_utc": "2026-04-24T19:39:21.4361085Z",
+      "duration_ms": 14,
+      "from_version": 8,
+      "to_version": 9,
+      "error": null
+    },
+    {
+      "stage": "verify-authority",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.4386202Z",
+      "ended_utc": "2026-04-24T19:39:21.5294786Z",
+      "duration_ms": 91,
+      "from_version": 9,
+      "to_version": 10,
+      "error": null
+    },
+    {
+      "stage": "classify",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.5321396Z",
+      "ended_utc": "2026-04-24T19:39:21.6114060Z",
+      "duration_ms": 79,
+      "from_version": 10,
+      "to_version": 11,
+      "error": null
+    },
+    {
+      "stage": "compute-trust",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.6141303Z",
+      "ended_utc": "2026-04-24T19:39:21.6152998Z",
+      "duration_ms": 1,
+      "from_version": 11,
+      "to_version": 12,
+      "error": null
+    },
+    {
+      "stage": "emit-final-report",
+      "success": true,
+      "started_utc": "2026-04-24T19:39:21.6182413Z",
+      "ended_utc": "2026-04-24T19:39:21.6362590Z",
+      "duration_ms": 18,
+      "from_version": 12,
+      "to_version": 13,
+      "error": null
+    }
+  ],
+  "artifacts": {
+    "system_state": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\runs\\smoke_refactor\\system_state.json",
+    "final_report": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\runs\\smoke_refactor\\final_report.json"
+  },
+  "run": {
+    "started_utc": "2026-04-24T19:39:21.2211019Z",
+    "ended_utc": "2026-04-24T19:39:21.6473625Z",
+    "engine_root": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine",
+    "repo_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.tmp\\authority_pass_repo",
+    "output_dir": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\runs\\smoke_refactor",
+    "debug_mode": false
+  }
+}

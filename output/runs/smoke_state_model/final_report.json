@@ -1,0 +1,137 @@
+{
+  "report_version": "FINAL_REPORT.v1",
+  "generated_utc": "2026-04-24T18:38:51.8927546Z",
+  "repo_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.tmp\\authority_pass_repo",
+  "system_state_version": 12,
+  "summary": {
+    "status": "IN_PROGRESS",
+    "message": "Pipeline started.",
+    "trust_score": 1.0,
+    "system_valid": true,
+    "failure_domains": null
+  },
+  "graph_summary": {
+    "node_count": 0,
+    "edge_count": 0
+  },
+  "validation": {
+    "graph": {
+      "status": "VALID",
+      "issues": [],
+      "metrics": {
+        "orphan_nodes": 0,
+        "disconnected_clusters": 0,
+        "di_nodes_missing_edges": 0,
+        "unmarked_unreachable_nodes": 0,
+        "cycle_policy_violations": 0
+      }
+    },
+    "structural": {
+      "valid": true,
+      "errors": [],
+      "stats": {
+        "nodes": 2,
+        "edges": 1,
+        "invalid_edges": 0
+      }
+    },
+    "semantic": {
+      "semantic_valid": true,
+      "anomalies": []
+    },
+    "authority": {
+      "authority": "VERIFICATION_RUNNER",
+      "authority_valid": true,
+      "preconditions": {
+        "layer5_validation_status": "VALID",
+        "layer5_precondition_ok": true
+      },
+      "entrypoints_used": [
+        "canonical://authority_pass_repo/_root:run.ps1"
+      ],
+      "verification": {
+        "system_valid": true,
+        "failure_domains": [],
+        "trust_score": 1.0,
+        "results": {
+          "structural": {
+            "invalid_edges": [],
+            "node_count": 2,
+            "edge_count": 1
+          },
+          "reachability": {
+            "reachable_count": 2,
+            "unreachable_count": 0,
+            "false_dead_nodes": [],
+            "unmarked_unreachable_nodes": [],
+            "entrypoints_used": [
+              "canonical://authority_pass_repo/_root:run.ps1"
+            ],
+            "entrypoints_without_outgoing": [],
+            "di_unreachable_edges": []
+          },
+          "resolver": {
+            "ast_edges": 0,
+            "di_edges": 0,
+            "config_edges": 1,
+            "heuristic_edges": 0,
+            "missing_di_nodes": [],
+            "heuristic_only_nodes": [],
+            "missing_references": [],
+            "missing_ast_edges": [],
+            "missing_di_edges": [],
+            "missing_config_edges": [],
+            "di_not_derived_from_ast_pairs": [],
+            "coverage": {
+              "ast": 1.0,
+              "di": 1.0,
+              "config": 1.0,
+              "heuristic": 1.0
+            },
+            "divergence": {
+              "ast": 0.0,
+              "di": 0.0,
+              "config": 0.0,
+              "heuristic": 0.0
+            },
+            "drift_score": 0.0,
+            "ast_di_pair_delta_count": 0,
+            "enforcement": {
+              "min_ast_coverage": 0.9,
+              "max_drift_score": 0.1,
+              "violations": []
+            }
+          },
+          "semantic": {
+            "entrypoint_isolated": [],
+            "di_wired_missing_edges": [],
+            "disconnected_islands": [],
+            "cyclic_islands": [],
+            "false_healthy_subgraphs": [],
+            "disconnected_unquarantined_nodes": [],
+            "cycle_policy_violations": []
+          }
+        }
+      }
+    },
+    "resolver": {
+      "ast_edges": 0,
+      "di_edges": 0,
+      "config_edges": 1,
+      "heuristic_edges": 0,
+      "drift_score": 0.0,
+      "drift_threshold": 0.0,
+      "ast_di_pair_delta_count": 0,
+      "disagreements": []
+    }
+  },
+  "classification": {
+    "REACHABLE": [],
+    "REFERENCED": [],
+    "ISOLATED": [],
+    "SUSPICIOUS": [],
+    "DEAD": [],
+    "EXEMPT": []
+  },
+  "entrypoints": null
+}

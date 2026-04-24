@@ -1,0 +1,27 @@
+{
+  "status": "INVALID",
+  "issues": [
+    {
+      "type": "IDENTITY_COLLISION_NAMESPACE_FILEPATH",
+      "severity": "HIGH",
+      "nodes": [
+        "repo|service.py"
+      ]
+    },
+    {
+      "type": "DI_RESOLUTION_MISSING",
+      "severity": "HIGH",
+      "nodes": [
+        "canonical://repo/_root:service.py",
+        "canonical://repo/b:service.py"
+      ]
+    }
+  ],
+  "metrics": {
+    "orphan_nodes": 0,
+    "disconnected_clusters": 0,
+    "di_nodes_missing_edges": 2,
+    "unmarked_unreachable_nodes": 0,
+    "cycle_policy_violations": 0
+  }
+}

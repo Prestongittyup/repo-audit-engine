@@ -1,0 +1,17 @@
+{
+  "valid": false,
+  "status": "DEGRADED",
+  "errors": [
+    {
+      "type": "NON_DETERMINISTIC_EDGE_ORDER",
+      "node": "",
+      "edge": "canonical://family_orchestration_bot_snapshot/.venv/Lib/site-packages/sqlalchemy/orm:mapper.py|canonical://family_orchestration_bot_snapshot/.venv/Lib/site-packages/sqlalchemy/orm:state.py|IMPORT",
+      "reason": "Edge list ordering is not stable sorted order."
+    }
+  ],
+  "stats": {
+    "nodes": 5175,
+    "edges": 8184,
+    "invalid_edges": 0
+  }
+}

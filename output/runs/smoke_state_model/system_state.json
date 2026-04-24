@@ -1,0 +1,384 @@
+{
+  "schema": "SystemState.v1",
+  "state_version": 13,
+  "data": {
+    "inventory": {
+      "files": [
+        {
+          "file_id": "run.ps1",
+          "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.tmp\\authority_pass_repo\\run.ps1",
+          "extension": ".ps1",
+          "size_bytes": 17149,
+          "line_count": 417,
+          "is_binary": false
+        },
+        {
+          "file_id": "src/runtime_common.ps1",
+          "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.tmp\\authority_pass_repo\\src\\runtime_common.ps1",
+          "extension": ".ps1",
+          "size_bytes": 1330,
+          "line_count": 60,
+          "is_binary": false
+        }
+      ],
+      "stats": {
+        "total_files": 2,
+        "total_lines": 477
+      },
+      "debug": {
+        "scan_duration_ms": 4,
+        "walk_iterations": 2
+      }
+    },
+    "canonical_nodes": {
+      "nodes": [
+        {
+          "id": "canonical://authority_pass_repo/_root:run.ps1",
+          "file_path": "run.ps1",
+          "module_path": "run",
+          "type": "FILE"
+        },
+        {
+          "id": "canonical://authority_pass_repo/src:runtime_common.ps1",
+          "file_path": "src/runtime_common.ps1",
+          "module_path": "runtime_common",
+          "type": "FILE"
+        }
+      ]
+    },
+    "entrypoint_resolution": {
+      "source": "CANONICAL_METADATA_OR_FILENAME",
+      "entrypoints": [
+        "canonical://authority_pass_repo/_root:run.ps1"
+      ]
+    },
+    "edges": {
+      "edges": [
+        {
+          "from": "canonical://authority_pass_repo/_root:run.ps1",
+          "to": "canonical://authority_pass_repo/src:runtime_common.ps1",
+          "type": "CONFIG",
+          "confidence": 0.45,
+          "source": "CONFIG"
+        }
+      ],
+      "stats": {
+        "total_edges_before_strict_di": 1,
+        "total_edges_after_strict_di": 1,
+        "removed_di_edges": []
+      }
+    },
+    "unified_graph": {
+      "graph": {
+        "nodes": [
+          {
+            "id": "canonical://authority_pass_repo/_root:run.ps1",
+            "file_path": "run.ps1",
+            "module_path": "run",
+            "type": "FILE"
+          },
+          {
+            "id": "canonical://authority_pass_repo/src:runtime_common.ps1",
+            "file_path": "src/runtime_common.ps1",
+            "module_path": "runtime_common",
+            "type": "FILE"
+          }
+        ],
+        "edges": [
+          {
+            "from": "canonical://authority_pass_repo/_root:run.ps1",
+            "to": "canonical://authority_pass_repo/src:runtime_common.ps1",
+            "type": "CONFIG",
+            "confidence": 0.45,
+            "source": "CONFIG",
+            "source_metadata": [
+              "CONFIG"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "node_count": 2,
+        "edge_count": 1,
+        "deduplicated_edges": 0
+      }
+    },
+    "graph_validation": {
+      "status": "VALID",
+      "issues": [],
+      "metrics": {
+        "orphan_nodes": 0,
+        "disconnected_clusters": 0,
+        "di_nodes_missing_edges": 0,
+        "unmarked_unreachable_nodes": 0,
+        "cycle_policy_violations": 0
+      }
+    },
+    "graph_structural_validation": {
+      "valid": true,
+      "errors": [],
+      "stats": {
+        "nodes": 2,
+        "edges": 1,
+        "invalid_edges": 0
+      }
+    },
+    "resolver_consistency": {
+      "ast_edges": 0,
+      "di_edges": 0,
+      "config_edges": 1,
+      "heuristic_edges": 0,
+      "drift_score": 0.0,
+      "drift_threshold": 0.0,
+      "ast_di_pair_delta_count": 0,
+      "disagreements": []
+    },
+    "semantic_validation": {
+      "semantic_valid": true,
+      "anomalies": []
+    },
+    "authority_verdict": {
+      "authority": "VERIFICATION_RUNNER",
+      "authority_valid": true,
+      "preconditions": {
+        "layer5_validation_status": "VALID",
+        "layer5_precondition_ok": true
+      },
+      "entrypoints_used": [
+        "canonical://authority_pass_repo/_root:run.ps1"
+      ],
+      "verification": {
+        "system_valid": true,
+        "failure_domains": [],
+        "trust_score": 1.0,
+        "results": {
+          "structural": {
+            "invalid_edges": [],
+            "node_count": 2,
+            "edge_count": 1
+          },
+          "reachability": {
+            "reachable_count": 2,
+            "unreachable_count": 0,
+            "false_dead_nodes": [],
+            "unmarked_unreachable_nodes": [],
+            "entrypoints_used": [
+              "canonical://authority_pass_repo/_root:run.ps1"
+            ],
+            "entrypoints_without_outgoing": [],
+            "di_unreachable_edges": []
+          },
+          "resolver": {
+            "ast_edges": 0,
+            "di_edges": 0,
+            "config_edges": 1,
+            "heuristic_edges": 0,
+            "missing_di_nodes": [],
+            "heuristic_only_nodes": [],
+            "missing_references": [],
+            "missing_ast_edges": [],
+            "missing_di_edges": [],
+            "missing_config_edges": [],
+            "di_not_derived_from_ast_pairs": [],
+            "coverage": {
+              "ast": 1.0,
+              "di": 1.0,
+              "config": 1.0,
+              "heuristic": 1.0
+            },
+            "divergence": {
+              "ast": 0.0,
+              "di": 0.0,
+              "config": 0.0,
+              "heuristic": 0.0
+            },
+            "drift_score": 0.0,
+            "ast_di_pair_delta_count": 0,
+            "enforcement": {
+              "min_ast_coverage": 0.9,
+              "max_drift_score": 0.1,
+              "violations": []
+            }
+          },
+          "semantic": {
+            "entrypoint_isolated": [],
+            "di_wired_missing_edges": [],
+            "disconnected_islands": [],
+            "cyclic_islands": [],
+            "false_healthy_subgraphs": [],
+            "disconnected_unquarantined_nodes": [],
+            "cycle_policy_violations": []
+          }
+        }
+      }
+    },
+    "classification": {
+      "classification": {
+        "REACHABLE": [
+          "canonical://authority_pass_repo/_root:run.ps1",
+          "canonical://authority_pass_repo/src:runtime_common.ps1"
+        ],
+        "REFERENCED": [],
+        "ISOLATED": [],
+        "SUSPICIOUS": [],
+        "DEAD": [],
+        "EXEMPT": []
+      }
+    },
+    "trust": {
+      "trust_model": "TRUST_FROM_SYSTEM_STATE_FINAL",
+      "system_valid": true,
+      "trust_score": 1.0,
+      "failure_domains": []
+    }
+  },
+  "summary": {
+    "status": "SUCCESS",
+    "message": "Pipeline completed successfully.",
+    "failed_stage": null
+  },
+  "stages": [
+    {
+      "stage": "layer1-inventory",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.5274306Z",
+      "ended_utc": "2026-04-24T18:38:51.5447612Z",
+      "duration_ms": 17,
+      "from_version": 0,
+      "to_version": 1,
+      "error": null
+    },
+    {
+      "stage": "layer2-canonical",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.5468451Z",
+      "ended_utc": "2026-04-24T18:38:51.5595177Z",
+      "duration_ms": 13,
+      "from_version": 1,
+      "to_version": 2,
+      "error": null
+    },
+    {
+      "stage": "entrypoint-resolve",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.5614435Z",
+      "ended_utc": "2026-04-24T18:38:51.5623819Z",
+      "duration_ms": 1,
+      "from_version": 2,
+      "to_version": 3,
+      "error": null
+    },
+    {
+      "stage": "layer3-resolve",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.5654194Z",
+      "ended_utc": "2026-04-24T18:38:51.6172867Z",
+      "duration_ms": 52,
+      "from_version": 3,
+      "to_version": 4,
+      "error": null
+    },
+    {
+      "stage": "layer4-graph",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.6201015Z",
+      "ended_utc": "2026-04-24T18:38:51.6312304Z",
+      "duration_ms": 11,
+      "from_version": 4,
+      "to_version": 5,
+      "error": null
+    },
+    {
+      "stage": "layer5-validate",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.6348458Z",
+      "ended_utc": "2026-04-24T18:38:51.6474228Z",
+      "duration_ms": 13,
+      "from_version": 5,
+      "to_version": 6,
+      "error": null
+    },
+    {
+      "stage": "validate-graph-structure",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.6503761Z",
+      "ended_utc": "2026-04-24T18:38:51.6603348Z",
+      "duration_ms": 10,
+      "from_version": 6,
+      "to_version": 7,
+      "error": null
+    },
+    {
+      "stage": "compare-resolvers",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.6623961Z",
+      "ended_utc": "2026-04-24T18:38:51.6736542Z",
+      "duration_ms": 11,
+      "from_version": 7,
+      "to_version": 8,
+      "error": null
+    },
+    {
+      "stage": "semantic-validate",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.6767022Z",
+      "ended_utc": "2026-04-24T18:38:51.6931140Z",
+      "duration_ms": 16,
+      "from_version": 8,
+      "to_version": 9,
+      "error": null
+    },
+    {
+      "stage": "verify-authority",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.6966365Z",
+      "ended_utc": "2026-04-24T18:38:51.7850664Z",
+      "duration_ms": 88,
+      "from_version": 9,
+      "to_version": 10,
+      "error": null
+    },
+    {
+      "stage": "classify",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.7879083Z",
+      "ended_utc": "2026-04-24T18:38:51.8874425Z",
+      "duration_ms": 100,
+      "from_version": 10,
+      "to_version": 11,
+      "error": null
+    },
+    {
+      "stage": "compute-trust",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.8899197Z",
+      "ended_utc": "2026-04-24T18:38:51.8903145Z",
+      "duration_ms": 0,
+      "from_version": 11,
+      "to_version": 12,
+      "error": null
+    },
+    {
+      "stage": "emit-final-report",
+      "success": true,
+      "started_utc": "2026-04-24T18:38:51.8926222Z",
+      "ended_utc": "2026-04-24T18:38:51.8990487Z",
+      "duration_ms": 6,
+      "from_version": 12,
+      "to_version": 13,
+      "error": null
+    }
+  ],
+  "artifacts": {
+    "system_state": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\runs\\smoke_state_model\\system_state.json",
+    "final_report": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\runs\\smoke_state_model\\final_report.json"
+  },
+  "run": {
+    "started_utc": "2026-04-24T18:38:51.4861544Z",
+    "ended_utc": "2026-04-24T18:38:51.9088603Z",
+    "engine_root": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine",
+    "repo_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.tmp\\authority_pass_repo",
+    "output_dir": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\runs\\smoke_state_model",
+    "debug_mode": true
+  }
+}

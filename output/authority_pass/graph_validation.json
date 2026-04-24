@@ -1,0 +1,9 @@
+{
+  "status": "VALID",
+  "issues": [],
+  "metrics": {
+    "orphan_nodes": 0,
+    "disconnected_clusters": 0,
+    "di_nodes_missing_edges": 0
+  }
+}

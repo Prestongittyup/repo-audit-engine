@@ -1,0 +1,16 @@
+{
+  "semantic_valid": true,
+  "status": "ANALYZED",
+  "metrics": {
+    "node_count": 2,
+    "di_wired_count": 0,
+    "broken_di_count": 0,
+    "cycle_node_count": 0,
+    "cycle_policy_violation_count": 0,
+    "structural_island_count": 0,
+    "island_failure_count": 0
+  },
+  "anomalies": [],
+  "warnings": [],
+  "isolation_report": []
+}

@@ -1,0 +1,23 @@
+{
+  "edges": [
+    {
+      "from": "canonical://repo/_root:main.py",
+      "to": "canonical://repo/_root:service.py",
+      "type": "IMPORT",
+      "confidence": 0.9,
+      "source": "AST"
+    },
+    {
+      "from": "canonical://repo/_root:service.py",
+      "to": "canonical://repo/_root:util.py",
+      "type": "IMPORT",
+      "confidence": 0.9,
+      "source": "AST"
+    }
+  ],
+  "stats": {
+    "total_edges_before_strict_di": 2,
+    "total_edges_after_strict_di": 2,
+    "removed_di_edges": []
+  }
+}

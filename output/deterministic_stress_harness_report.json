@@ -1,0 +1,166 @@
+{
+  "hardening_applied": [
+    "I1: layer4 now hard-fails malformed/unresolved edge references.",
+    "I2: canonical identity uniqueness enforced by namespace+file_path and cross-namespace edge blocking.",
+    "I3: DI edges must derive from AST pairs in layer3/layer4 and resolver verification.",
+    "I4: unreachable nodes require explicit isolation/quarantine reason.",
+    "I5: harness uses strict stop; downstream stages do not run after validation failure.",
+    "I6: trust score forced to 0 when any failure domain is present.",
+    "I7: drift threshold enforcement is hard-invalid via resolver checks.",
+    "I8: semantic validation blocks disconnected/cyclic islands unless policy metadata permits them."
+  ],
+  "fixes_applied": [
+    "F1: Changed layer4 edge handling from skip-on-error to fail-fast with explicit violation codes.",
+    "F2: Added namespace parser and namespace/file_path collision detection in validation paths.",
+    "F3: Prevented cross-namespace resolution in layer3 resolver target selection.",
+    "F4: Added explicit cycle-policy checks for disconnected components.",
+    "F5: Rebuilt DI strictness by filtering DI edges not derived from AST in layer3.",
+    "F6: Extended layer5 metrics/issues for unmarked unreachable and cycle violations.",
+    "F7: Updated resolver consistency check to hard-fail high disagreements and drift threshold breaches.",
+    "F8: Updated semantic validator to enforce quarantine/cycle requirements.",
+    "F9: Updated aggregate trust and verification runner to fail-closed trust semantics.",
+    "F10: Recomputed drift using AST-vs-DI pair delta only."
+  ],
+  "before_after_comparison": [
+    {
+      "check": "I5_HARD_STOP_ON_VALIDATION_FAILURE",
+      "before": "5",
+      "after": "0",
+      "status": "FIXED"
+    },
+    {
+      "check": "I6_TRUST_ZERO_WHEN_INVALID",
+      "before": "1",
+      "after": "0",
+      "status": "FIXED"
+    },
+    {
+      "check": "I1_FAIL_FAST_INVALID_EDGE_REF",
+      "before": "validate-graph-structure",
+      "after": "layer4-graph",
+      "status": "FIXED"
+    },
+    {
+      "check": "F10_DRIFT_AST_VS_DI_ONLY",
+      "before": "AST+DI+CONFIG(max-divergence)",
+      "after": "AST_vs_DI_only(threshold=0.0)",
+      "status": "FIXED"
+    },
+    {
+      "check": "I4_UNREACHABLE_NODE_ISOLATION_REASON",
+      "before": "Not enforced",
+      "after": "Enforced in layer5 + verification_runner",
+      "status": "FIXED"
+    },
+    {
+      "check": "I8_SEMANTIC_ISLAND_CYCLE_POLICY",
+      "before": "Partial semantic checks",
+      "after": "Disconnected/cyclic islands require quarantine/cycle policy",
+      "status": "FIXED"
+    }
+  ],
+  "stress_test_results": {
+    "scenario_count": 5,
+    "scenarios": [
+      {
+        "name": "ORPHANED_AST_EDGE",
+        "result": "PASS",
+        "breakpoint": "layer5-validate",
+        "violations": [
+          "AUTHORITY_INVALID",
+          "DISCONNECTED_SUBGRAPHS",
+          "DISCONNECTED_SUBGRAPH_UNQUARANTINED",
+          "DI_RESOLUTION_MISSING",
+          "ENTRYPOINT_UNREACHABLE",
+          "ORPHAN_NODES",
+          "PIPELINE_STOP:layer5-validate",
+          "UNMARKED_UNREACHABLE_NODES",
+          "reachability",
+          "resolver",
+          "semantic"
+        ],
+        "trust_score": 0.0
+      },
+      {
+        "name": "DI_WIRING_HALLUCINATION",
+        "result": "PASS",
+        "breakpoint": "layer4-graph",
+        "violations": [
+          "AUTHORITY_INVALID",
+          "PIPELINE_STOP:layer4-graph",
+          "structural"
+        ],
+        "trust_score": 0.0
+      },
+      {
+        "name": "DISCONNECTED_ISLAND_CLUSTER",
+        "result": "PASS",
+        "breakpoint": "layer5-validate",
+        "violations": [
+          "AUTHORITY_INVALID",
+          "CYCLE_POLICY_VIOLATION",
+          "DISCONNECTED_SUBGRAPHS",
+          "DISCONNECTED_SUBGRAPH_UNQUARANTINED",
+          "DI_RESOLUTION_MISSING",
+          "PIPELINE_STOP:layer5-validate",
+          "UNMARKED_UNREACHABLE_NODES",
+          "reachability",
+          "resolver",
+          "semantic"
+        ],
+        "trust_score": 0.0
+      },
+      {
+        "name": "ENTRYPOINT_FALSE_HEALTHY_GRAPH",
+        "result": "PASS",
+        "breakpoint": "layer5-validate",
+        "violations": [
+          "AUTHORITY_INVALID",
+          "CYCLE_POLICY_VIOLATION",
+          "DISCONNECTED_SUBGRAPHS",
+          "DISCONNECTED_SUBGRAPH_UNQUARANTINED",
+          "DI_RESOLUTION_MISSING",
+          "PIPELINE_STOP:layer5-validate",
+          "UNMARKED_UNREACHABLE_NODES",
+          "reachability",
+          "resolver",
+          "semantic"
+        ],
+        "trust_score": 0.0
+      },
+      {
+        "name": "IDENTITY_COLLISION_FAILURE",
+        "result": "PASS",
+        "breakpoint": "layer5-validate",
+        "violations": [
+          "AUTHORITY_INVALID",
+          "DI_RESOLUTION_MISSING",
+          "IDENTITY_COLLISION_NAMESPACE_FILEPATH",
+          "PIPELINE_STOP:layer5-validate",
+          "resolver",
+          "structural"
+        ],
+        "trust_score": 0.0
+      }
+    ],
+    "summary": {
+      "pass": 5,
+      "fail": 0
+    }
+  },
+  "final_verdict": {
+    "architecture_status": "PASS_HARDENED",
+    "remaining_failures": [],
+    "deterministic": "YES",
+    "invariant_compliance": {
+      "I1": true,
+      "I2": true,
+      "I3": true,
+      "I4": true,
+      "I5": true,
+      "I6": true,
+      "I7": true,
+      "I8": true
+    }
+  }
+}

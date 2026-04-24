@@ -1,0 +1,92 @@
+{
+  "files": [
+    {
+      "file_id": ".gitignore",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.gitignore",
+      "extension": ".gitignore",
+      "size_bytes": 197,
+      "line_count": 18,
+      "is_binary": false
+    },
+    {
+      "file_id": "cleanup_report.json",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\cleanup_report.json",
+      "extension": ".json",
+      "size_bytes": 1014,
+      "line_count": 38,
+      "is_binary": false
+    },
+    {
+      "file_id": "config\\ignore_patterns.txt",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\config\\ignore_patterns.txt",
+      "extension": ".txt",
+      "size_bytes": 326,
+      "line_count": 41,
+      "is_binary": false
+    },
+    {
+      "file_id": "output\\layer1_inventory_run1.json",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\layer1_inventory_run1.json",
+      "extension": ".json",
+      "size_bytes": 2592,
+      "line_count": 84,
+      "is_binary": false
+    },
+    {
+      "file_id": "README.md",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\README.md",
+      "extension": ".md",
+      "size_bytes": 619,
+      "line_count": 21,
+      "is_binary": false
+    },
+    {
+      "file_id": "repo_state_summary.json",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\repo_state_summary.json",
+      "extension": ".json",
+      "size_bytes": 461,
+      "line_count": 18,
+      "is_binary": false
+    },
+    {
+      "file_id": "run.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\run.ps1",
+      "extension": ".ps1",
+      "size_bytes": 2114,
+      "line_count": 60,
+      "is_binary": false
+    },
+    {
+      "file_id": "src\\02_batch_runner_v3.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\02_batch_runner_v3.ps1",
+      "extension": ".ps1",
+      "size_bytes": 19653,
+      "line_count": 453,
+      "is_binary": false
+    },
+    {
+      "file_id": "src\\layer1_file_inventory.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\layer1_file_inventory.ps1",
+      "extension": ".ps1",
+      "size_bytes": 3353,
+      "line_count": 120,
+      "is_binary": false
+    },
+    {
+      "file_id": "src\\runtime_common.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\runtime_common.ps1",
+      "extension": ".ps1",
+      "size_bytes": 1330,
+      "line_count": 60,
+      "is_binary": false
+    }
+  ],
+  "stats": {
+    "total_files": 10,
+    "total_lines": 913
+  },
+  "debug": {
+    "scan_duration_ms": 11,
+    "walk_iterations": 10
+  }
+}

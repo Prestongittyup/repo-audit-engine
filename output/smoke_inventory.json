@@ -1,0 +1,936 @@
+{
+  "files": [
+    {
+      "file_id": ".git/COMMIT_EDITMSG",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\COMMIT_EDITMSG",
+      "extension": "",
+      "size_bytes": 30,
+      "line_count": 1,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/config",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\config",
+      "extension": "",
+      "size_bytes": 314,
+      "line_count": 13,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/description",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\description",
+      "extension": "",
+      "size_bytes": 73,
+      "line_count": 1,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/FETCH_HEAD",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\FETCH_HEAD",
+      "extension": "",
+      "size_bytes": 111,
+      "line_count": 1,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/HEAD",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\HEAD",
+      "extension": "",
+      "size_bytes": 21,
+      "line_count": 1,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/applypatch-msg.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\applypatch-msg.sample",
+      "extension": ".sample",
+      "size_bytes": 478,
+      "line_count": 15,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/commit-msg.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\commit-msg.sample",
+      "extension": ".sample",
+      "size_bytes": 896,
+      "line_count": 24,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/fsmonitor-watchman.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\fsmonitor-watchman.sample",
+      "extension": ".sample",
+      "size_bytes": 4726,
+      "line_count": 174,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/post-update.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\post-update.sample",
+      "extension": ".sample",
+      "size_bytes": 189,
+      "line_count": 8,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/pre-applypatch.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\pre-applypatch.sample",
+      "extension": ".sample",
+      "size_bytes": 424,
+      "line_count": 14,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/pre-commit.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\pre-commit.sample",
+      "extension": ".sample",
+      "size_bytes": 1649,
+      "line_count": 49,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/pre-merge-commit.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\pre-merge-commit.sample",
+      "extension": ".sample",
+      "size_bytes": 416,
+      "line_count": 13,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/pre-push.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\pre-push.sample",
+      "extension": ".sample",
+      "size_bytes": 1374,
+      "line_count": 53,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/pre-rebase.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\pre-rebase.sample",
+      "extension": ".sample",
+      "size_bytes": 4898,
+      "line_count": 169,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/pre-receive.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\pre-receive.sample",
+      "extension": ".sample",
+      "size_bytes": 544,
+      "line_count": 24,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/prepare-commit-msg.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\prepare-commit-msg.sample",
+      "extension": ".sample",
+      "size_bytes": 1492,
+      "line_count": 42,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/push-to-checkout.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\push-to-checkout.sample",
+      "extension": ".sample",
+      "size_bytes": 2783,
+      "line_count": 78,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/sendemail-validate.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\sendemail-validate.sample",
+      "extension": ".sample",
+      "size_bytes": 2308,
+      "line_count": 77,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/hooks/update.sample",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\hooks\\update.sample",
+      "extension": ".sample",
+      "size_bytes": 3650,
+      "line_count": 128,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/index",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\index",
+      "extension": "",
+      "size_bytes": 4750,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/info/exclude",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\info\\exclude",
+      "extension": "",
+      "size_bytes": 240,
+      "line_count": 6,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/logs/HEAD",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\logs\\HEAD",
+      "extension": "",
+      "size_bytes": 957,
+      "line_count": 5,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/logs/refs/heads/main",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\logs\\refs\\heads\\main",
+      "extension": "",
+      "size_bytes": 762,
+      "line_count": 4,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/logs/refs/remotes/origin/HEAD",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\logs\\refs\\remotes\\origin\\HEAD",
+      "extension": "",
+      "size_bytes": 148,
+      "line_count": 1,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/logs/refs/remotes/origin/main",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\logs\\refs\\remotes\\origin\\main",
+      "extension": "",
+      "size_bytes": 319,
+      "line_count": 2,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/objects/00/91b8f55af147e6a4c7ce9567109b9c996d7e3f",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\00\\91b8f55af147e6a4c7ce9567109b9c996d7e3f",
+      "extension": "",
+      "size_bytes": 4813,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/06/70b4c334aa8d2b288c1dad629623e00f913eed",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\06\\70b4c334aa8d2b288c1dad629623e00f913eed",
+      "extension": "",
+      "size_bytes": 3780,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/06/82bace9bec43691c544ba4c177de7ed1ae4295",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\06\\82bace9bec43691c544ba4c177de7ed1ae4295",
+      "extension": "",
+      "size_bytes": 2344,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/07/c43c32cf799e2a85b756897ef80ecff0c5b432",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\07\\c43c32cf799e2a85b756897ef80ecff0c5b432",
+      "extension": "",
+      "size_bytes": 225,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/0c/042b31fa75804720f309299ecda0c1e590f3ec",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\0c\\042b31fa75804720f309299ecda0c1e590f3ec",
+      "extension": "",
+      "size_bytes": 274,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/11/a757f23e3b3487c866d580847d782706f56871",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\11\\a757f23e3b3487c866d580847d782706f56871",
+      "extension": "",
+      "size_bytes": 441,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/13/2e192f1751df3d951a7016e2d3407d88b7ab21",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\13\\2e192f1751df3d951a7016e2d3407d88b7ab21",
+      "extension": "",
+      "size_bytes": 475,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/14/cf4f0b76170d7993b552aa387475d7e625b579",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\14\\cf4f0b76170d7993b552aa387475d7e625b579",
+      "extension": "",
+      "size_bytes": 51,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/17/ce02a99df04251ac5800cc40d3004728cd89fd",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\17\\ce02a99df04251ac5800cc40d3004728cd89fd",
+      "extension": "",
+      "size_bytes": 187,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/19/f3e6eebbdcfb20045b3dfbea6e692b7988ad9f",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\19\\f3e6eebbdcfb20045b3dfbea6e692b7988ad9f",
+      "extension": "",
+      "size_bytes": 772,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/21/068a7fda6160031bdef5eefe1e199fb72309fe",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\21\\068a7fda6160031bdef5eefe1e199fb72309fe",
+      "extension": "",
+      "size_bytes": 3954,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/28/c919be2bb8cb3bb18ed296c5d02609e0582bf9",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\28\\c919be2bb8cb3bb18ed296c5d02609e0582bf9",
+      "extension": "",
+      "size_bytes": 53,
+      "line_count": 1,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/objects/2c/a305d8ec8f21fc0a0e5be804a91f5a05300413",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\2c\\a305d8ec8f21fc0a0e5be804a91f5a05300413",
+      "extension": "",
+      "size_bytes": 2516,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/3c/aec195be074d2e5d67076cc55cfd85632c19a3",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\3c\\aec195be074d2e5d67076cc55cfd85632c19a3",
+      "extension": "",
+      "size_bytes": 157,
+      "line_count": 2,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/objects/44/2aec3ae1ffb83d76bd037fb7cceaf9dc06eefc",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\44\\2aec3ae1ffb83d76bd037fb7cceaf9dc06eefc",
+      "extension": "",
+      "size_bytes": 2372,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/48/02a14af96929519df91d7dc55cc1c648c51c50",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\48\\02a14af96929519df91d7dc55cc1c648c51c50",
+      "extension": "",
+      "size_bytes": 376,
+      "line_count": 1,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/objects/4c/c3f2e65b13dd0fe15b7e492546fefce95a1302",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\4c\\c3f2e65b13dd0fe15b7e492546fefce95a1302",
+      "extension": "",
+      "size_bytes": 135,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/4c/f9cb9316300c7917ce982fd654799644d2446a",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\4c\\f9cb9316300c7917ce982fd654799644d2446a",
+      "extension": "",
+      "size_bytes": 281,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/55/dcdfddeceacdc5f53142d0d932c69e81f44fe6",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\55\\dcdfddeceacdc5f53142d0d932c69e81f44fe6",
+      "extension": "",
+      "size_bytes": 3017,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/58/0333a09bbef2985feba171b3f92d189ec13a73",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\58\\0333a09bbef2985feba171b3f92d189ec13a73",
+      "extension": "",
+      "size_bytes": 329,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/5b/fc29955d0cc6d320814dfb12692b690e8659f2",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\5b\\fc29955d0cc6d320814dfb12692b690e8659f2",
+      "extension": "",
+      "size_bytes": 180,
+      "line_count": 1,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/objects/5e/813573cd9e717fceebff54f1d6568a3359934f",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\5e\\813573cd9e717fceebff54f1d6568a3359934f",
+      "extension": "",
+      "size_bytes": 172,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/66/1bf8231d52bb6202929ed80dab3ef4f5ee8403",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\66\\1bf8231d52bb6202929ed80dab3ef4f5ee8403",
+      "extension": "",
+      "size_bytes": 64,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/69/85dc72f64849f9de8bffda667dce336eb721fa",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\69\\85dc72f64849f9de8bffda667dce336eb721fa",
+      "extension": "",
+      "size_bytes": 85,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/6a/7179a5a3744019648b8d80e08d415069f0487e",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\6a\\7179a5a3744019648b8d80e08d415069f0487e",
+      "extension": "",
+      "size_bytes": 149,
+      "line_count": 2,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/objects/87/9dbdb886fc0c9f3a778b628e6441a6ff208cba",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\87\\9dbdb886fc0c9f3a778b628e6441a6ff208cba",
+      "extension": "",
+      "size_bytes": 3836,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/89/934981b6a858fef1f3b9d1ed957879ae4d2b8f",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\89\\934981b6a858fef1f3b9d1ed957879ae4d2b8f",
+      "extension": "",
+      "size_bytes": 416,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/8d/78889701404865b9bc78fb1460aef8b4bd071f",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\8d\\78889701404865b9bc78fb1460aef8b4bd071f",
+      "extension": "",
+      "size_bytes": 6664,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/91/157c0abe0175988a18d947d3557eb30be740fd",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\91\\157c0abe0175988a18d947d3557eb30be740fd",
+      "extension": "",
+      "size_bytes": 2669,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/91/ddfa9921009ddd5c9d61a3c11896838c1de527",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\91\\ddfa9921009ddd5c9d61a3c11896838c1de527",
+      "extension": "",
+      "size_bytes": 476,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/94/1144edf267bb8168769f7e116344897a4c038a",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\94\\1144edf267bb8168769f7e116344897a4c038a",
+      "extension": "",
+      "size_bytes": 732,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/99/0d662ddb089bfe6f920481bd5e5c95ce7f0189",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\99\\0d662ddb089bfe6f920481bd5e5c95ce7f0189",
+      "extension": "",
+      "size_bytes": 5232,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/99/f0db9750065709da5e8d6cbed64ce89265a6ca",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\99\\f0db9750065709da5e8d6cbed64ce89265a6ca",
+      "extension": "",
+      "size_bytes": 454,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/9a/8c8ad82d1bac1cf51bd65690334bb176a44795",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\9a\\8c8ad82d1bac1cf51bd65690334bb176a44795",
+      "extension": "",
+      "size_bytes": 3142,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/9c/45f84bf069b2b448e68c8405489400d853824c",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\9c\\45f84bf069b2b448e68c8405489400d853824c",
+      "extension": "",
+      "size_bytes": 540,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/9c/da2f2497a6ff259597d052951da5018ac88a65",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\9c\\da2f2497a6ff259597d052951da5018ac88a65",
+      "extension": "",
+      "size_bytes": 397,
+      "line_count": 5,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/objects/a2/7f71a63e564714a676c969ae12a23e81ebcddd",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\a2\\7f71a63e564714a676c969ae12a23e81ebcddd",
+      "extension": "",
+      "size_bytes": 436,
+      "line_count": 4,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/objects/a5/2d2f0742eb5fb887650e36cc7ae32654a65d1b",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\a5\\2d2f0742eb5fb887650e36cc7ae32654a65d1b",
+      "extension": "",
+      "size_bytes": 55,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/a5/7ae1628bfb75b5ec9064c0a03465766d5f7499",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\a5\\7ae1628bfb75b5ec9064c0a03465766d5f7499",
+      "extension": "",
+      "size_bytes": 68,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/ab/c95e43e5c225f025153165fa932fe26512b818",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\ab\\c95e43e5c225f025153165fa932fe26512b818",
+      "extension": "",
+      "size_bytes": 282,
+      "line_count": 3,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/objects/af/e482510133ac3372c0720781fb03867b6e5f4d",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\af\\e482510133ac3372c0720781fb03867b6e5f4d",
+      "extension": "",
+      "size_bytes": 972,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/b0/0f6e0e4b45e0760419193a58e997bf328e38a8",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\b0\\0f6e0e4b45e0760419193a58e997bf328e38a8",
+      "extension": "",
+      "size_bytes": 140,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/b8/475fecb77980fe2d8e7d541a4464634a212a7c",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\b8\\475fecb77980fe2d8e7d541a4464634a212a7c",
+      "extension": "",
+      "size_bytes": 3105,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/ba/0f4d686c9a8abb487da5360552a14b18cadc5a",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\ba\\0f4d686c9a8abb487da5360552a14b18cadc5a",
+      "extension": "",
+      "size_bytes": 372,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/ba/21f21cb853b9d2d4ba0554556b0efe510134c6",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\ba\\21f21cb853b9d2d4ba0554556b0efe510134c6",
+      "extension": "",
+      "size_bytes": 357,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/ba/6d8db16712c431e4439fabfa6d20b81e297d4b",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\ba\\6d8db16712c431e4439fabfa6d20b81e297d4b",
+      "extension": "",
+      "size_bytes": 4635,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/bb/a8ffa9c61f94556660d27dcac0a74d39b54883",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\bb\\a8ffa9c61f94556660d27dcac0a74d39b54883",
+      "extension": "",
+      "size_bytes": 101,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/be/c1dacb5a12d4344fdbfd83086545c0e51cc621",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\be\\c1dacb5a12d4344fdbfd83086545c0e51cc621",
+      "extension": "",
+      "size_bytes": 4918,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/bf/3f7ccbad1a258d80ce37bb59aaf5d4eba7a91c",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\bf\\3f7ccbad1a258d80ce37bb59aaf5d4eba7a91c",
+      "extension": "",
+      "size_bytes": 381,
+      "line_count": 5,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/objects/bf/ca6f963ac7206f3c618e5f2aa26f9677ca8e89",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\bf\\ca6f963ac7206f3c618e5f2aa26f9677ca8e89",
+      "extension": "",
+      "size_bytes": 209,
+      "line_count": 2,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/objects/cf/3ab6239e565bc824ecc0b364984c8f2b4a2bdc",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\cf\\3ab6239e565bc824ecc0b364984c8f2b4a2bdc",
+      "extension": "",
+      "size_bytes": 731,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/d6/3238a261d5044324b8483e7d67d33aba7b6ba8",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\d6\\3238a261d5044324b8483e7d67d33aba7b6ba8",
+      "extension": "",
+      "size_bytes": 2126,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/d6/fc64d55beef4112708d6fe0e33aede13c7504a",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\d6\\fc64d55beef4112708d6fe0e33aede13c7504a",
+      "extension": "",
+      "size_bytes": 3999,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/db/e9c6212c801061cc27360c02bbb14374cb4e44",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\db\\e9c6212c801061cc27360c02bbb14374cb4e44",
+      "extension": "",
+      "size_bytes": 9366,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/e1/dfae93bc86d23716db02a66c3a1cca5873b981",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\e1\\dfae93bc86d23716db02a66c3a1cca5873b981",
+      "extension": "",
+      "size_bytes": 368,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\e6\\9de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "extension": "",
+      "size_bytes": 15,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/e9/d09a6ac844c8524bec3ab5f8404bd09d9c21e1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\e9\\d09a6ac844c8524bec3ab5f8404bd09d9c21e1",
+      "extension": "",
+      "size_bytes": 242,
+      "line_count": 3,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/objects/ed/609b5a96ca6132a651f391bdaa65e40a112a26",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\ed\\609b5a96ca6132a651f391bdaa65e40a112a26",
+      "extension": "",
+      "size_bytes": 452,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/f4/61d9971aa4f9e0b3b6083e83d89d72862488f8",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\f4\\61d9971aa4f9e0b3b6083e83d89d72862488f8",
+      "extension": "",
+      "size_bytes": 600,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/f4/acd277b5bec7dd6c56e60a9d85cf1c3257d2ed",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\f4\\acd277b5bec7dd6c56e60a9d85cf1c3257d2ed",
+      "extension": "",
+      "size_bytes": 124,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/objects/ff/c9ed5d2acb3fcfc6ac0e375b498423f4ead61d",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\objects\\ff\\c9ed5d2acb3fcfc6ac0e375b498423f4ead61d",
+      "extension": "",
+      "size_bytes": 4419,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": ".git/refs/heads/main",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\refs\\heads\\main",
+      "extension": "",
+      "size_bytes": 41,
+      "line_count": 1,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/refs/remotes/origin/HEAD",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\refs\\remotes\\origin\\HEAD",
+      "extension": "",
+      "size_bytes": 30,
+      "line_count": 1,
+      "is_binary": false
+    },
+    {
+      "file_id": ".git/refs/remotes/origin/main",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.git\\refs\\remotes\\origin\\main",
+      "extension": "",
+      "size_bytes": 41,
+      "line_count": 1,
+      "is_binary": false
+    },
+    {
+      "file_id": ".gitignore",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\.gitignore",
+      "extension": ".gitignore",
+      "size_bytes": 197,
+      "line_count": 18,
+      "is_binary": false
+    },
+    {
+      "file_id": "cleanup_report.json",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\cleanup_report.json",
+      "extension": ".json",
+      "size_bytes": 1014,
+      "line_count": 38,
+      "is_binary": false
+    },
+    {
+      "file_id": "config/ignore_patterns.txt",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\config\\ignore_patterns.txt",
+      "extension": ".txt",
+      "size_bytes": 326,
+      "line_count": 41,
+      "is_binary": false
+    },
+    {
+      "file_id": "output/layer1_inventory_run1.json",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\layer1_inventory_run1.json",
+      "extension": ".json",
+      "size_bytes": 2592,
+      "line_count": 84,
+      "is_binary": false
+    },
+    {
+      "file_id": "output/layer1_inventory_run2.json",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\layer1_inventory_run2.json",
+      "extension": ".json",
+      "size_bytes": 2893,
+      "line_count": 92,
+      "is_binary": false
+    },
+    {
+      "file_id": "README.md",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\README.md",
+      "extension": ".md",
+      "size_bytes": 12723,
+      "line_count": 495,
+      "is_binary": false
+    },
+    {
+      "file_id": "repo_state_summary.json",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\repo_state_summary.json",
+      "extension": ".json",
+      "size_bytes": 461,
+      "line_count": 18,
+      "is_binary": false
+    },
+    {
+      "file_id": "run.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\run.ps1",
+      "extension": ".ps1",
+      "size_bytes": 17149,
+      "line_count": 417,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/__pycache__/verification_runner.cpython-313.pyc",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\__pycache__\\verification_runner.cpython-313.pyc",
+      "extension": ".pyc",
+      "size_bytes": 24513,
+      "line_count": 0,
+      "is_binary": true
+    },
+    {
+      "file_id": "src/02_batch_runner_v3.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\02_batch_runner_v3.ps1",
+      "extension": ".ps1",
+      "size_bytes": 19653,
+      "line_count": 453,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/graph_structural_validation.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\graph_structural_validation.ps1",
+      "extension": ".ps1",
+      "size_bytes": 4761,
+      "line_count": 146,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/layer1_file_inventory.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\layer1_file_inventory.ps1",
+      "extension": ".ps1",
+      "size_bytes": 3420,
+      "line_count": 121,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/layer2_canonical_identity.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\layer2_canonical_identity.ps1",
+      "extension": ".ps1",
+      "size_bytes": 4896,
+      "line_count": 145,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/layer3_multi_resolver.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\layer3_multi_resolver.ps1",
+      "extension": ".ps1",
+      "size_bytes": 11287,
+      "line_count": 302,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/layer3_py_ast_resolver.py",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\layer3_py_ast_resolver.py",
+      "extension": ".py",
+      "size_bytes": 1118,
+      "line_count": 37,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/layer4_unified_graph.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\layer4_unified_graph.ps1",
+      "extension": ".ps1",
+      "size_bytes": 4862,
+      "line_count": 164,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/layer5_graph_validation.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\layer5_graph_validation.ps1",
+      "extension": ".ps1",
+      "size_bytes": 11665,
+      "line_count": 363,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/layer6_graph_query.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\layer6_graph_query.ps1",
+      "extension": ".ps1",
+      "size_bytes": 12030,
+      "line_count": 343,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/layer7_query_classification.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\layer7_query_classification.ps1",
+      "extension": ".ps1",
+      "size_bytes": 6295,
+      "line_count": 156,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/layer8_final_report.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\layer8_final_report.ps1",
+      "extension": ".ps1",
+      "size_bytes": 3759,
+      "line_count": 95,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/resolver_consistency_check.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\resolver_consistency_check.ps1",
+      "extension": ".ps1",
+      "size_bytes": 5390,
+      "line_count": 148,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/runtime_common.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\runtime_common.ps1",
+      "extension": ".ps1",
+      "size_bytes": 1330,
+      "line_count": 60,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/semantic_graph_validation.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\semantic_graph_validation.ps1",
+      "extension": ".ps1",
+      "size_bytes": 8097,
+      "line_count": 236,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/system_trust_aggregation.ps1",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\system_trust_aggregation.ps1",
+      "extension": ".ps1",
+      "size_bytes": 2889,
+      "line_count": 74,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/verification_authority_gate.py",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\verification_authority_gate.py",
+      "extension": ".py",
+      "size_bytes": 6092,
+      "line_count": 183,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/verification_runner_negative_fixtures.py",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\verification_runner_negative_fixtures.py",
+      "extension": ".py",
+      "size_bytes": 9797,
+      "line_count": 274,
+      "is_binary": false
+    },
+    {
+      "file_id": "src/verification_runner.py",
+      "absolute_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\src\\verification_runner.py",
+      "extension": ".py",
+      "size_bytes": 22749,
+      "line_count": 592,
+      "is_binary": false
+    }
+  ],
+  "stats": {
+    "total_files": 116,
+    "total_lines": 6030
+  }
+}

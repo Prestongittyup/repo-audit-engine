@@ -1,0 +1,30 @@
+{
+  "status": "INVALID",
+  "issues": [
+    {
+      "type": "ORPHAN_NODES",
+      "severity": "MEDIUM",
+      "nodes": [
+        "canonical://clean_repo/_root:.gitignore",
+        "canonical://clean_repo/_root:README.md",
+        "canonical://clean_repo/config:ignore_patterns.txt",
+        "canonical://clean_repo/src:02_batch_runner_v3.ps1"
+      ]
+    },
+    {
+      "type": "DISCONNECTED_SUBGRAPHS",
+      "severity": "MEDIUM",
+      "nodes": [
+        "canonical://clean_repo/_root:.gitignore",
+        "canonical://clean_repo/_root:README.md",
+        "canonical://clean_repo/config:ignore_patterns.txt",
+        "canonical://clean_repo/src:02_batch_runner_v3.ps1"
+      ]
+    }
+  ],
+  "metrics": {
+    "orphan_nodes": 4,
+    "disconnected_clusters": 4,
+    "di_nodes_missing_edges": 0
+  }
+}

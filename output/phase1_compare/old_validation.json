@@ -1,0 +1,37 @@
+{
+  "status": "DEGRADED_STRUCTURAL",
+  "critical_failure": false,
+  "metrics": {
+    "node_count": 5,
+    "edge_count": 5,
+    "valid_node_count": 5,
+    "malformed_node_count": 0,
+    "duplicate_node_count": 0,
+    "invalid_namespace_count": 1,
+    "malformed_edge_count": 0,
+    "invalid_edge_type_count": 0,
+    "unresolved_edge_count": 1,
+    "cross_namespace_edge_count": 0
+  },
+  "issues": [
+    {
+      "type": "INVALID_NODE_NAMESPACE",
+      "severity": "MEDIUM",
+      "message": "Node ids should use canonical namespace format.",
+      "count": 1,
+      "sample": [
+        "bad-node-id"
+      ]
+    },
+    {
+      "type": "UNRESOLVED_EDGE_REFERENCE",
+      "severity": "HIGH",
+      "message": "Edges must reference known nodes.",
+      "count": 1,
+      "sample": [
+        "canonical://service/Foo|canonical://service/Missing|DI"
+      ]
+    }
+  ],
+  "warnings": []
+}

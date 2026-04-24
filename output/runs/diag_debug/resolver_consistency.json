@@ -1,0 +1,2544 @@
+{
+  "status": "HIGH_RISK",
+  "ast_edges": 6805,
+  "di_edges": 16,
+  "config_edges": 567,
+  "heuristic_edges": 796,
+  "drift_score": 0.998,
+  "drift_threshold": 1.0,
+  "ast_di_pair_delta_count": 6789,
+  "disagreements": [
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/_root:baseline_test_output.log",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_assistant_core.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_adapter_governance.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:governance_utils.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:conftest.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:verify_worker_hardening.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:verify_til_step2_gates.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:verify_til_shadow_mode.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:verify_til_integration.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:verify_til_fail_safe.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_assistant_runtime_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:verify_task_til_upgrade.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:verify_email_til_shadow.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:verify_calendar_til_shadow.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:verify_async_event_bus.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:sample_household_os_outputs.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:safe_repo_cleanup.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:runtime_stress_audit.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:production_truth_gate.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:production_torture_audit.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:production_readiness_torture_gate.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:phase1_breakpoint_validation.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:verify_step3_final.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:migrate_lifecycle_states.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_assistant_runtime.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_boundary_enforcement.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_google_calendar_oauth.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_google_calendar_integration_surface.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_google_calendar_full_external_validation.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_full_suite_integrity.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_fsm_non_authority.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_frontend_runtime_contract.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_feature_flags.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_external_event_normalization.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_event_windowing.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_event_sourcing.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_behavior_feedback.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_event_replay_integrity.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_event_adapter.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_evaluation_endpoints.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_env_bootstrap.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_decision_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_decision_engine_integration.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_daily_loop_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_col.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_brief_renderer_v1.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_brief_evaluation.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_brief_builder.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_event_mutation_stress.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:migrate_event_stream.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:harness_validation_report.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:governance_upgrade_fixture.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:state_reducer.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:state_proxy.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:state_firewall.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:orchestrator.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:lifecycle_migration.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:lifecycle_firewall.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:event_store.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:domain_event.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:daily_cycle.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:command_handler.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:trigger_detector.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:action_pipeline.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/presentation:time_formatter.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/presentation:recommendation_builder.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/presentation:humanizer.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/presentation:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/learning:behavior_profile.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/core:lifecycle_state.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/core:household_state_graph.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/core:decision_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/core:contracts.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/core:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/runtime:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/hpal-frontend:index.html",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/hpal-frontend/public:sw.js",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/hpal-frontend/tests:app-integration.spec.ts",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:forensic_loop_leak_probe.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:capture_household_os_outputs.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/scripts:boot_smoke_test.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/modules/tasks/services:task_module.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/modules/meals/services:meal_module.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/modules/core/services:orchestrator_lite.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/modules/core/services:module_validator.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/modules/core/services:module_runner.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/modules/core/services:contract_registry.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/modules/core/models:module_output.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/modules/calendar/services:calendar_module.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/legacy/lifecycle:workflow_tracker.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/legacy/lifecycle:user_control_interface.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/legacy/lifecycle:state_transitions.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/legacy/lifecycle:failure_behavior.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/legacy/lifecycle:execution_state_machine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/legacy/conversation:state_store.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/legacy/conversation:intent_refinement.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/legacy/conversation:conversation_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/legacy/conversation:clarification_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/legacy/compiler:intent_parser.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/legacy/compiler:context_resolver.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/hpal-frontend/tests:mobile.spec.ts",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_google_oauth_env_config.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_google_oauth_missing_config_safe_boot.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_household_os_runtime.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_household_os.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/p1_verification:test_auth_lifecycle.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/p1_verification:scenario_matrix.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/p1_verification:harness.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/p1_verification:fixtures.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/p1_verification:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/harness:simulation_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/harness:scenario_runner.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/harness:report_generator.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/harness:repeatability_gate.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/harness:production_readiness_classifier.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/p1_verification:test_chaos_concurrency.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/harness:noise_isolation.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/harness:invariant_validator.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/harness:failure_injector.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/harness:cli.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/harness:__main__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/harness:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/fixtures/hard_freeze:decision_v2_golden.json",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/fixtures/hard_freeze:brief_household_beta_golden.json",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/fixtures/hard_freeze:brief_household_alpha_golden.json",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/fixtures/governance/decision_engine_v2/v1:metadata.json",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/fixtures/governance/brief/household_beta/v1:metadata.json",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/harness:load_curve_model.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/p1_verification:test_e2e_integration.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/p1_verification:test_event_bus_correctness.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/p1_verification:test_idempotency_correctness.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api:main.py",
+      "issue": "DI_RESOLVER_EDGE_NOT_DERIVED_FROM_AST_RESOLVER",
+      "severity": "HIGH",
+      "edge": "canonical://family_orchestration_bot_snapshot/apps/api:main.py|canonical://family_orchestration_bot_snapshot/apps/api/endpoints:realtime_router.py|DI"
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/.venv/Lib/site-packages/sqlalchemy/dialects/mysql:aiomysql.py",
+      "issue": "DI_RESOLVER_EDGE_NOT_DERIVED_FROM_AST_RESOLVER",
+      "severity": "HIGH",
+      "edge": "canonical://family_orchestration_bot_snapshot/.venv/Lib/site-packages/sqlalchemy/dialects/mysql:aiomysql.py|canonical://family_orchestration_bot_snapshot/.venv/Lib/site-packages/sqlalchemy/dialects/mysql:pymysql.py|DI"
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api:main.py",
+      "issue": "DI_RESOLVER_EDGE_NOT_DERIVED_FROM_AST_RESOLVER",
+      "severity": "HIGH",
+      "edge": "canonical://family_orchestration_bot_snapshot/apps/api:main.py|canonical://family_orchestration_bot_snapshot/apps/api/endpoints:identity_router.py|DI"
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api:main.py",
+      "issue": "DI_RESOLVER_EDGE_NOT_DERIVED_FROM_AST_RESOLVER",
+      "severity": "HIGH",
+      "edge": "canonical://family_orchestration_bot_snapshot/apps/api:main.py|canonical://family_orchestration_bot_snapshot/apps/api/endpoints:evaluation_router.py|DI"
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_security_verification_harness.py",
+      "issue": "DI_RESOLVER_EDGE_NOT_DERIVED_FROM_AST_RESOLVER",
+      "severity": "HIGH",
+      "edge": "canonical://family_orchestration_bot_snapshot/tests:test_security_verification_harness.py|canonical://family_orchestration_bot_snapshot/apps/api:assistant_runtime_router.py|DI"
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_actor_type_enforcement.py",
+      "issue": "DI_RESOLVER_EDGE_NOT_DERIVED_FROM_AST_RESOLVER",
+      "severity": "HIGH",
+      "edge": "canonical://family_orchestration_bot_snapshot/tests:test_actor_type_enforcement.py|canonical://family_orchestration_bot_snapshot/apps/api:assistant_runtime_router.py|DI"
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api:main.py",
+      "issue": "DI_RESOLVER_EDGE_NOT_DERIVED_FROM_AST_RESOLVER",
+      "severity": "HIGH",
+      "edge": "canonical://family_orchestration_bot_snapshot/apps/api:main.py|canonical://family_orchestration_bot_snapshot/apps/api/endpoints:system_router.py|DI"
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api:main.py",
+      "issue": "DI_RESOLVER_EDGE_NOT_DERIVED_FROM_AST_RESOLVER",
+      "severity": "HIGH",
+      "edge": "canonical://family_orchestration_bot_snapshot/apps/api:main.py|canonical://family_orchestration_bot_snapshot/policy_engine:policy_router.py|DI"
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api:main.py",
+      "issue": "DI_RESOLVER_EDGE_NOT_DERIVED_FROM_AST_RESOLVER",
+      "severity": "HIGH",
+      "edge": "canonical://family_orchestration_bot_snapshot/apps/api:main.py|canonical://family_orchestration_bot_snapshot/apps/api/endpoints:integrations_router.py|DI"
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api:main.py",
+      "issue": "DI_RESOLVER_EDGE_NOT_DERIVED_FROM_AST_RESOLVER",
+      "severity": "HIGH",
+      "edge": "canonical://family_orchestration_bot_snapshot/apps/api:main.py|canonical://family_orchestration_bot_snapshot/apps/api/endpoints:ui_bootstrap_router.py|DI"
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_google_calendar_oauth.py",
+      "issue": "DI_RESOLVER_EDGE_NOT_DERIVED_FROM_AST_RESOLVER",
+      "severity": "HIGH",
+      "edge": "canonical://family_orchestration_bot_snapshot/tests:test_google_calendar_oauth.py|canonical://family_orchestration_bot_snapshot/apps/api/integration_core:google_oauth_config.py|DYNAMIC"
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/ui:index.html",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/simulation/stress_tests:stability_metrics.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/simulation/stress_tests:runner.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/simulation/stress_tests:mutation_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/simulation/stress_tests:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/simulation/live_orchestration:timeline_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/simulation/live_orchestration:ingestion_simulator.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/simulation/live_orchestration:engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/simulation/live_orchestration:brief_tracker.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/simulation/live_orchestration:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/simulation:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/p1_verification:test_llm_gateway_failures.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/fixtures/governance/brief/household_alpha/v1:metadata.json",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/connectors:task_connector.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/evaluation:scoring_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/evaluation:scenario_generator.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_p0_torture.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_output_governor.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_operational_mode.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_oauth_credential_store.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_no_raw_lifecycle_strings.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_no_legacy_lifecycle_strings.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_migration_cleanliness.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_manual_priority_adapter.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_live_orchestration_simulation.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_lifecycle_integrity_invariants.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_persistence_roundtrip_integrity.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_life_state_model.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_intent_contract.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_intent_confidence_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_integration_identity_system.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_integration_core.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_integration_architecture_guard.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_insight_bridge.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_identity_layer.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_household_state.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_household_state_manager.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_household_simulation.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_intent_lock.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_policy_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_policy_guardrails.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_provider_registry.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/evaluation:feedback_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/evaluation:evaluation_runner.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/evaluation:brief_runner.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/evaluation:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/decision:test_decision_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/architecture:test_single_fetch_source.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/architecture:test_fetch_boundary.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/architecture:test_dependency_graph.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/architecture:dependency_graph.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/architecture:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:verify_p0_fixes.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_xai_layer.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_xai_harness_integration.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_ui_simulation_endpoints.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_ui_bootstrap_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_time_normalization.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_system_stability_lock.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_state_machine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_single_pipeline_enforcement.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_sample_household_os_outputs.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_root_ui_routing.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_recommendation_humanization.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests:test_recommendation_builder.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/tests/evaluation:scenario_models.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/connectors:grocery_connector.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/connectors:calendar_connector.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os/connectors:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/identity:repository.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/identity:contracts.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/identity:auth.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/identity:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/hpal:task_sync.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/hpal:router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/hpal:projection_builder.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/hpal:plan_normalization.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/hpal:orchestration_adapter.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/hpal:event_integration.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/identity:service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/hpal:contracts.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/hpal:auto_reconciliation.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/hpal:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:ui_bootstrap_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:system_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:realtime_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:operational_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:integrations_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:identity_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:evaluation_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:calendar_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/hpal:command_gateway.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/identity:sqlalchemy_repository.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion:failure_handling.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:google_calendar_sandbox_runner.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:google_calendar_provider.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:feature_flags.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:event_windowing.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:event_adapter.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:decision_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:credentials.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:brief_builder.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:architecture_guard.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion/adapters:time_normalizer.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion/adapters:mock_email_provider.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion/adapters:manual_priority.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion/adapters:ingestion_defaults.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion/adapters:imap_email_adapter.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion/adapters:execution_runner.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion/adapters:email_provider_adapter.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion/adapters:email_integration_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion/adapters:adapter_governance.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion/adapters:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion:service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion:normalization.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ingestion:models.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:brief_renderer_v1.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:google_oauth_config.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:brief_invariants_v1.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:brief_contract_v1.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/conversation_orchestration:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/auth:token_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/adapters:email_ingestion_adapter.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api:main.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api:assistant_runtime_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/.vscode:tasks.json",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/.venv/Lib/site-packages/uvicorn/__pycache__:_types.cpython-313.pyc",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/.venv/Lib/site-packages/pip/_vendor/distlib:manifest.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/.venv/Lib/site-packages/pip:__main__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/.venv/Lib/site-packages/fastapi/security:http.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/conversation_orchestration:intent_refinement.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/.venv/Lib/site-packages/certifi:__main__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/.venv/Lib/site-packages/_pytest:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/_root:truth_gate_output6.log",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/_root:truth_gate_output4.log",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/_root:truth_gate_output3.log",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/_root:truth_gate_output2.log",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/_root:truth_gate_output.log",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/_root:main.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/_root:evaluation_results.json",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/_root:cleanup_analysis_dry_run.json",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/_root:cleanup_analysis_applied.json",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/.venv/Lib/site-packages/_pytest/config/__pycache__:__init__.cpython-313.pyc",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/conversation_orchestration:pipeline.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/conversation_orchestration:schema.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/conversation_orchestration:state_machine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:auth_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:state_machine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:runtime_classifier.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:kafka_event_bus.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:idempotency_middleware.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:feature_flags.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:event_registry.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:event_bus.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:event_bus_factory.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:event_bus_base.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:event_bus_async.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:env_bootstrap.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:edge_diagnostics.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:database.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:bootstrap.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:boot_diagnostics.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:backpressure_middleware.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:auth_middleware.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:audit_bypass.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:asgi_admission.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/core:admin_security.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/conversation_orchestration:store.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/endpoints:brief_endpoint.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api:main.py",
+      "issue": "DI_RESOLVER_EDGE_NOT_DERIVED_FROM_AST_RESOLVER",
+      "severity": "HIGH",
+      "edge": "canonical://family_orchestration_bot_snapshot/apps/api:main.py|canonical://family_orchestration_bot_snapshot/apps/api/endpoints:calendar_router.py|DI"
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:identity_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:normalization.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ui_bootstrap:system_state_store.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ui_bootstrap:service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ui_bootstrap:models.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ui_bootstrap:cache.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/ui_bootstrap:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:til_contract.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:temporal_intelligence_layer.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:task_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:shared_dependencies.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:router_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/xai:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:retry_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:observability_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:idempotency_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:idempotency_key_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:event_replay_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:event_log_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:dlq_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:calendar_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/schemas/events:task_events.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/schemas/events:email_events.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/schemas:event.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/services:queue_store.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/xai:causal_mapper.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/xai:db_model.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/xai:router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/household_os:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/archive/unused_candidates/scripts:verify_calendar_step4_authoritative.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/archive/unused_candidates/scripts:baseline_debug_test.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/archive/unused_candidates/apps/api/core:state_machine_integration_guide.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/archive/legacy_fsm/legacy/lifecycle:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/archive/legacy_fsm/legacy/conversation:orchestrator.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/archive/legacy_fsm/legacy/conversation:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/archive/legacy_fsm/legacy/compiler:demo_intent_parser.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/archive/legacy_fsm/legacy/compiler:demo_context_resolver.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/archive/legacy_fsm/legacy/compiler:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/archive/legacy_fsm/apps/api/core:schema_migrations.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/assistant_core:request_store.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/assistant_core:planning_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/assistant_core:meal_planner.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/assistant_core:intent_parser.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/assistant_core:fitness_planner.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/assistant_core:contracts.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/assistant_core:assistant_router.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/assistant_core:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/xai:validation.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/xai:templates.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/xai:store.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/xai:schema.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/runtime:sse_pressure_guard.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:identity.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/runtime:loop_tracing.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/runtime:event_loop_guard.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/modules/email:email_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/models:task.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/models:identity.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/models:idempotency_key.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/models:event_log.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/llm:provider.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/llm:intent_resolver.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/llm:gateway.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/llm:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/intent_contract:validator.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/modules/email:rule_engine.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/intent_contract:schema.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/intent_contract:action_planner.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/intent_contract:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core/models:household_state.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core/models:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:state_builder.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:repository.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:registry.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:providers.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:os1_bridge.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/integration_core:orchestrator.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/intent_contract:classifier.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/observability:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/observability:alerts.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/observability:health.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/runtime:backpressure_controller.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/runtime:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/realtime:event_bus.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/realtime:broadcaster.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/realtime:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/product_surface:patch_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/product_surface:frontend_runtime.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/product_surface:contracts.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/product_surface:chat_gateway_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/product_surface:bootstrap_service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/product_surface:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/policy_engine:schema.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/policy_engine:rules.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/policy_engine:integration_example.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/policy_engine:evaluator.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/policy_engine:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/operational:service.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/operational:contracts.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/operational:__init__.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/observability:trace_context.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/observability:safety.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/observability:metrics.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/observability:logging.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "canonical://family_orchestration_bot_snapshot/apps/api/runtime:execution_fairness.py",
+      "issue": "NODE_ONLY_IN_HEURISTIC_RESOLVER",
+      "severity": "MEDIUM",
+      "edge": ""
+    },
+    {
+      "node": "",
+      "issue": "HEURISTIC_ONLY_NODE_THRESHOLD_EXCEEDED(409>0)",
+      "severity": "MEDIUM",
+      "edge": ""
+    }
+  ]
+}

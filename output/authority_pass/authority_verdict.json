@@ -1,0 +1,70 @@
+{
+  "authority": "VERIFICATION_RUNNER",
+  "authority_valid": true,
+  "preconditions": {
+    "layer5_validation_status": "VALID",
+    "layer5_precondition_ok": true
+  },
+  "entrypoints_used": [
+    "canonical://authority_pass_repo/_root:run.ps1"
+  ],
+  "verification": {
+    "system_valid": true,
+    "failure_domains": [],
+    "trust_score": 1.0,
+    "results": {
+      "structural": {
+        "invalid_edges": [],
+        "node_count": 2,
+        "edge_count": 1
+      },
+      "reachability": {
+        "reachable_count": 2,
+        "unreachable_count": 0,
+        "false_dead_nodes": [],
+        "entrypoints_used": [
+          "canonical://authority_pass_repo/_root:run.ps1"
+        ],
+        "entrypoints_without_outgoing": [],
+        "di_unreachable_edges": []
+      },
+      "resolver": {
+        "ast_edges": 0,
+        "di_edges": 0,
+        "config_edges": 1,
+        "heuristic_edges": 0,
+        "missing_di_nodes": [],
+        "heuristic_only_nodes": [],
+        "missing_references": [],
+        "missing_ast_edges": [],
+        "missing_di_edges": [],
+        "missing_config_edges": [],
+        "coverage": {
+          "ast": 1.0,
+          "di": 1.0,
+          "config": 1.0,
+          "heuristic": 1.0
+        },
+        "divergence": {
+          "ast": 0.0,
+          "di": 0.0,
+          "config": 0.0,
+          "heuristic": 0.0
+        },
+        "drift_score": 0.0,
+        "enforcement": {
+          "min_ast_coverage": 0.9,
+          "max_drift_score": 0.1,
+          "violations": []
+        }
+      },
+      "semantic": {
+        "entrypoint_isolated": [],
+        "di_wired_missing_edges": [],
+        "disconnected_islands": [],
+        "cyclic_islands": [],
+        "false_healthy_subgraphs": []
+      }
+    }
+  }
+}

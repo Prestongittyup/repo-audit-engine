@@ -1,0 +1,51 @@
+{
+  "status": "INVALID",
+  "issues": [
+    {
+      "type": "DISCONNECTED_SUBGRAPHS",
+      "severity": "MEDIUM",
+      "nodes": [
+        "canonical://repo/_root:hidden_a.py",
+        "canonical://repo/_root:hidden_b.py"
+      ]
+    },
+    {
+      "type": "UNMARKED_UNREACHABLE_NODES",
+      "severity": "HIGH",
+      "nodes": [
+        "canonical://repo/_root:hidden_a.py",
+        "canonical://repo/_root:hidden_b.py"
+      ]
+    },
+    {
+      "type": "DISCONNECTED_SUBGRAPH_UNQUARANTINED",
+      "severity": "HIGH",
+      "nodes": [
+        "canonical://repo/_root:hidden_a.py",
+        "canonical://repo/_root:hidden_b.py"
+      ]
+    },
+    {
+      "type": "CYCLE_POLICY_VIOLATION",
+      "severity": "HIGH",
+      "nodes": [
+        "canonical://repo/_root:hidden_a.py",
+        "canonical://repo/_root:hidden_b.py"
+      ]
+    },
+    {
+      "type": "DI_RESOLUTION_MISSING",
+      "severity": "HIGH",
+      "nodes": [
+        "canonical://repo/_root:service.py"
+      ]
+    }
+  ],
+  "metrics": {
+    "orphan_nodes": 0,
+    "disconnected_clusters": 1,
+    "di_nodes_missing_edges": 1,
+    "unmarked_unreachable_nodes": 2,
+    "cycle_policy_violations": 2
+  }
+}
