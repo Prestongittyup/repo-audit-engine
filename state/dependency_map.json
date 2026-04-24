@@ -1,0 +1,35 @@
+{
+  ".gitignore": [
+    "src/04_dependency_builder.ps1"
+  ],
+  "CHANGES.md": [
+    "src/04_dependency_builder.ps1"
+  ],
+  "config/ignore_patterns.txt": [
+    "src/04_dependency_builder.ps1"
+  ],
+  "dangerous.py": [],
+  "dead_code.py": [],
+  "main.py": [
+    "utils.py"
+  ],
+  "README.md": [
+    "src/04_dependency_builder.ps1"
+  ],
+  "run.ps1": [
+    "src/04_dependency_builder.ps1"
+  ],
+  "src/01_manifest.ps1": [
+    "src/04_dependency_builder.ps1"
+  ],
+  "src/02_batch_runner.ps1": [
+    "src/04_dependency_builder.ps1"
+  ],
+  "src/03_final_analyzer.ps1": [
+    "src/04_dependency_builder.ps1"
+  ],
+  "src/04_dependency_builder.ps1": [
+    "src/04_dependency_builder.ps1"
+  ],
+  "utils.py": []
+}

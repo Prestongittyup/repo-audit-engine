@@ -1,0 +1,50 @@
+{
+  "dangerous.py": {
+    "direct_dependencies": [],
+    "dynamic_dependencies": [],
+    "template_dependencies": [],
+    "reflection_dependencies": [
+      "print(",
+      "x = 1"
+    ],
+    "config_dependencies": [],
+    "confidence_scores": {
+      "x = 1": 40,
+      "print(": 40
+    },
+    "overall_confidence": 0
+  },
+  "dead_code.py": {
+    "direct_dependencies": [],
+    "dynamic_dependencies": [],
+    "template_dependencies": [],
+    "reflection_dependencies": [],
+    "config_dependencies": [],
+    "confidence_scores": {},
+    "overall_confidence": 0
+  },
+  "main.py": {
+    "direct_dependencies": [
+      "os",
+      "utils"
+    ],
+    "dynamic_dependencies": [],
+    "template_dependencies": [],
+    "reflection_dependencies": [],
+    "config_dependencies": [],
+    "confidence_scores": {
+      "os": 100,
+      "utils": 100
+    },
+    "overall_confidence": 0
+  },
+  "utils.py": {
+    "direct_dependencies": [],
+    "dynamic_dependencies": [],
+    "template_dependencies": [],
+    "reflection_dependencies": [],
+    "config_dependencies": [],
+    "confidence_scores": {},
+    "overall_confidence": 0
+  }
+}

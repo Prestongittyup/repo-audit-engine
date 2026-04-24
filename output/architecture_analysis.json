@@ -1,0 +1,52 @@
+{
+  "summary": {
+    "total_files": 4,
+    "total_entrypoints": 1,
+    "orphan_modules": [
+      "dangerous.py",
+      "dead_code.py"
+    ]
+  },
+  "layers": {
+    "core_modules": [
+      "main.py"
+    ],
+    "utility_layers": [
+      "dangerous.py",
+      "dead_code.py",
+      "utils.py"
+    ],
+    "config_layers": [],
+    "test_layers": [],
+    "unknown_layers": []
+  },
+  "circular_dependency_clusters": [],
+  "high_coupling_hotspots": [
+    {
+      "file": "utils.py",
+      "inbound": 1,
+      "outbound": 0,
+      "total": 1
+    },
+    {
+      "file": "dangerous.py",
+      "inbound": 0,
+      "outbound": 0,
+      "total": 0
+    },
+    {
+      "file": "main.py",
+      "inbound": 0,
+      "outbound": 1,
+      "total": 1
+    },
+    {
+      "file": "dead_code.py",
+      "inbound": 0,
+      "outbound": 0,
+      "total": 0
+    }
+  ],
+  "architectural_bottlenecks": [],
+  "god_modules": []
+}

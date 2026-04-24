@@ -1,0 +1,74 @@
+{
+  "utils.py": {
+    "file": "utils.py",
+    "edges": {
+      "static": [],
+      "config": [],
+      "dynamic": [],
+      "heuristic": []
+    },
+    "confidence_profile": {
+      "static": 0,
+      "config": 0,
+      "dynamic": 0,
+      "heuristic": 0
+    },
+    "overall_confidence": 0
+  },
+  "dangerous.py": {
+    "file": "dangerous.py",
+    "edges": {
+      "static": [],
+      "config": [],
+      "dynamic": [],
+      "heuristic": []
+    },
+    "confidence_profile": {
+      "static": 0,
+      "config": 0,
+      "dynamic": 0,
+      "heuristic": 0
+    },
+    "overall_confidence": 0
+  },
+  "main.py": {
+    "file": "main.py",
+    "edges": {
+      "static": [
+        {
+          "target": "utils.py",
+          "confidence": 100,
+          "evidence": [
+            "python from import"
+          ]
+        }
+      ],
+      "config": [],
+      "dynamic": [],
+      "heuristic": []
+    },
+    "confidence_profile": {
+      "static": 100,
+      "config": 0,
+      "dynamic": 0,
+      "heuristic": 0
+    },
+    "overall_confidence": 100
+  },
+  "dead_code.py": {
+    "file": "dead_code.py",
+    "edges": {
+      "static": [],
+      "config": [],
+      "dynamic": [],
+      "heuristic": []
+    },
+    "confidence_profile": {
+      "static": 0,
+      "config": 0,
+      "dynamic": 0,
+      "heuristic": 0
+    },
+    "overall_confidence": 0
+  }
+}

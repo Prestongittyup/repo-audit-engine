@@ -1,0 +1,44 @@
+{
+  "score": 90,
+  "metrics": {
+    "dependency_cleanliness": {
+      "score": 100,
+      "explanation": "Penalizes contradiction count relative to file count.",
+      "contributing_factors": {
+        "contradictions": 0,
+        "total_files": 4
+      }
+    },
+    "coupling_density": {
+      "score": 98,
+      "explanation": "Penalizes dense strong dependency concentration.",
+      "contributing_factors": {
+        "strong_edges": 1,
+        "total_files": 4
+      }
+    },
+    "dead_code_ratio": {
+      "score": 50,
+      "explanation": "Rewards lower ratio of confidently dead code.",
+      "contributing_factors": {
+        "dead_code_files": 2,
+        "total_files": 4
+      }
+    },
+    "circular_dependency_ratio": {
+      "score": 100,
+      "explanation": "Penalizes files participating in circular dependency clusters.",
+      "contributing_factors": {
+        "files_in_cycles": 0,
+        "total_files": 4
+      }
+    },
+    "architectural_layering_quality": {
+      "score": 100,
+      "explanation": "Penalizes strong edges that violate basic layer expectations.",
+      "contributing_factors": {
+        "layering_penalty": 0
+      }
+    }
+  }
+}

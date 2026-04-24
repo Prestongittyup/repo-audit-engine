@@ -1,0 +1,138 @@
+[
+  {
+    "file": "dangerous.py",
+    "decision": "DELETE_CANDIDATE",
+    "confidence": 100,
+    "dependency_evidence_chain": {
+      "inbound": {
+        "static": 0,
+        "config": 0,
+        "dynamic": 0,
+        "heuristic": 0
+      },
+      "outbound": {
+        "static": [],
+        "config": [],
+        "dynamic": [],
+        "heuristic": []
+      }
+    },
+    "supporting_graph_layers": [],
+    "confidence_breakdown": {
+      "static": 0,
+      "config": 0,
+      "dynamic": 0,
+      "heuristic": 0
+    },
+    "reachability": "unreachable",
+    "blast_radius": 0,
+    "why_not_classified_differently": [
+      "Not KEEP because no strong inbound dependencies or reachable paths remain",
+      "Not ARCHIVE because absence confidence exceeded the deletion threshold"
+    ],
+    "risk_if_classification_is_wrong": "The largest risk is an unmodeled runtime entrypoint outside the indexed repository."
+  },
+  {
+    "file": "dead_code.py",
+    "decision": "DELETE_CANDIDATE",
+    "confidence": 100,
+    "dependency_evidence_chain": {
+      "inbound": {
+        "static": 0,
+        "config": 0,
+        "dynamic": 0,
+        "heuristic": 0
+      },
+      "outbound": {
+        "static": [],
+        "config": [],
+        "dynamic": [],
+        "heuristic": []
+      }
+    },
+    "supporting_graph_layers": [],
+    "confidence_breakdown": {
+      "static": 0,
+      "config": 0,
+      "dynamic": 0,
+      "heuristic": 0
+    },
+    "reachability": "unreachable",
+    "blast_radius": 0,
+    "why_not_classified_differently": [
+      "Not KEEP because no strong inbound dependencies or reachable paths remain",
+      "Not ARCHIVE because absence confidence exceeded the deletion threshold"
+    ],
+    "risk_if_classification_is_wrong": "The largest risk is an unmodeled runtime entrypoint outside the indexed repository."
+  },
+  {
+    "file": "main.py",
+    "decision": "KEEP",
+    "confidence": 100,
+    "dependency_evidence_chain": {
+      "inbound": {
+        "static": 0,
+        "config": 0,
+        "dynamic": 0,
+        "heuristic": 0
+      },
+      "outbound": {
+        "static": [
+          "utils.py"
+        ],
+        "config": [],
+        "dynamic": [],
+        "heuristic": []
+      }
+    },
+    "supporting_graph_layers": [
+      "static"
+    ],
+    "confidence_breakdown": {
+      "static": 100,
+      "config": 0,
+      "dynamic": 0,
+      "heuristic": 0
+    },
+    "reachability": "always",
+    "blast_radius": 1,
+    "why_not_classified_differently": [
+      "Not DELETE_CANDIDATE because file is reachable in the closure model",
+      "Not DELETE_CANDIDATE because module type is protected"
+    ],
+    "risk_if_classification_is_wrong": "The largest risk is an unmodeled runtime entrypoint outside the indexed repository."
+  },
+  {
+    "file": "utils.py",
+    "decision": "KEEP",
+    "confidence": 80,
+    "dependency_evidence_chain": {
+      "inbound": {
+        "static": 1,
+        "config": 0,
+        "dynamic": 0,
+        "heuristic": 0
+      },
+      "outbound": {
+        "static": [],
+        "config": [],
+        "dynamic": [],
+        "heuristic": []
+      }
+    },
+    "supporting_graph_layers": [],
+    "confidence_breakdown": {
+      "static": 0,
+      "config": 0,
+      "dynamic": 0,
+      "heuristic": 0
+    },
+    "reachability": "always",
+    "blast_radius": 0,
+    "why_not_classified_differently": [
+      "Not DELETE_CANDIDATE because strong inbound dependencies exist",
+      "Not DELETE_CANDIDATE because file is reachable in the closure model"
+    ],
+    "risk_if_classification_is_wrong": "Downstream imports, registry bindings, or runtime resolution may fail."
+  }
+]
