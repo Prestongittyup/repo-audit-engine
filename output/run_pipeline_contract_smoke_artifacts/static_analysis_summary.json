@@ -1,0 +1,8 @@
+{
+  "python_files_analyzed": 24,
+  "function_count": 241,
+  "class_count": 9,
+  "import_count": 215,
+  "call_count": 3795,
+  "analysis_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\run_pipeline_contract_smoke_artifacts\\static_analysis.jsonl"
+}

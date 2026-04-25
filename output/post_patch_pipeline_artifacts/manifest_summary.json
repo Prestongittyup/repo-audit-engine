@@ -1,0 +1,25 @@
+{
+  "file_count": 72,
+  "python_file_count": 62,
+  "total_bytes": 500436,
+  "entrypoints": [
+    "repo_audit_engine/__main__.py",
+    "repo_audit_engine/cli.py",
+    "repo_audit_engine/runtime/tracer.py",
+    "src/deterministic_stress_harness.py",
+    "src/layer3_py_ast_resolver.py",
+    "src/stage_adapter.py",
+    "src/verification_authority_gate.py",
+    "src/verification_runner_negative_fixtures.py",
+    "tools/repo_structure_audit.py"
+  ],
+  "language_counts": {
+    "json": 2,
+    "md": 2,
+    "python": 62,
+    "tag": 1,
+    "txt": 1,
+    "unknown": 4
+  },
+  "manifest_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\post_patch_pipeline_artifacts\\manifest.jsonl"
+}

@@ -1,0 +1,8 @@
+{
+  "python_files_analyzed": 59,
+  "function_count": 280,
+  "class_count": 17,
+  "import_count": 359,
+  "call_count": 4025,
+  "analysis_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\debug_run_pipeline_artifacts\\static_analysis.jsonl"
+}

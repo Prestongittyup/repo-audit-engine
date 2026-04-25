@@ -1,0 +1,635 @@
+{
+  "status": "VALID",
+  "critical_failure": false,
+  "system_valid": true,
+  "policy_critical_failure": false,
+  "trust_score": 0.952,
+  "trust_breakdown": {
+    "formula": "trust_score = structural*0.35 + topology*0.25 + resolver*0.25 + semantic*0.15",
+    "trust_score": 0.952,
+    "weights": {
+      "structural_integrity": 0.35,
+      "topology_validation": 0.25,
+      "dependency_consistency": 0.25,
+      "semantic_observations": 0.15
+    },
+    "domain_scores": {
+      "structural_integrity": 1.0,
+      "topology_validation": 0.997,
+      "dependency_consistency": 0.855,
+      "semantic_observations": 0.928
+    },
+    "weighted_contributions": {
+      "structural_integrity": 0.35,
+      "topology_validation": 0.249,
+      "dependency_consistency": 0.214,
+      "semantic_observations": 0.139
+    },
+    "penalties": {
+      "structural_integrity_penalty": 0.0,
+      "topology_validation_penalty": 0.003,
+      "dependency_consistency_penalty": 0.145,
+      "semantic_observations_penalty": 0.072
+    },
+    "scores": {
+      "structural_integrity": 1.0,
+      "dependency_consistency": 0.855,
+      "topology_validation": 0.997,
+      "semantic_observations": 0.928,
+      "structural": 1.0,
+      "reachability": 0.997,
+      "resolver": 0.855,
+      "semantic": 0.928,
+      "trust": 0.952
+    }
+  },
+  "failure_domains": [
+    "dependency_consistency",
+    "semantic_observations",
+    "topology_validation",
+    "structural_integrity"
+  ],
+  "failure_domains_ranked": [
+    {
+      "rank": 1,
+      "domain": "dependency_consistency",
+      "reason": "AST_DI_DIVERGENCE_TRACKED: AST and DI pair sets diverge; this is tracked as architecture drift.",
+      "impact_score": 0.036
+    },
+    {
+      "rank": 2,
+      "domain": "semantic_observations",
+      "reason": "signal_detected",
+      "impact_score": 0.011
+    },
+    {
+      "rank": 3,
+      "domain": "topology_validation",
+      "reason": "CYCLE_POLICY_VIOLATION: Cycle nodes violate cycle allowance policy flags.",
+      "impact_score": 0.001
+    },
+    {
+      "rank": 4,
+      "domain": "structural_integrity",
+      "reason": "Cross-namespace edges detected. This is allowed but should be reviewed for ownership boundaries.",
+      "impact_score": 0.0
+    }
+  ],
+  "failure_analysis": {
+    "primary_cause": "dependency_consistency:AST_DI_DIVERGENCE_TRACKED: AST and DI pair sets diverge; this is tracked as architecture drift.",
+    "ranked_domains": [
+      {
+        "rank": 1,
+        "domain": "dependency_consistency",
+        "reason": "AST_DI_DIVERGENCE_TRACKED: AST and DI pair sets diverge; this is tracked as architecture drift.",
+        "impact_score": 0.036
+      },
+      {
+        "rank": 2,
+        "domain": "semantic_observations",
+        "reason": "signal_detected",
+        "impact_score": 0.011
+      },
+      {
+        "rank": 3,
+        "domain": "topology_validation",
+        "reason": "CYCLE_POLICY_VIOLATION: Cycle nodes violate cycle allowance policy flags.",
+        "impact_score": 0.001
+      },
+      {
+        "rank": 4,
+        "domain": "structural_integrity",
+        "reason": "Cross-namespace edges detected. This is allowed but should be reviewed for ownership boundaries.",
+        "impact_score": 0.0
+      }
+    ],
+    "failure_domains": [
+      "dependency_consistency",
+      "semantic_observations",
+      "topology_validation",
+      "structural_integrity"
+    ],
+    "causal_chain": [
+      {
+        "stage": "structural_integrity",
+        "failure": "Cross-namespace edges detected. This is allowed but should be reviewed for ownership boundaries.",
+        "impact_score": 0.0
+      },
+      {
+        "stage": "dependency_consistency",
+        "failure": "AST_DI_DIVERGENCE_TRACKED: AST and DI pair sets diverge; this is tracked as architecture drift.",
+        "impact_score": 0.036
+      },
+      {
+        "stage": "topology_validation",
+        "failure": "CYCLE_POLICY_VIOLATION: Cycle nodes violate cycle allowance policy flags.",
+        "impact_score": 0.001
+      },
+      {
+        "stage": "semantic_observations",
+        "failure": "signal_detected",
+        "impact_score": 0.011
+      }
+    ],
+    "scores": {
+      "structural_integrity": 1.0,
+      "dependency_consistency": 0.855,
+      "topology_validation": 0.997,
+      "semantic_observations": 0.928,
+      "structural": 1.0,
+      "reachability": 0.997,
+      "resolver": 0.855,
+      "semantic": 0.928,
+      "trust": 0.952
+    }
+  },
+  "policy_decision": {
+    "system_valid": true,
+    "critical_failure": false,
+    "hard_fail_reasons": [],
+    "soft_fail_reasons": [
+      "Cycle policy violations detected (warning-level unless threshold escalates)."
+    ],
+    "thresholds": {
+      "min_trust": 0.4,
+      "max_missing_di_node_ratio": 0.5,
+      "max_unexpected_island_ratio": 0.4
+    },
+    "policy_metrics": {
+      "trust_score": 0.952,
+      "missing_di_node_ratio": 0.0,
+      "unexpected_island_ratio": 0.0
+    }
+  },
+  "metrics": {
+    "node_count": 483,
+    "edge_count": 615,
+    "valid_node_count": 483,
+    "malformed_node_count": 0,
+    "duplicate_node_count": 0,
+    "invalid_namespace_count": 0,
+    "malformed_edge_count": 0,
+    "invalid_edge_type_count": 0,
+    "unresolved_edge_count": 0,
+    "cross_namespace_edge_count": 28,
+    "invalid_edge_count": 0
+  },
+  "issues": [],
+  "warnings": [
+    "Cross-namespace edges detected. This is allowed but should be reviewed for ownership boundaries."
+  ],
+  "detailed_results": {
+    "structural_integrity": {
+      "domain": "structural_integrity",
+      "metrics": {
+        "node_count": 483,
+        "edge_count": 615,
+        "valid_node_count": 483,
+        "malformed_node_count": 0,
+        "duplicate_node_count": 0,
+        "invalid_namespace_count": 0,
+        "malformed_edge_count": 0,
+        "invalid_edge_type_count": 0,
+        "unresolved_edge_count": 0,
+        "cross_namespace_edge_count": 28,
+        "invalid_edge_ratio": 0.0,
+        "malformed_node_ratio": 0.0,
+        "domain_score": 1.0
+      },
+      "issues": [],
+      "warnings": [
+        "Cross-namespace edges detected. This is allowed but should be reviewed for ownership boundaries."
+      ]
+    },
+    "dependency_consistency": {
+      "domain": "dependency_consistency",
+      "metrics": {
+        "resolver_edge_count": 615,
+        "graph_di_edge_count": 567,
+        "resolver_di_edge_count": 567,
+        "resolver_ast_edge_count": 48,
+        "missing_di_nodes_count": 0,
+        "di_nodes_referenced_count": 384,
+        "missing_di_node_ratio": 0.0,
+        "ast_di_divergence_score": 0.723,
+        "ast_di_overlap_score": 0.0,
+        "graph_di_drift_score": 0.0,
+        "resolver_coverage_score": 1.0,
+        "domain_score": 0.855
+      },
+      "issues": [
+        {
+          "domain": "dependency_consistency",
+          "layer": "dependency_consistency",
+          "type": "AST_DI_DIVERGENCE_TRACKED",
+          "severity": "MEDIUM",
+          "message": "AST and DI pair sets diverge; this is tracked as architecture drift.",
+          "count": 615,
+          "sample": [],
+          "sample_nodes": []
+        }
+      ],
+      "warnings": [],
+      "details": {
+        "missing_di_nodes": [],
+        "resolver_di_pairs_sample": [
+          {
+            "from": "canonical://file/repo_audit_engine/cli.py",
+            "to": "canonical://function/repo_audit_engine/cli.py/main"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/runtime/tracer.py",
+            "to": "canonical://function/repo_audit_engine/runtime/tracer.py/main"
+          },
+          {
+            "from": "canonical://file/src/deterministic_stress_harness.py",
+            "to": "canonical://function/src/deterministic_stress_harness.py/main"
+          },
+          {
+            "from": "canonical://file/src/layer3_py_ast_resolver.py",
+            "to": "canonical://function/src/layer3_py_ast_resolver.py/parse_imports"
+          },
+          {
+            "from": "canonical://file/src/stage_adapter.py",
+            "to": "canonical://function/src/stage_adapter.py/main"
+          },
+          {
+            "from": "canonical://file/src/verification_authority_gate.py",
+            "to": "canonical://function/src/verification_authority_gate.py/main"
+          },
+          {
+            "from": "canonical://file/src/verification_runner_negative_fixtures.py",
+            "to": "canonical://function/src/verification_runner_negative_fixtures.py/main"
+          },
+          {
+            "from": "canonical://file/tools/repo_structure_audit.py",
+            "to": "canonical://function/tools/repo_structure_audit.py/main"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/ast_parser.py/parse_python_file",
+            "to": "canonical://function/repo_audit_engine/analysis/ast_parser.py/parse_python_source"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_analyze_python_file",
+            "to": "canonical://class/repo_audit_engine/analysis/static_analyzer.py/_CallVisitor"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_build_manifest_indexes",
+            "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_iter_manifest_records"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_call_name",
+            "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_call_name"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/run_static_analysis",
+            "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_analyze_python_file"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/run_static_analysis",
+            "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_build_manifest_indexes"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/run_static_analysis",
+            "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_iter_manifest_records"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/run_static_analysis",
+            "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_resolve_module"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/visit_Call",
+            "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_call_name"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/classification/dead_code.py/build_dead_code_report_from_artifact",
+            "to": "canonical://function/repo_audit_engine/classification/dead_code.py/build_dead_code_report"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_collect_all_nodes",
+            "to": "canonical://function/repo_audit_engine/classification/engine_v2.py/_normalize_node_id"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_collect_all_nodes",
+            "to": "canonical://function/src/stage_adapter.py/_normalize_path"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_collect_reference_evidence",
+            "to": "canonical://function/repo_audit_engine/classification/engine_v2.py/_normalize_node_id"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_collect_runtime_hits",
+            "to": "canonical://function/repo_audit_engine/classification/engine_v2.py/_node_id_from_runtime_row"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_collect_runtime_reachable_nodes",
+            "to": "canonical://function/repo_audit_engine/classification/engine_v2.py/_normalize_node_id"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_load_manifest_payload",
+            "to": "canonical://function/repo_audit_engine/graph/graph_builder.py/_iter_jsonl"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_load_manifest_payload",
+            "to": "canonical://function/src/stage_adapter.py/_normalize_path"
+          }
+        ],
+        "resolver_ast_pairs_sample": [
+          {
+            "from": "canonical://file/repo_audit_engine/__main__.py",
+            "to": "canonical://file/repo_audit_engine/cli.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/analysis/static_analyzer.py",
+            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/classification/dead_code.py",
+            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/classification/engine_v2.py",
+            "to": "canonical://file/repo_audit_engine/graph/graph_utils.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/classification/engine_v2.py",
+            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/classification/heat_engine.py",
+            "to": "canonical://file/repo_audit_engine/classification/engine_v2.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/classification/heat_engine.py",
+            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/cli.py",
+            "to": "canonical://file/repo_audit_engine/diagnostics/reporter.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/cli.py",
+            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/cli.py",
+            "to": "canonical://file/repo_audit_engine/pipeline/orchestrator.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/cli.py",
+            "to": "canonical://file/repo_audit_engine/pipeline/validation.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/diagnostics/reporter.py",
+            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/graph/graph_builder.py",
+            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/manifest/builder.py",
+            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/manifest/writer.py",
+            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/pipeline/__init__.py",
+            "to": "canonical://file/repo_audit_engine/diagnostics/reporter.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
+            "to": "canonical://file/repo_audit_engine/analysis/static_analyzer.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
+            "to": "canonical://file/repo_audit_engine/classification/dead_code.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
+            "to": "canonical://file/repo_audit_engine/classification/heat_engine.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
+            "to": "canonical://file/repo_audit_engine/diagnostics/reporter.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
+            "to": "canonical://file/repo_audit_engine/graph/graph_builder.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
+            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
+            "to": "canonical://file/repo_audit_engine/manifest/builder.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
+            "to": "canonical://file/repo_audit_engine/pipeline/stages.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
+            "to": "canonical://file/repo_audit_engine/pipeline/validation.py"
+          }
+        ]
+      }
+    },
+    "topology_validation": {
+      "domain": "topology_validation",
+      "metrics": {
+        "entrypoint_count": 9,
+        "entrypoint_present_count": 0,
+        "entrypoint_missing_count": 9,
+        "reachable_node_count": 483,
+        "unreachable_node_count": 0,
+        "unreachable_nodes_ratio": 0.0,
+        "di_edge_count": 567,
+        "di_unreachable_edge_count": 0,
+        "di_unreachable_ratio": 0.0,
+        "cycle_node_count": 11,
+        "cycle_policy_violation_count": 11,
+        "disconnected_island_count": 0,
+        "isolated_module_count": 0,
+        "orphan_subgraph_count": 0,
+        "cyclic_island_count": 0,
+        "unexpected_island_count": 0,
+        "isolated_module_node_count": 0,
+        "orphan_subgraph_node_count": 0,
+        "cyclic_island_node_count": 0,
+        "unexpected_island_node_count": 0,
+        "unexpected_island_ratio": 0.0,
+        "cycle_violation_ratio": 0.023,
+        "domain_score": 0.997
+      },
+      "issues": [
+        {
+          "domain": "topology_validation",
+          "layer": "topology_validation",
+          "type": "CYCLE_POLICY_VIOLATION",
+          "severity": "MEDIUM",
+          "message": "Cycle nodes violate cycle allowance policy flags.",
+          "count": 11,
+          "sample": [
+            "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_call_name",
+            "canonical://function/repo_audit_engine/cli.py/__init__",
+            "canonical://function/repo_audit_engine/core/errors.py/__init__",
+            "canonical://function/repo_audit_engine/pipeline/orchestrator.py/__init__",
+            "canonical://function/tests/test_pipeline_e2e.py/_find_key_paths",
+            "canonical://function/tests/test_pipeline_e2e.py/_is_number",
+            "canonical://function/tests/test_pipeline_e2e.py/_strip_timestamps",
+            "canonical://function/tests/test_pipeline_e2e.py/walk",
+            "canonical://function/tools/repo_structure_audit.py/_normalize_for_hash",
+            "canonical://function/tools/repo_structure_audit.py/_walk",
+            "canonical://function/tools/repo_structure_audit.py/dfs"
+          ],
+          "sample_nodes": [
+            "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_call_name",
+            "canonical://function/repo_audit_engine/cli.py/__init__",
+            "canonical://function/repo_audit_engine/core/errors.py/__init__",
+            "canonical://function/repo_audit_engine/pipeline/orchestrator.py/__init__",
+            "canonical://function/tests/test_pipeline_e2e.py/_find_key_paths",
+            "canonical://function/tests/test_pipeline_e2e.py/_is_number",
+            "canonical://function/tests/test_pipeline_e2e.py/_strip_timestamps",
+            "canonical://function/tests/test_pipeline_e2e.py/walk",
+            "canonical://function/tools/repo_structure_audit.py/_normalize_for_hash",
+            "canonical://function/tools/repo_structure_audit.py/_walk",
+            "canonical://function/tools/repo_structure_audit.py/dfs"
+          ]
+        },
+        {
+          "domain": "topology_validation",
+          "layer": "topology_validation",
+          "type": "MISSING_ENTRYPOINTS",
+          "severity": "MEDIUM",
+          "message": "Some configured entrypoints were not found in canonical nodes.",
+          "count": 9,
+          "sample": [
+            "repo_audit_engine/__main__.py",
+            "repo_audit_engine/cli.py",
+            "repo_audit_engine/runtime/tracer.py",
+            "src/deterministic_stress_harness.py",
+            "src/layer3_py_ast_resolver.py",
+            "src/stage_adapter.py",
+            "src/verification_authority_gate.py",
+            "src/verification_runner_negative_fixtures.py",
+            "tools/repo_structure_audit.py"
+          ],
+          "sample_nodes": [
+            "repo_audit_engine/__main__.py",
+            "repo_audit_engine/cli.py",
+            "repo_audit_engine/runtime/tracer.py",
+            "src/deterministic_stress_harness.py",
+            "src/layer3_py_ast_resolver.py",
+            "src/stage_adapter.py",
+            "src/verification_authority_gate.py",
+            "src/verification_runner_negative_fixtures.py",
+            "tools/repo_structure_audit.py"
+          ]
+        }
+      ],
+      "warnings": [
+        "No active entrypoints available; reachability checks were skipped."
+      ],
+      "details": {
+        "reachability": {
+          "entrypoints_used": [],
+          "entrypoints_missing": [
+            "repo_audit_engine/__main__.py",
+            "repo_audit_engine/cli.py",
+            "repo_audit_engine/runtime/tracer.py",
+            "src/deterministic_stress_harness.py",
+            "src/layer3_py_ast_resolver.py",
+            "src/stage_adapter.py",
+            "src/verification_authority_gate.py",
+            "src/verification_runner_negative_fixtures.py",
+            "tools/repo_structure_audit.py"
+          ],
+          "reachable_nodes": [
+            "canonical://class/repo_audit_engine/analysis/static_analyzer.py/_CallVisitor",
+            "canonical://class/repo_audit_engine/classification/engine_v2.py/EvidenceClassifier",
+            "canonical://class/repo_audit_engine/cli.py/PipelineStageError",
+            "canonical://class/repo_audit_engine/core/config.py/PipelineConfig",
+            "canonical://class/repo_audit_engine/core/errors.py/PipelineError",
+            "canonical://class/repo_audit_engine/core/errors.py/StageError",
+            "canonical://class/repo_audit_engine/core/models.py/StageExecutionRecord",
+            "canonical://class/repo_audit_engine/diagnostics/reporter.py/DiagnosticSynthesisLayer",
+            "canonical://class/repo_audit_engine/graph/graph_models.py/GraphEdge",
+            "canonical://class/repo_audit_engine/graph/graph_models.py/GraphNode",
+            "canonical://class/repo_audit_engine/pipeline/context.py/PipelineContext",
+            "canonical://class/repo_audit_engine/pipeline/orchestrator.py/PipelineExecutionError",
+            "canonical://class/repo_audit_engine/pipeline/validation.py/GraphPrimitives",
+            "canonical://class/repo_audit_engine/pipeline/validation.py/VerificationRunner",
+            "canonical://class/repo_audit_engine/utils/timing.py/Stopwatch",
+            "canonical://class/src/deterministic_stress_harness.py/Scenario",
+            "canonical://class/src/verification_runner.py/VerificationRunner",
+            "canonical://class/tests/test_pipeline_e2e.py/PipelineRunResult",
+            "canonical://class/tools/repo_structure_audit.py/PipelineRunCapture",
+            "canonical://file/repo_audit_engine/__init__.py",
+            "canonical://file/repo_audit_engine/__main__.py",
+            "canonical://file/repo_audit_engine/analysis/__init__.py",
+            "canonical://file/repo_audit_engine/analysis/ast_parser.py",
+            "canonical://file/repo_audit_engine/analysis/static_analyzer.py",
+            "canonical://file/repo_audit_engine/analysis/symbol_extractor.py"
+          ],
+          "unreachable_nodes": [],
+          "di_unreachable_edges": []
+        },
+        "topology": {
+          "cycle_nodes": [
+            "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_call_name",
+            "canonical://function/repo_audit_engine/cli.py/__init__",
+            "canonical://function/repo_audit_engine/core/errors.py/__init__",
+            "canonical://function/repo_audit_engine/pipeline/orchestrator.py/__init__",
+            "canonical://function/tests/test_pipeline_e2e.py/_find_key_paths",
+            "canonical://function/tests/test_pipeline_e2e.py/_is_number",
+            "canonical://function/tests/test_pipeline_e2e.py/_strip_timestamps",
+            "canonical://function/tests/test_pipeline_e2e.py/walk",
+            "canonical://function/tools/repo_structure_audit.py/_normalize_for_hash",
+            "canonical://function/tools/repo_structure_audit.py/_walk",
+            "canonical://function/tools/repo_structure_audit.py/dfs"
+          ],
+          "cycle_policy_violations": [
+            "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_call_name",
+            "canonical://function/repo_audit_engine/cli.py/__init__",
+            "canonical://function/repo_audit_engine/core/errors.py/__init__",
+            "canonical://function/repo_audit_engine/pipeline/orchestrator.py/__init__",
+            "canonical://function/tests/test_pipeline_e2e.py/_find_key_paths",
+            "canonical://function/tests/test_pipeline_e2e.py/_is_number",
+            "canonical://function/tests/test_pipeline_e2e.py/_strip_timestamps",
+            "canonical://function/tests/test_pipeline_e2e.py/walk",
+            "canonical://function/tools/repo_structure_audit.py/_normalize_for_hash",
+            "canonical://function/tools/repo_structure_audit.py/_walk",
+            "canonical://function/tools/repo_structure_audit.py/dfs"
+          ],
+          "isolation_report": []
+        }
+      }
+    },
+    "semantic_observations": {
+      "domain": "semantic_observations",
+      "metrics": {
+        "semantic_note_count": 1,
+        "semantic_warning_count": 0,
+        "ast_di_divergence_score": 0.723,
+        "domain_score": 0.928
+      },
+      "issues": [],
+      "warnings": [],
+      "details": {
+        "notes": [
+          "AST-vs-DI divergence is present and tracked for explainability; it does not directly invalidate the system."
+        ],
+        "island_classification_summary": {
+          "isolated_module": 0,
+          "orphan_subgraph": 0,
+          "cyclic_island": 0
+        },
+        "ast_di_divergence_score": 0.723
+      }
+    }
+  }
+}

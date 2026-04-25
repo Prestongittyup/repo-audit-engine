@@ -1,0 +1,3851 @@
+{
+  "heat_weights": {
+    "runtime_hits_weight": 0.6,
+    "static_reachability_weight": 0.3,
+    "import_frequency_weight": 0.1
+  },
+  "distribution": {
+    "HOT": 3,
+    "WARM": 1,
+    "COLD": 56,
+    "DEAD": 214
+  },
+  "nodes": [
+    {
+      "node_id": "class:repo_audit_engine/cli.py:PipelineStageError",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 8,
+      "ast_references": 8
+    },
+    {
+      "node_id": "class:repo_audit_engine/pipeline/diagnostics.py:DiagnosticSynthesisLayer",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "class:repo_audit_engine/pipeline/staged_pipeline.py:PipelineExecutionError",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "class:repo_audit_engine/pipeline/static_code_analysis.py:_CallVisitor",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "class:repo_audit_engine/pipeline/validation.py:GraphPrimitives",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "class:repo_audit_engine/pipeline/validation.py:VerificationRunner",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "class:src/deterministic_stress_harness.py:Scenario",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "class:src/verification_runner.py:VerificationRunner",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "class:tests/test_pipeline_e2e.py:PipelineRunResult",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "file:repo_audit_engine/__init__.py",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "file:repo_audit_engine/__main__.py",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "file:repo_audit_engine/cli.py",
+      "heat": "COLD",
+      "score": 0.311,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=1"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "file:repo_audit_engine/pipeline/__init__.py",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "file:repo_audit_engine/pipeline/bubble_worker.py",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "file:repo_audit_engine/pipeline/dead_code_probability.py",
+      "heat": "COLD",
+      "score": 0.311,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=1"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "file:repo_audit_engine/pipeline/dependency_graph.py",
+      "heat": "COLD",
+      "score": 0.311,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=1"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "file:repo_audit_engine/pipeline/diagnostics.py",
+      "heat": "COLD",
+      "score": 0.322,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=2"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "file:repo_audit_engine/pipeline/heat_classification.py",
+      "heat": "COLD",
+      "score": 0.311,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=1"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "file:repo_audit_engine/pipeline/manifest_builder.py",
+      "heat": "HOT",
+      "score": 0.342,
+      "evidence": [
+        "runtime_hits=1",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=True",
+        "import_inbound=2"
+      ],
+      "runtime_hits": 1,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "file:repo_audit_engine/pipeline/runtime_bubble.py",
+      "heat": "COLD",
+      "score": 0.311,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=1"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "file:repo_audit_engine/pipeline/staged_pipeline.py",
+      "heat": "COLD",
+      "score": 0.311,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=1"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "file:repo_audit_engine/pipeline/static_code_analysis.py",
+      "heat": "COLD",
+      "score": 0.311,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=1"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "file:repo_audit_engine/pipeline/streaming_report.py",
+      "heat": "COLD",
+      "score": 0.311,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=1"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "file:repo_audit_engine/pipeline/validation.py",
+      "heat": "COLD",
+      "score": 0.322,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=2"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "file:repo_audit_engine/utils/__init__.py",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "file:repo_audit_engine/utils/io.py",
+      "heat": "WARM",
+      "score": 0.4,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=True",
+        "import_inbound=9"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 9,
+      "ast_references": 9
+    },
+    {
+      "node_id": "file:repo_audit_engine/utils/paths.py",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "file:src/deterministic_stress_harness.py",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "file:src/layer3_py_ast_resolver.py",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "file:src/verification_authority_gate.py",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "file:src/verification_runner.py",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "file:src/verification_runner_negative_fixtures.py",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "file:tests/test_pipeline_e2e.py",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:__init__",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_add_common_arguments",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_apply_diagnostics_to_trust",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_build_pipeline_payload",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_build_stage_failure_payload",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_build_stage_input",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_build_summary_status",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_emit_output",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 3,
+      "ast_references": 3
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_ensure_mapping",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 6,
+      "ast_references": 6
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_extract_graph_data",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_extract_policy_valid",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_extract_resolver_data",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_extract_trust_payload",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_load_inputs",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_load_stage_callable",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_parse_bool_flag",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:_run_external_stage",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:build_parser",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:cmd_analyze",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:cmd_demo",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:cmd_run",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:cmd_run_pipeline",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:cmd_validate",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/cli.py:main",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/bubble_worker.py:_frame_depth",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/bubble_worker.py:_normalize_repo_file",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/bubble_worker.py:_run_entrypoint",
+      "heat": "HOT",
+      "score": 0.319,
+      "evidence": [
+        "runtime_hits=1",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=True",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 1,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/bubble_worker.py:main",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/bubble_worker.py:trace_callback",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/bubble_worker.py:tracing_import",
+      "heat": "HOT",
+      "score": 0.6,
+      "evidence": [
+        "runtime_hits=31",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=True",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 31,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/dead_code_probability.py:build_dead_code_report",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/dependency_graph.py:_canonical_id",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/dependency_graph.py:_edge_tuple",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/dependency_graph.py:_iter_jsonl",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/dependency_graph.py:_node_id",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/dependency_graph.py:build_dependency_graph",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_build_causal_chain",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_build_recommendations",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_build_summary",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_build_system_health",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_build_validation_sections",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_centrality_impact",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_clamp01",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 8,
+      "ast_references": 8
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_collapse_duplicate_issues",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_collect_domain_issues",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_collect_issue_counts",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_confidence_score",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_diagnostic_status",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_domain_impact_map",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_domain_score",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_failure_domains",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_failure_frequency",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_graph_centrality",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_health_confidence",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_impact_weight",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_issue_evidence",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_merge_unique",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_normalize_text",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_propagation_path",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_rank_root_causes",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_root_cause_description",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:_to_top_issues",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:run",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/diagnostics.py:run_diagnostics",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/heat_classification.py:_bfs",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/heat_classification.py:_build_adjacency",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/heat_classification.py:classify_code_heat",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/manifest_builder.py:_entrypoint_heuristics",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/manifest_builder.py:_extract_python_metadata",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/manifest_builder.py:_file_sha256",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/manifest_builder.py:_iter_repo_files",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/manifest_builder.py:_load_ignore_patterns",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/manifest_builder.py:_module_name_from_path",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/manifest_builder.py:_safe_read_text",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/manifest_builder.py:_to_posix",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/manifest_builder.py:build_manifest",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/runtime_bubble.py:_copy_repo_into_sandbox",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/runtime_bubble.py:_node_id_from_event",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/runtime_bubble.py:_node_id_from_label",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/runtime_bubble.py:execute_runtime_bubble",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/runtime_bubble.py:ignore_func",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/staged_pipeline.py:__init__",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/staged_pipeline.py:_apply_diagnostics_to_trust",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/staged_pipeline.py:_default_bubble_entrypoints",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/staged_pipeline.py:_mode_order",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/staged_pipeline.py:_stage_failure_payload",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/staged_pipeline.py:run_staged_pipeline",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:__init__",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:_analyze_python_file",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:_call_name",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:_iter_manifest_records",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:_load_module_index",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:_load_symbol_index",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:_resolve_module",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:run_static_analysis",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:visit_AsyncFunctionDef",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:visit_Call",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:visit_ClassDef",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:visit_FunctionDef",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:visit_Import",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/static_code_analysis.py:visit_ImportFrom",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/streaming_report.py:append_stage_event",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/streaming_report.py:build_final_report",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:__init__",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_apply_policy",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_bfs_reachable",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_build_failure_analysis",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_build_graph_primitives",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_build_legacy_status",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_clamp01",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 6,
+      "ast_references": 6
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_classify_island",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_compute_trust_model",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_derive_domain_reason",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_domain_score",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_evaluate_dependency_consistency",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_evaluate_semantic_observations",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_evaluate_structural_integrity",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_evaluate_topology_validation",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_extract_graph",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_find_cycle_nodes",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_get_namespace",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_infer_entrypoints",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_is_cycle_allowed",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_is_entrypoint",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_is_explicitly_isolated",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_is_valid_namespace",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_issue",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 3,
+      "ast_references": 3
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_normalize_node_id",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 4,
+      "ast_references": 4
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_normalize_resolver_edges",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_pair_divergence",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_pair_overlap",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_round3",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 10,
+      "ast_references": 10
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_safe_divide",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 5,
+      "ast_references": 5
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_sort_issues",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 5,
+      "ast_references": 5
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_strip_context",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:_undirected_components",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:edge_sort_key",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:run",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/pipeline/validation.py:run_verification",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/utils/io.py:load_json",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:repo_audit_engine/utils/io.py:write_json",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 9,
+      "ast_references": 9
+    },
+    {
+      "node_id": "function:repo_audit_engine/utils/paths.py:package_root",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:repo_audit_engine/utils/paths.py:project_root",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_build_resolver_data",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_build_scenarios",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_collect_layer_counts",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_compute_edge_stats",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_count_invalid_nonzero_trust",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_count_validation_continuation",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_derive_reachability_validation",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_ensure_list",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 14,
+      "ast_references": 14
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_extract_baseline_metrics",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_extract_first",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_extract_many",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_get_first_breakpoint",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_has_identity_collision",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_load_verification_runner",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_maybe_int",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_normalize_edge",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_read_json",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 7,
+      "ast_references": 7
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_run_layer",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_run_process",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_run_stage",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_safe_read_json",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_scenario1_post_layer4",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_scenario2_post_layer4",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_scenario2_pre_layer4",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_scenario4_pre_layer4",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_scenario5_post_layer4",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_status_from_before_after",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_write_json",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 7,
+      "ast_references": 7
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:_write_repo",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:build_final_report",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:main",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/deterministic_stress_harness.py:run_scenario",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/layer3_py_ast_resolver.py:parse_imports",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_authority_gate.py:_build_resolver_data",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_authority_gate.py:_load_json",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_authority_gate.py:_load_verification_runner",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_authority_gate.py:_safe_float",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_authority_gate.py:main",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:__init__",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_apply_policy",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_bfs_reachable",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_build_failure_analysis",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_build_metrics",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_build_recommendations",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_clamp01",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 3,
+      "ast_references": 3
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_classify_island",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_compute_trust_penalties",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_derive_domain_reason",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_evaluate_dependency_consistency",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_evaluate_semantic_observations",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_evaluate_structural_integrity",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_evaluate_topology_validation",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_find_cycle_nodes",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_is_cycle_allowed",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_is_explicitly_isolated",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_is_valid_namespace",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_issue",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 3,
+      "ast_references": 3
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_iter_sorted_valid_edges",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_normalize_node_id",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 4,
+      "ast_references": 4
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_normalize_resolver_edges",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_pair_divergence",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_pair_overlap",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_pair_set",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_penalty_to_score",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_round3",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 6,
+      "ast_references": 6
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_safe_divide",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 7,
+      "ast_references": 7
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_sort_issues",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 4,
+      "ast_references": 4
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_strip_context",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:_undirected_components",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:run",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner.py:run_verification",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:src/verification_runner_negative_fixtures.py:load_runner_class",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner_negative_fixtures.py:main",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:src/verification_runner_negative_fixtures.py:run_fixture",
+      "heat": "COLD",
+      "score": 0.3,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=True",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_add_blocker",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_find_key_paths",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_find_raw_metric_only_blocks",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_get_baseline_run",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 5,
+      "ast_references": 5
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_get_determinism_runs",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 3,
+      "ast_references": 3
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_has_actionable_guidance",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_is_number",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 3,
+      "ast_references": 3
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_issues_are_ranked",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_normalized_payload",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_pipeline_command",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 1,
+      "ast_references": 1
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_record_check",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 8,
+      "ast_references": 8
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_require_payload",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 4,
+      "ast_references": 4
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_run_pipeline",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:_strip_timestamps",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:test_1_basic_execution",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:test_2_output_contract_validation",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:test_3_no_legacy_fields",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:test_4_determinism_check",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:test_5_signal_quality_check",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:test_6_trust_score_sanity",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:test_7_performance_check",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:test_8_failure_explainability",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:test_9_print_final_structured_report",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 0,
+      "ast_references": 0
+    },
+    {
+      "node_id": "function:tests/test_pipeline_e2e.py:walk",
+      "heat": "DEAD",
+      "score": 0.0,
+      "evidence": [
+        "runtime_hits=0",
+        "reachable_from_entrypoints=False",
+        "reachable_from_hot=False",
+        "import_inbound=0"
+      ],
+      "runtime_hits": 0,
+      "inbound_edges": 2,
+      "ast_references": 2
+    }
+  ]
+}

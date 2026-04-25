@@ -1,0 +1,960 @@
+{
+  "bubble_mode": true,
+  "entrypoint_runs": [
+    {
+      "run_id": "run_001",
+      "entrypoint": "repo_audit_engine/pipeline/manifest_builder.py",
+      "status": "ok",
+      "error": "",
+      "runtime_seconds": 0.122541,
+      "import_count": 22,
+      "call_count": 194
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:<string>",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "file:repo_audit_engine/pipeline/manifest_builder.py",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen _collections_abc>:clear",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:__enter__",
+      "kind": "runtime_observed",
+      "hit_count": 6
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:__exit__",
+      "kind": "runtime_observed",
+      "hit_count": 6
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:__init__",
+      "kind": "runtime_observed",
+      "hit_count": 5
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:__new__",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:_call_with_frames_removed",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:_find_and_load",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:_find_and_load_unlocked",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:_find_spec",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:_get_module_lock",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:_handle_fromlist",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:_init_module_attrs",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:_load_unlocked",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:_new_module",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:_verbose_message",
+      "kind": "runtime_observed",
+      "hit_count": 21
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:acquire",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:cached",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:cb",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:find_spec",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:has_location",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:module_from_spec",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:parent",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:release",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:remove",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap>:setdefault",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:<genexpr>",
+      "kind": "runtime_observed",
+      "hit_count": 6
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:__init__",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_check_name_wrapper",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_classify_pyc",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_compile_bytecode",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_get_cached",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_get_spec",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_path_abspath",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_path_importer_cache",
+      "kind": "runtime_observed",
+      "hit_count": 5
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_path_is_mode_type",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_path_isabs",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_path_isdir",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_path_isfile",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_path_join",
+      "kind": "runtime_observed",
+      "hit_count": 20
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_path_split",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_path_stat",
+      "kind": "runtime_observed",
+      "hit_count": 8
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_relax_case",
+      "kind": "runtime_observed",
+      "hit_count": 4
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_unpack_uint32",
+      "kind": "runtime_observed",
+      "hit_count": 3
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:_validate_timestamp_pyc",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:cache_from_source",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:create_module",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:exec_module",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:find_spec",
+      "kind": "runtime_observed",
+      "hit_count": 5
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:get_code",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:get_data",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:get_filename",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:path_hook_for_FileFinder",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:path_stats",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen importlib._bootstrap_external>:spec_from_file_location",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen ntpath>:abspath",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen ntpath>:isabs",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen ntpath>:join",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen ntpath>:normcase",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen ntpath>:realpath",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen os>:fsdecode",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen runpy>:__enter__",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen runpy>:__exit__",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen runpy>:__init__",
+      "kind": "runtime_observed",
+      "hit_count": 2
+    },
+    {
+      "id": "function:<frozen runpy>:_get_code_from_file",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen runpy>:_run_code",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen runpy>:_run_module_code",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen runpy>:run_path",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen zipimport>:__init__",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:<frozen zipimport>:_read_directory",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:repo_audit_engine/pipeline/bubble_worker.py:_run_entrypoint",
+      "kind": "runtime_observed",
+      "hit_count": 1
+    },
+    {
+      "id": "function:repo_audit_engine/pipeline/bubble_worker.py:tracing_import",
+      "kind": "runtime_observed",
+      "hit_count": 31
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:repo_audit_engine/pipeline/manifest_builder.py",
+      "target": "function:repo_audit_engine/pipeline/bubble_worker.py:tracing_import",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:__enter__",
+      "target": "function:<frozen importlib._bootstrap>:_get_module_lock",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:__enter__",
+      "target": "function:<frozen importlib._bootstrap>:acquire",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:__enter__",
+      "target": "function:<frozen importlib._bootstrap>:setdefault",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:__exit__",
+      "target": "function:<frozen importlib._bootstrap>:release",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_call_with_frames_removed",
+      "target": "file:<string>",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_call_with_frames_removed",
+      "target": "function:<frozen _collections_abc>:clear",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_call_with_frames_removed",
+      "target": "function:repo_audit_engine/pipeline/bubble_worker.py:tracing_import",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_find_and_load",
+      "target": "function:<frozen importlib._bootstrap>:__enter__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_find_and_load",
+      "target": "function:<frozen importlib._bootstrap>:__exit__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_find_and_load",
+      "target": "function:<frozen importlib._bootstrap>:__init__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_find_and_load",
+      "target": "function:<frozen importlib._bootstrap>:_find_and_load_unlocked",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_find_and_load",
+      "target": "function:<frozen importlib._bootstrap>:cb",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_find_and_load_unlocked",
+      "target": "function:<frozen importlib._bootstrap>:_find_spec",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_find_and_load_unlocked",
+      "target": "function:<frozen importlib._bootstrap>:_load_unlocked",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_find_spec",
+      "target": "function:<frozen importlib._bootstrap>:__enter__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_find_spec",
+      "target": "function:<frozen importlib._bootstrap>:__exit__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_find_spec",
+      "target": "function:<frozen importlib._bootstrap>:find_spec",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_find_spec",
+      "target": "function:<frozen importlib._bootstrap_external>:find_spec",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_get_module_lock",
+      "target": "function:<frozen importlib._bootstrap>:__init__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_init_module_attrs",
+      "target": "function:<frozen importlib._bootstrap>:cached",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_init_module_attrs",
+      "target": "function:<frozen importlib._bootstrap>:has_location",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_init_module_attrs",
+      "target": "function:<frozen importlib._bootstrap>:parent",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_load_unlocked",
+      "target": "function:<frozen importlib._bootstrap>:_verbose_message",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_load_unlocked",
+      "target": "function:<frozen importlib._bootstrap>:module_from_spec",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:_load_unlocked",
+      "target": "function:<frozen importlib._bootstrap_external>:exec_module",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:acquire",
+      "target": "function:<frozen importlib._bootstrap>:__enter__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:acquire",
+      "target": "function:<frozen importlib._bootstrap>:__exit__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:acquire",
+      "target": "function:<frozen importlib._bootstrap>:__init__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:acquire",
+      "target": "function:<frozen importlib._bootstrap>:remove",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:cached",
+      "target": "function:<frozen importlib._bootstrap_external>:_get_cached",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:find_spec",
+      "target": "function:<frozen importlib._bootstrap>:_call_with_frames_removed",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:module_from_spec",
+      "target": "function:<frozen importlib._bootstrap>:_init_module_attrs",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:module_from_spec",
+      "target": "function:<frozen importlib._bootstrap>:_new_module",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:module_from_spec",
+      "target": "function:<frozen importlib._bootstrap_external>:create_module",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:setdefault",
+      "target": "function:<frozen importlib._bootstrap>:__init__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap>:setdefault",
+      "target": "function:<frozen importlib._bootstrap>:__new__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_check_name_wrapper",
+      "target": "function:<frozen importlib._bootstrap_external>:get_filename",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_classify_pyc",
+      "target": "function:<frozen importlib._bootstrap_external>:_unpack_uint32",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_compile_bytecode",
+      "target": "function:<frozen importlib._bootstrap>:_verbose_message",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_get_cached",
+      "target": "function:<frozen importlib._bootstrap_external>:cache_from_source",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_get_spec",
+      "target": "function:<frozen importlib._bootstrap_external>:__init__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_get_spec",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_importer_cache",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_get_spec",
+      "target": "function:<frozen importlib._bootstrap_external>:find_spec",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_get_spec",
+      "target": "function:<frozen importlib._bootstrap_external>:spec_from_file_location",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_path_abspath",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_isabs",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_path_is_mode_type",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_stat",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_path_isdir",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_is_mode_type",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_path_isfile",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_is_mode_type",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_path_split",
+      "target": "function:<frozen importlib._bootstrap_external>:<genexpr>",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:_validate_timestamp_pyc",
+      "target": "function:<frozen importlib._bootstrap_external>:_unpack_uint32",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:cache_from_source",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_join",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:cache_from_source",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_split",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:exec_module",
+      "target": "function:<frozen importlib._bootstrap>:_call_with_frames_removed",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:exec_module",
+      "target": "function:<frozen importlib._bootstrap_external>:get_code",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:find_spec",
+      "target": "function:<frozen importlib._bootstrap>:_verbose_message",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:find_spec",
+      "target": "function:<frozen importlib._bootstrap_external>:_get_spec",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:find_spec",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_isfile",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:find_spec",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_join",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:find_spec",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_stat",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:find_spec",
+      "target": "function:<frozen importlib._bootstrap_external>:_relax_case",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:get_code",
+      "target": "function:<frozen importlib._bootstrap>:_verbose_message",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:get_code",
+      "target": "function:<frozen importlib._bootstrap_external>:_check_name_wrapper",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:get_code",
+      "target": "function:<frozen importlib._bootstrap_external>:_classify_pyc",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:get_code",
+      "target": "function:<frozen importlib._bootstrap_external>:_compile_bytecode",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:get_code",
+      "target": "function:<frozen importlib._bootstrap_external>:_validate_timestamp_pyc",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:get_code",
+      "target": "function:<frozen importlib._bootstrap_external>:cache_from_source",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:get_code",
+      "target": "function:<frozen importlib._bootstrap_external>:get_data",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:get_code",
+      "target": "function:<frozen importlib._bootstrap_external>:path_stats",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:get_data",
+      "target": "function:repo_audit_engine/pipeline/bubble_worker.py:tracing_import",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:path_hook_for_FileFinder",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_isdir",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:path_stats",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_stat",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:spec_from_file_location",
+      "target": "function:<frozen importlib._bootstrap>:__init__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen importlib._bootstrap_external>:spec_from_file_location",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_abspath",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen ntpath>:realpath",
+      "target": "function:<frozen ntpath>:isabs",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen ntpath>:realpath",
+      "target": "function:<frozen ntpath>:join",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen ntpath>:realpath",
+      "target": "function:<frozen ntpath>:normcase",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:_get_code_from_file",
+      "target": "function:<frozen ntpath>:abspath",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:_get_code_from_file",
+      "target": "function:repo_audit_engine/pipeline/bubble_worker.py:tracing_import",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:_run_code",
+      "target": "file:repo_audit_engine/pipeline/manifest_builder.py",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:_run_module_code",
+      "target": "function:<frozen runpy>:__enter__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:_run_module_code",
+      "target": "function:<frozen runpy>:__exit__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:_run_module_code",
+      "target": "function:<frozen runpy>:__init__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:_run_module_code",
+      "target": "function:<frozen runpy>:_run_code",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:run_path",
+      "target": "function:<frozen importlib._bootstrap_external>:path_hook_for_FileFinder",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:run_path",
+      "target": "function:<frozen os>:fsdecode",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:run_path",
+      "target": "function:<frozen runpy>:_get_code_from_file",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:run_path",
+      "target": "function:<frozen runpy>:_run_module_code",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:run_path",
+      "target": "function:<frozen zipimport>:__init__",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen runpy>:run_path",
+      "target": "function:repo_audit_engine/pipeline/bubble_worker.py:tracing_import",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen zipimport>:__init__",
+      "target": "function:<frozen importlib._bootstrap_external>:_path_stat",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen zipimport>:__init__",
+      "target": "function:<frozen zipimport>:_read_directory",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:<frozen zipimport>:_read_directory",
+      "target": "function:repo_audit_engine/pipeline/bubble_worker.py:tracing_import",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:repo_audit_engine/pipeline/bubble_worker.py:_run_entrypoint",
+      "target": "function:<frozen ntpath>:realpath",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:repo_audit_engine/pipeline/bubble_worker.py:_run_entrypoint",
+      "target": "function:<frozen runpy>:run_path",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:repo_audit_engine/pipeline/bubble_worker.py:tracing_import",
+      "target": "function:<frozen importlib._bootstrap>:_find_and_load",
+      "type": "RUNTIME_CALL"
+    },
+    {
+      "source": "function:repo_audit_engine/pipeline/bubble_worker.py:tracing_import",
+      "target": "function:<frozen importlib._bootstrap>:_handle_fromlist",
+      "type": "RUNTIME_CALL"
+    }
+  ],
+  "node_hits": {
+    "file:<string>": 1,
+    "file:repo_audit_engine/pipeline/manifest_builder.py": 1,
+    "function:<frozen _collections_abc>:clear": 2,
+    "function:<frozen importlib._bootstrap>:__enter__": 6,
+    "function:<frozen importlib._bootstrap>:__exit__": 6,
+    "function:<frozen importlib._bootstrap>:__init__": 5,
+    "function:<frozen importlib._bootstrap>:__new__": 1,
+    "function:<frozen importlib._bootstrap>:_call_with_frames_removed": 2,
+    "function:<frozen importlib._bootstrap>:_find_and_load": 1,
+    "function:<frozen importlib._bootstrap>:_find_and_load_unlocked": 1,
+    "function:<frozen importlib._bootstrap>:_find_spec": 1,
+    "function:<frozen importlib._bootstrap>:_get_module_lock": 1,
+    "function:<frozen importlib._bootstrap>:_handle_fromlist": 2,
+    "function:<frozen importlib._bootstrap>:_init_module_attrs": 1,
+    "function:<frozen importlib._bootstrap>:_load_unlocked": 1,
+    "function:<frozen importlib._bootstrap>:_new_module": 1,
+    "function:<frozen importlib._bootstrap>:_verbose_message": 21,
+    "function:<frozen importlib._bootstrap>:acquire": 1,
+    "function:<frozen importlib._bootstrap>:cached": 2,
+    "function:<frozen importlib._bootstrap>:cb": 1,
+    "function:<frozen importlib._bootstrap>:find_spec": 2,
+    "function:<frozen importlib._bootstrap>:has_location": 1,
+    "function:<frozen importlib._bootstrap>:module_from_spec": 1,
+    "function:<frozen importlib._bootstrap>:parent": 1,
+    "function:<frozen importlib._bootstrap>:release": 1,
+    "function:<frozen importlib._bootstrap>:remove": 1,
+    "function:<frozen importlib._bootstrap>:setdefault": 1,
+    "function:<frozen importlib._bootstrap_external>:<genexpr>": 6,
+    "function:<frozen importlib._bootstrap_external>:__init__": 1,
+    "function:<frozen importlib._bootstrap_external>:_check_name_wrapper": 1,
+    "function:<frozen importlib._bootstrap_external>:_classify_pyc": 1,
+    "function:<frozen importlib._bootstrap_external>:_compile_bytecode": 1,
+    "function:<frozen importlib._bootstrap_external>:_get_cached": 1,
+    "function:<frozen importlib._bootstrap_external>:_get_spec": 2,
+    "function:<frozen importlib._bootstrap_external>:_path_abspath": 1,
+    "function:<frozen importlib._bootstrap_external>:_path_importer_cache": 5,
+    "function:<frozen importlib._bootstrap_external>:_path_is_mode_type": 2,
+    "function:<frozen importlib._bootstrap_external>:_path_isabs": 1,
+    "function:<frozen importlib._bootstrap_external>:_path_isdir": 1,
+    "function:<frozen importlib._bootstrap_external>:_path_isfile": 1,
+    "function:<frozen importlib._bootstrap_external>:_path_join": 20,
+    "function:<frozen importlib._bootstrap_external>:_path_split": 2,
+    "function:<frozen importlib._bootstrap_external>:_path_stat": 8,
+    "function:<frozen importlib._bootstrap_external>:_relax_case": 4,
+    "function:<frozen importlib._bootstrap_external>:_unpack_uint32": 3,
+    "function:<frozen importlib._bootstrap_external>:_validate_timestamp_pyc": 1,
+    "function:<frozen importlib._bootstrap_external>:cache_from_source": 2,
+    "function:<frozen importlib._bootstrap_external>:create_module": 1,
+    "function:<frozen importlib._bootstrap_external>:exec_module": 1,
+    "function:<frozen importlib._bootstrap_external>:find_spec": 5,
+    "function:<frozen importlib._bootstrap_external>:get_code": 1,
+    "function:<frozen importlib._bootstrap_external>:get_data": 1,
+    "function:<frozen importlib._bootstrap_external>:get_filename": 1,
+    "function:<frozen importlib._bootstrap_external>:path_hook_for_FileFinder": 1,
+    "function:<frozen importlib._bootstrap_external>:path_stats": 1,
+    "function:<frozen importlib._bootstrap_external>:spec_from_file_location": 1,
+    "function:<frozen ntpath>:abspath": 1,
+    "function:<frozen ntpath>:isabs": 1,
+    "function:<frozen ntpath>:join": 1,
+    "function:<frozen ntpath>:normcase": 1,
+    "function:<frozen ntpath>:realpath": 1,
+    "function:<frozen os>:fsdecode": 2,
+    "function:<frozen runpy>:__enter__": 2,
+    "function:<frozen runpy>:__exit__": 2,
+    "function:<frozen runpy>:__init__": 2,
+    "function:<frozen runpy>:_get_code_from_file": 1,
+    "function:<frozen runpy>:_run_code": 1,
+    "function:<frozen runpy>:_run_module_code": 1,
+    "function:<frozen runpy>:run_path": 1,
+    "function:<frozen zipimport>:__init__": 1,
+    "function:<frozen zipimport>:_read_directory": 1,
+    "function:repo_audit_engine/pipeline/bubble_worker.py:_run_entrypoint": 1,
+    "function:repo_audit_engine/pipeline/bubble_worker.py:tracing_import": 31
+  },
+  "module_hits": {
+    "__main__": 1,
+    "collections.abc": 1,
+    "importlib._bootstrap": 1,
+    "importlib._bootstrap_external": 1,
+    "namedtuple_ModuleInfo": 1,
+    "ntpath": 1,
+    "os": 1,
+    "runpy": 1,
+    "zipimport": 1
+  },
+  "summary": {
+    "run_count": 1,
+    "call_event_count": 194,
+    "import_event_count": 22,
+    "timeout_count": 0
+  }
+}

@@ -94,16 +94,16 @@ def _run_layer(
     command_name = args[0]
     command: List[str]
 
-    script_map = {
-        "layer1-inventory": root / "src" / "layer1_file_inventory.ps1",
-        "layer2-canonical": root / "src" / "layer2_canonical_identity.ps1",
-        "layer3-resolve": root / "src" / "layer3_multi_resolver.ps1",
-        "layer4-graph": root / "src" / "layer4_unified_graph.ps1",
-        "layer5-validate": root / "src" / "layer5_graph_validation.ps1",
-        "validate-graph-structure": root / "src" / "graph_structural_validation.ps1",
-        "compare-resolvers": root / "src" / "resolver_consistency_check.ps1",
-        "semantic-validate": root / "src" / "semantic_graph_validation.ps1",
-        "aggregate-trust": root / "src" / "system_trust_aggregation.ps1",
+    adapter_commands = {
+        "layer1-inventory",
+        "layer2-canonical",
+        "layer3-resolve",
+        "layer4-graph",
+        "layer5-validate",
+        "validate-graph-structure",
+        "compare-resolvers",
+        "semantic-validate",
+        "aggregate-trust",
     }
 
     def _extract_first(stage_args: List[str], name: str) -> Optional[str]:
@@ -121,8 +121,11 @@ def _run_layer(
                 values.append(stage_args[i + 1])
         return values
 
-    if command_name in script_map:
-        command = ["pwsh", "-NoProfile", "-File", str(script_map[command_name])] + args[1:]
+    if command_name in adapter_commands:
+        command = [
+            sys.executable,
+            str(root / "src" / "stage_adapter.py"),
+        ] + args
     elif command_name == "verify-authority":
         graph_path = _extract_first(args, "-GraphPath")
         edges_path = _extract_first(args, "-EdgesPath")
@@ -148,7 +151,12 @@ def _run_layer(
         for ep in entrypoints:
             command.extend(["--entrypoint", ep])
     else:
-        command = ["pwsh", "-NoProfile", "-File", str(root / "run.ps1")] + args
+        command = [
+            sys.executable,
+            "-m",
+            "repo_audit_engine",
+            command_name,
+        ] + args[1:]
 
     result = _run_process(command=command, cwd=root)
     result["stage"] = stage_name

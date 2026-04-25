@@ -1,155 +1,152 @@
 # Repo Audit Engine
 
-Deterministic repository audit engine with a strict pipeline control plane.
+Deterministic repository audit engine with a Python-first execution path.
 
-## What This Enforces
+## Current Stage Pipeline
 
-1. Single state model only.
-Every stage performs a deterministic transition from SystemState vN to SystemState vN+1.
+The staged orchestrator executes in this order:
 
-2. One executable path.
-The orchestration pipeline is the only supported CLI execution path.
+1. `manifest`
+2. `static`
+3. `graph`
+4. `bubble`
+5. `classification`
+6. `verification`
+7. `diagnostics`
+8. `report`
 
-3. Centralized trust.
-Trust is computed once from the final SystemState, not incrementally across layers.
+Source of truth: `repo_audit_engine/pipeline/stages.py` and `repo_audit_engine/pipeline/orchestrator.py`.
 
-4. Centralized entrypoint resolution.
-Entrypoints are resolved by one module only.
+## CLI Commands
 
-5. Single report emitter.
-Only one final report is emitted for each successful run.
+Run commands through the module entrypoint:
 
-## CLI Surface
-
-The router intentionally exposes only:
-
-- status
-- init
-- run-pipeline
-
-### Standard Run
-
-```powershell
-.\run.ps1 run-pipeline -RepoPath <repoRoot>
+```bash
+python -m repo_audit_engine <command> [options]
 ```
 
-### Run With Explicit Options
+Available commands:
 
-```powershell
-.\run.ps1 run-pipeline `
-    -RepoPath <repoRoot> `
-    -OutputPath <runDir> `
-    -Entrypoints <canonicalId1>,<canonicalId2> `
-    -HeuristicOnlyThreshold 0 `
-    -DriftThreshold 0.0
+- `run-pipeline`
+- `run`
+- `validate`
+- `analyze`
+- `demo`
+
+## Common Workflows
+
+### 1) Full Contract + Artifacts (`run-pipeline`)
+
+```bash
+python -m repo_audit_engine run-pipeline \
+    --repo <repoRoot> \
+    --output output/contract.json \
+    --bubble-mode true
 ```
 
-Direct stage commands are intentionally blocked in the router.
+Behavior:
 
-## Output Contract
+- Writes the compact contract to `output/contract.json`.
+- Writes stage artifacts to `output/contract_artifacts/`.
 
-Each successful pipeline run writes exactly two public artifacts in the run directory:
+### 2) Staged Artifact Execution (`run`)
 
-- system_state.json
-- final_report.json
-
-No layer-level final report artifacts are emitted.
-
-## Core Control-Plane Modules
-
-- src/pipeline_control_plane.ps1
-Pipeline orchestrator and stage transitions.
-
-- src/system_state.ps1
-SystemState contract, versioning, transition helper, and persistence.
-
-- src/entrypoint_resolver.ps1
-Canonical entrypoint resolution in one place.
-
-- src/trust_from_state.ps1
-Single trust function based on the final SystemState.
-
-- src/final_report_emitter.ps1
-Single final report writer.
-
-## Entrypoint Resolution Policy
-
-Entrypoints are resolved in src/entrypoint_resolver.ps1 only, using this order:
-
-1. Explicit entrypoints provided to run-pipeline.
-2. Canonical node metadata (is_entrypoint, role, tags).
-
-No fallback inference is permitted in downstream semantic, query, or authority layers.
-
-## Trust Policy
-
-Trust is computed once, at the end of orchestration:
-
-- Trust = function(final SystemState)
-- Implementation: src/trust_from_state.ps1
-
-## Validation Workflow
-
-### Smoke Test
-
-```powershell
-.\run.ps1 run-pipeline -RepoPath .\.tmp\authority_pass_repo -OutputPath .\output\runs\smoke_state_model -DebugMode
+```bash
+python -m repo_audit_engine run \
+    --repo <repoRoot> \
+    --output output/full_run \
+    --mode full-pipeline \
+    --bubble-mode true
 ```
 
-Expected result:
+Mode options:
 
-- command returns SUCCESS
-- output\runs\smoke_state_model contains only final_report.json and system_state.json
+- `manifest-only`
+- `static-only` (alias: `static-analysis`)
+- `bubble-run`
+- `full-pipeline`
 
-### Deterministic Stress Harness
+### 3) Validation and Analysis
 
-```powershell
-python .\src\deterministic_stress_harness.py
-```
+Validate only:
 
-Report output:
-
-- output\deterministic_stress_harness_report.json
-
-## What Is Intentionally Disabled
-
-- Direct CLI execution of internal graph/resolver/semantic/trust stage scripts through run.ps1.
-- Layer-level report emitters.
-- Parallel JSON state models outside SystemState.
-
-## Python Phase 1 Validation And Diagnostics
-
-The migration now includes a Python package entrypoint for deterministic validation and diagnostics:
-
-- repo_audit_engine/cli.py
-- repo_audit_engine/pipeline/validation.py
-- repo_audit_engine/pipeline/diagnostics.py
-
-### Validate Only (Layer5-Compatible Output)
-
-```powershell
-python .\repo_audit_engine\cli.py validate `
-    --graph-path .\repo_audit_engine\examples\mock_graph.json `
-    --resolver-path .\repo_audit_engine\examples\mock_resolver.json `
-    --entrypoint canonical://service/App `
-    --output .\output\phase1_validation.json `
+```bash
+python -m repo_audit_engine validate \
+    --graph-path repo_audit_engine/examples/mock_graph.json \
+    --resolver-path repo_audit_engine/examples/mock_resolver.json \
+    --entrypoint canonical://service/App \
+    --output output/validation.json \
     --pretty
 ```
 
-### Combined Validation + Diagnostics
+Validation + diagnostics:
 
-```powershell
-python .\repo_audit_engine\cli.py analyze `
-    --graph-path .\repo_audit_engine\examples\mock_graph.json `
-    --resolver-path .\repo_audit_engine\examples\mock_resolver.json `
-    --entrypoint canonical://service/App `
-    --output .\output\phase1_analysis.json `
-    --include-validation `
+```bash
+python -m repo_audit_engine analyze \
+    --graph-path repo_audit_engine/examples/mock_graph.json \
+    --resolver-path repo_audit_engine/examples/mock_resolver.json \
+    --entrypoint canonical://service/App \
+    --output output/analysis.json \
+    --include-validation \
     --pretty
 ```
 
-### Demo Command
+Demo:
 
-```powershell
-python .\repo_audit_engine\cli.py demo --output .\output\phase1_demo.json --pretty
+```bash
+python -m repo_audit_engine demo --output output/demo.json --pretty
 ```
+
+## Runtime Bubble Truth
+
+`bubble` mode executes selected entrypoints in a sandbox and streams runtime events. It is not a replacement for static analysis.
+
+- Static stages build structural dependency evidence (`manifest`, `static`, `graph`).
+- Bubble stage captures observed runtime behavior (`runtime_trace.jsonl`, `execution_flow_graph.json`).
+- Verification computes trust and `system_valid` from validation outputs.
+- Diagnostics annotate trust context and do not modify the trust score or `system_valid`.
+
+## Artifact Outputs
+
+For full staged runs, the output directory contains:
+
+- `manifest.jsonl`
+- `manifest_summary.json`
+- `static_analysis.jsonl`
+- `static_analysis_summary.json`
+- `dependency_graph.json`
+- `dependency_graph_summary.json`
+- `runtime_trace.jsonl`
+- `execution_flow_graph.json`
+- `heat_classification.json`
+- `dead_code_report.json`
+- `validation_result.json`
+- `final_report.json`
+- `pipeline_events.jsonl`
+- `pipeline_contract.json`
+
+## Streaming Architecture
+
+Runtime tracing is streamed as JSONL, then aggregated:
+
+- `repo_audit_engine/runtime/tracer.py` emits line-oriented event records.
+- `repo_audit_engine/runtime/bubble_executor.py` streams and aggregates events into execution flow artifacts.
+- `pipeline_events.jsonl` records deterministic stage transitions.
+
+## Deterministic Repository Audit
+
+Run repository-level architecture and determinism checks:
+
+```bash
+python tools/repo_structure_audit.py \
+    --repo . \
+    --output-json output/repo_audit_report.json \
+    --output-md output/repo_audit_report.md \
+    --bubble-mode true
+```
+
+## Known Limitations
+
+- Runtime tracing is bounded by `--timeout-seconds`, `--max-events`, `--max-depth`, and `--memory-cap-mb`.
+- Entrypoint quality influences runtime coverage: missing or narrow entrypoints reduce observed execution breadth.
+- Static resolution is conservative for dynamic import/call patterns.
