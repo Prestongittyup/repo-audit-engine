@@ -106,6 +106,46 @@ python -m repo_audit_engine demo --output output/demo.json --pretty
 - Verification computes trust and `system_valid` from validation outputs.
 - Diagnostics annotate trust context and do not modify the trust score or `system_valid`.
 
+## Evidence-Based Classification (v2)
+
+The `classification` stage uses `EvidenceClassifier` and is deterministic and evidence-driven.
+
+Evidence signals used per node:
+
+- Runtime call hits from `runtime_trace.jsonl` (`event == "call"` only).
+- Runtime reachability from BFS over `execution_flow_graph.json` edges of type `RUNTIME_CALL`.
+- Executable references from dependency edges of type `CALL`.
+- Non-executable references from dependency edges of all other types.
+
+Score model:
+
+- Start at `0.0`.
+- Add `1.0` if `runtime_hits > 0`.
+- Add `0.7` if `reachable_from_runtime` is true.
+- Add `0.5` if `executable_references > 0`.
+- Add `0.2` if `non_executable_references > 0`.
+- Clamp to `[0.0, 1.0]` and round to 3 decimals.
+
+Score thresholds:
+
+- `HOT` if score `>= 0.8`
+- `WARM` if score `>= 0.3`
+- `COLD` if score `>= 0.1`
+- `DEAD` otherwise
+
+Hard deterministic guards:
+
+- If `runtime_hits == 0` and node is not runtime-reachable, force `DEAD`.
+- If node is `DEAD` but has executable references, reclassify to `COLD`.
+- If node is `HOT` but has zero runtime hits, downgrade to `WARM`.
+- `DEAD` nodes may still carry non-executable references; this is tracked as weak signal and not treated as executable contradiction.
+
+Output contract (`heat_classification.json`):
+
+- Top-level: `classifier`, `schema_version`, `distribution`, `nodes`
+- Node-level: `node_id`/`id`, `classification`/`heat`, `score`, `evidence`
+- Compatibility fields retained for downstream tooling: `runtime_hits`, `inbound_edges`, `outbound_edges`, `executable_references`, `non_executable_references`, `ast_references`
+
 ## Artifact Outputs
 
 For full staged runs, the output directory contains:
@@ -144,6 +184,19 @@ python tools/repo_structure_audit.py \
     --output-md output/repo_audit_report.md \
     --bubble-mode true
 ```
+
+Classification-focused validation checks:
+
+```bash
+python -m pytest -q tests/test_classification_engine_v2.py --import-mode=importlib
+python -m pytest -q tests --ignore=output --import-mode=importlib
+```
+
+In `output/repo_audit_report.json`, classification consistency is reported under:
+
+- `truth_validation_layer.classification_quality.passed`
+- `truth_validation_layer.classification_quality.dead_referenced_count`
+- `truth_validation_layer.classification_quality.dead_non_executable_count`
 
 ## Known Limitations
 
