@@ -1,10 +1,12 @@
 # Repo Audit Engine
 
-Deterministic repository audit engine with a Python-first execution path.
+Deterministic repository audit engine with a Python-first execution pipeline.
 
-## Current Stage Pipeline
+The project combines static graph construction, sandboxed runtime evidence, deterministic classification, and a strict verification policy to produce a trust score and a binary `system_valid` verdict.
 
-The staged orchestrator executes in this order:
+## Stage Pipeline
+
+The staged orchestrator runs in this order:
 
 1. `manifest`
 2. `static`
@@ -15,11 +17,14 @@ The staged orchestrator executes in this order:
 7. `diagnostics`
 8. `report`
 
-Source of truth: `repo_audit_engine/pipeline/stages.py` and `repo_audit_engine/pipeline/orchestrator.py`.
+Source of truth:
 
-## CLI Commands
+- `repo_audit_engine/pipeline/stages.py`
+- `repo_audit_engine/pipeline/orchestrator.py`
 
-Run commands through the module entrypoint:
+## CLI Overview
+
+Run commands with:
 
 ```bash
 python -m repo_audit_engine <command> [options]
@@ -33,9 +38,7 @@ Available commands:
 - `analyze`
 - `demo`
 
-## Common Workflows
-
-### 1) Full Contract + Artifacts (`run-pipeline`)
+### `run-pipeline` (full contract + artifacts)
 
 ```bash
 python -m repo_audit_engine run-pipeline \
@@ -46,10 +49,10 @@ python -m repo_audit_engine run-pipeline \
 
 Behavior:
 
-- Writes the compact contract to `output/contract.json`.
-- Writes stage artifacts to `output/contract_artifacts/`.
+- Writes compact contract JSON to `--output`.
+- Writes full staged artifacts to `<output_stem>_artifacts/`.
 
-### 2) Staged Artifact Execution (`run`)
+### `run` (staged artifact execution)
 
 ```bash
 python -m repo_audit_engine run \
@@ -59,16 +62,14 @@ python -m repo_audit_engine run \
     --bubble-mode true
 ```
 
-Mode options:
+`--mode` options:
 
 - `manifest-only`
 - `static-only` (alias: `static-analysis`)
 - `bubble-run`
 - `full-pipeline`
 
-### 3) Validation and Analysis
-
-Validate only:
+### `validate` (verification only)
 
 ```bash
 python -m repo_audit_engine validate \
@@ -79,7 +80,7 @@ python -m repo_audit_engine validate \
     --pretty
 ```
 
-Validation + diagnostics:
+### `analyze` (verification + diagnostics)
 
 ```bash
 python -m repo_audit_engine analyze \
@@ -91,64 +92,96 @@ python -m repo_audit_engine analyze \
     --pretty
 ```
 
-Demo:
+### `demo`
 
 ```bash
 python -m repo_audit_engine demo --output output/demo.json --pretty
 ```
 
-## Runtime Bubble Truth
+## Runtime Bubble and Scenario Planning
 
-`bubble` mode executes selected entrypoints in a sandbox and streams runtime events. It is not a replacement for static analysis.
+Bubble mode executes selected entrypoints in a sandbox and captures runtime evidence.
 
-- Static stages build structural dependency evidence (`manifest`, `static`, `graph`).
-- Bubble stage captures observed runtime behavior (`runtime_trace.jsonl`, `execution_flow_graph.json`).
-- Verification computes trust and `system_valid` from validation outputs.
-- Diagnostics annotate trust context and do not modify the trust score or `system_valid`.
+- Runtime trace events are written to `runtime_trace.jsonl`.
+- Runtime call graph is written to `execution_flow_graph.json`.
+- A deterministic scenario plan is generated at `runtime_scenario_plan.json`.
+- Scenario-plan quality checks are fed into verification through `runtime_scenarios` and `scenario_validation` execution evidence.
 
-## Evidence-Based Classification (v2)
+Runtime evidence supplements static evidence; it does not replace static graph integrity requirements.
 
-The `classification` stage uses `EvidenceClassifier` and is deterministic and evidence-driven.
+## Verification Policy (Current Contract)
 
-Evidence signals used per node:
+Verification is fail-closed and policy-driven, with explicit thresholds and surfaced reasons.
 
-- Runtime call hits from `runtime_trace.jsonl` (`event == "call"` only).
-- Runtime reachability from BFS over `execution_flow_graph.json` edges of type `RUNTIME_CALL`.
-- Executable references from dependency edges of type `CALL`.
-- Non-executable references from dependency edges of all other types.
+### Core hard thresholds
 
-Score model:
+- Runtime coverage hard floor: `0.30`
+- Entrypoint coverage completeness hard threshold: `0.30`
+- Domain coverage completeness soft threshold: `0.34`
+- Scenario coverage completeness soft threshold: `0.55`
+- AST/DI architecture-drift threshold: `0.50`
 
-- Start at `0.0`.
-- Add `1.0` if `runtime_hits > 0`.
-- Add `0.7` if `reachable_from_runtime` is true.
-- Add `0.5` if `executable_references > 0`.
-- Add `0.2` if `non_executable_references > 0`.
-- Clamp to `[0.0, 1.0]` and round to 3 decimals.
+### Trust model updates
 
-Score thresholds:
+- Coverage hard gate applies a trust multiplier of `0.50` when coverage is below `0.30`.
+- Runtime authority weighting is applied when runtime signal exists:
+  - `call_frequency_score` (50%)
+  - `path_centrality_score` (30%)
+  - `scenario_importance_score` (20%)
+- `authority_adjusted_execution_confidence = min(execution_confidence, runtime_authority_score)`.
+- AST/DI divergence above `0.50` triggers architecture drift and a trust penalty of `0.20`.
 
-- `HOT` if score `>= 0.8`
-- `WARM` if score `>= 0.3`
-- `COLD` if score `>= 0.1`
-- `DEAD` otherwise
+### First-class drift handling
 
-Hard deterministic guards:
+- Dependency consistency escalates high resolver divergence with `AST_DI_DIVERGENCE_ESCALATED`.
+- Policy includes architecture drift as an explicit soft-fail reason.
+- Failure analysis promotes drift to `failure_domains: ["architecture_drift", ...]` when triggered.
 
-- If `runtime_hits == 0` and node is not runtime-reachable, force `DEAD`.
-- If node is `DEAD` but has executable references, reclassify to `COLD`.
-- If node is `HOT` but has zero runtime hits, downgrade to `WARM`.
-- `DEAD` nodes may still carry non-executable references; this is tracked as weak signal and not treated as executable contradiction.
+### Coverage completeness gates
 
-Output contract (`heat_classification.json`):
+Execution-confidence layer now emits explicit issues when runtime signal is present:
 
-- Top-level: `classifier`, `schema_version`, `distribution`, `nodes`
-- Node-level: `node_id`/`id`, `classification`/`heat`, `score`, `evidence`
-- Compatibility fields retained for downstream tooling: `runtime_hits`, `inbound_edges`, `outbound_edges`, `executable_references`, `non_executable_references`, `ast_references`
+- `ENTRYPOINT_COVERAGE_INCOMPLETE`
+- `DOMAIN_COVERAGE_INCOMPLETE`
+- `SCENARIO_COVERAGE_INCOMPLETE`
 
-## Artifact Outputs
+The policy layer hard-fails on coverage hard-gate and entrypoint hard-threshold violations, and soft-fails on domain/scenario completeness shortfalls.
 
-For full staged runs, the output directory contains:
+## Classification and Dead-Code Guardrails
+
+The classification stage uses deterministic evidence fusion and guardrails.
+
+### Evidence scoring
+
+Heat score is computed with weighted components:
+
+- Runtime signal weight: `0.60`
+- Reachability weight: `0.25`
+- Reference/import weight: `0.15`
+
+Thresholds:
+
+- `HOT >= 0.8`
+- `WARM >= 0.3`
+- `COLD >= 0.1`
+- `DEAD < 0.1`
+
+### Hard consistency guards
+
+- Nodes classified as `DEAD` are reclassified to `COLD` when contradictory evidence exists.
+- `DEAD` with inbound edges is blocked by `dead_inbound_edge_hard_guardrail`.
+- Runtime validation output includes `entrypoints`, `executed_entrypoints`, and `executed_entrypoint_count`.
+
+### Dead code report defense-in-depth
+
+Dead-code report generation independently enforces the same invariant:
+
+- `DEAD` + inbound edges is reclassified to `COLD`.
+- Guardrail annotation is emitted as `dead_reclassified_to_cold_due_to_inbound_edges`.
+
+## Artifacts
+
+For full staged runs, key artifacts include:
 
 - `manifest.jsonl`
 - `manifest_summary.json`
@@ -156,26 +189,53 @@ For full staged runs, the output directory contains:
 - `static_analysis_summary.json`
 - `dependency_graph.json`
 - `dependency_graph_summary.json`
+- `runtime_scenario_plan.json`
 - `runtime_trace.jsonl`
 - `execution_flow_graph.json`
 - `heat_classification.json`
 - `dead_code_report.json`
+- `architecture_constraints.json`
+- `semantic_clusters.json`
+- `causal_flow_report.json`
 - `validation_result.json`
 - `final_report.json`
 - `pipeline_events.jsonl`
 - `pipeline_contract.json`
 
-## Streaming Architecture
+In the run-pipeline contract payload, artifact paths are also surfaced under `artifacts.*`.
 
-Runtime tracing is streamed as JSONL, then aggregated:
+## Adversarial and Regression Tests
 
-- `repo_audit_engine/runtime/tracer.py` emits line-oriented event records.
-- `repo_audit_engine/runtime/bubble_executor.py` streams and aggregates events into execution flow artifacts.
-- `pipeline_events.jsonl` records deterministic stage transitions.
+Focused verification regressions:
+
+```bash
+python -m pytest -q \
+    tests/test_execution_confidence.py \
+    tests/test_classification_engine_v2.py \
+    tests/test_verification_intent_extensions.py \
+    --ignore=output --import-mode=importlib
+```
+
+Adversarial truth stress suite:
+
+```bash
+python -m pytest -q tests/test_adversarial_truth_stress_suite.py --ignore=output --import-mode=importlib
+```
+
+Combined targeted suite:
+
+```bash
+python -m pytest -q \
+    tests/test_execution_confidence.py \
+    tests/test_classification_engine_v2.py \
+    tests/test_verification_intent_extensions.py \
+    tests/test_adversarial_truth_stress_suite.py \
+    --ignore=output --import-mode=importlib
+```
 
 ## Deterministic Repository Audit
 
-Run repository-level architecture and determinism checks:
+Run repository-level structural and truth-validation checks:
 
 ```bash
 python tools/repo_structure_audit.py \
@@ -185,21 +245,38 @@ python tools/repo_structure_audit.py \
     --bubble-mode true
 ```
 
-Classification-focused validation checks:
+Useful truth-validation fields in `output/repo_audit_report.json`:
 
-```bash
-python -m pytest -q tests/test_classification_engine_v2.py --import-mode=importlib
-python -m pytest -q tests --ignore=output --import-mode=importlib
+- `truth_validation_layer.runtime_meaningfulness.*`
+- `truth_validation_layer.runtime_static_reconciliation.*`
+- `truth_validation_layer.graph_sanity.*`
+- `truth_validation_layer.classification_quality.*`
+
+## Repository Hygiene
+
+Generated artifacts are intentionally excluded through `.gitignore` to keep source diffs reviewable.
+
+Dry-run cleanup:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/cleanup_workspace.ps1
 ```
 
-In `output/repo_audit_report.json`, classification consistency is reported under:
+Apply cleanup:
 
-- `truth_validation_layer.classification_quality.passed`
-- `truth_validation_layer.classification_quality.dead_referenced_count`
-- `truth_validation_layer.classification_quality.dead_non_executable_count`
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/cleanup_workspace.ps1 -Apply
+```
+
+Optional tracked cleanup actions:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/cleanup_workspace.ps1 -Apply -RestoreTrackedHarness
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/cleanup_workspace.ps1 -Apply -IncludeTracked
+```
 
 ## Known Limitations
 
-- Runtime tracing is bounded by `--timeout-seconds`, `--max-events`, `--max-depth`, and `--memory-cap-mb`.
-- Entrypoint quality influences runtime coverage: missing or narrow entrypoints reduce observed execution breadth.
-- Static resolution is conservative for dynamic import/call patterns.
+- Runtime tracing remains bounded by `--timeout-seconds`, `--max-events`, `--max-depth`, and `--memory-cap-mb`.
+- Narrow or missing entrypoints can still reduce observed runtime breadth and scenario completeness.
+- Static resolution remains conservative for heavily dynamic import/call patterns.

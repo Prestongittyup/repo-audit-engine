@@ -492,7 +492,11 @@ def cmd_run(args: argparse.Namespace) -> int:
         payload = _build_stage_failure_payload(PipelineStageError(exc.stage, detail))
 
     print(json.dumps(payload, indent=2 if bool(args.pretty) else None, ensure_ascii=True))
-    return 0 if bool(payload.get("system_valid", False)) else 1
+
+    if getattr(args, "fail_on_invalid", False) and not bool(payload.get("system_valid", False)):
+        return 1
+
+    return 0
 
 
 def cmd_run_pipeline(args: argparse.Namespace) -> int:
@@ -527,7 +531,11 @@ def cmd_run_pipeline(args: argparse.Namespace) -> int:
     }
 
     _emit_output(contract_payload, str(output_file), pretty=bool(args.pretty))
-    return 0 if bool(contract_payload.get("system_valid", False)) else 1
+
+    if getattr(args, "fail_on_invalid", False) and not bool(contract_payload.get("system_valid", False)):
+        return 1
+
+    return 0
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -605,6 +613,11 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--max-events", type=int, default=5000, help="Maximum traced call events per bubble run.")
     run_parser.add_argument("--max-depth", type=int, default=120, help="Maximum tracing recursion depth per bubble run.")
     run_parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output to stdout.")
+    run_parser.add_argument(
+        "--fail-on-invalid",
+        action="store_true",
+        help="Return non-zero exit code when system_valid=false.",
+    )
     run_parser.set_defaults(handler=cmd_run)
 
     run_pipeline_parser = subparsers.add_parser(
@@ -631,6 +644,11 @@ def build_parser() -> argparse.ArgumentParser:
     run_pipeline_parser.add_argument("--memory-cap-mb", type=int, default=256, help="Memory cap for bubble subprocess tracing.")
     run_pipeline_parser.add_argument("--max-events", type=int, default=5000, help="Maximum traced call events per bubble run.")
     run_pipeline_parser.add_argument("--max-depth", type=int, default=120, help="Maximum tracing recursion depth per bubble run.")
+    run_pipeline_parser.add_argument(
+        "--fail-on-invalid",
+        action="store_true",
+        help="Return non-zero exit code when system_valid=false.",
+    )
     run_pipeline_parser.set_defaults(handler=cmd_run_pipeline)
 
     return parser

@@ -16,6 +16,9 @@ def build_dead_code_report(
     report_path = out_root / "dead_code_report.json"
 
     rows = heat_payload.get("nodes") if isinstance(heat_payload.get("nodes"), list) else []
+    runtime_validation = heat_payload.get("runtime_validation") if isinstance(heat_payload.get("runtime_validation"), dict) else {}
+    coverage_ratio = float(runtime_validation.get("coverage_ratio", 0.0) or 0.0)
+    coverage_ratio = max(0.0, min(1.0, coverage_ratio))
 
     candidates: List[Dict[str, Any]] = []
     for item in rows:
@@ -39,6 +42,11 @@ def build_dead_code_report(
         )
 
         classification = str(payload.get("classification", payload.get("heat", ""))).strip().upper()
+        guardrails: List[str] = []
+
+        if classification == "DEAD" and inbound_edges > 0:
+            classification = "COLD"
+            guardrails.append("dead_reclassified_to_cold_due_to_inbound_edges")
 
         probability = 0.0
         chain: List[str] = []
@@ -56,6 +64,11 @@ def build_dead_code_report(
             chain.append("Rule +0.1: no non-executable references.")
 
         probability = round(min(1.0, probability), 3)
+        confidence = round(probability * coverage_ratio, 3)
+
+        chain.append(
+            f"Coverage scale: confidence = probability * coverage_ratio ({probability:.3f} * {coverage_ratio:.3f})."
+        )
 
         candidates.append(
             {
@@ -63,13 +76,14 @@ def build_dead_code_report(
                 "classification": classification,
                 "heat": classification,
                 "probability": probability,
-                "confidence": probability,
+                "confidence": confidence,
                 "justification_chain": chain,
                 "runtime_hits": runtime_hits,
                 "inbound_edges": inbound_edges,
                 "executable_references": executable_references,
                 "non_executable_references": non_executable_references,
                 "ast_references": ast_references,
+                "guardrails": guardrails,
             }
         )
 
@@ -86,7 +100,8 @@ def build_dead_code_report(
         "summary": {
             "node_count": len(candidates),
             "dead_candidate_count": len(dead_candidates),
-            "high_confidence_count": len([item for item in dead_candidates if float(item.get("probability", 0.0)) >= 0.9]),
+            "coverage_ratio": round(coverage_ratio, 3),
+            "high_confidence_count": len([item for item in dead_candidates if float(item.get("confidence", 0.0)) >= 0.9]),
         },
         "candidates": candidates,
         "dead_candidates": dead_candidates,

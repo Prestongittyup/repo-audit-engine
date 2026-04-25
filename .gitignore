@@ -2,10 +2,15 @@
 .DS_Store
 Thumbs.db
 
+# Editor/local tooling
+.vscode/
+
 # Python noise
 __pycache__/
 *.pyc
 *.pyd
+.pytest_cache/
+.venv/
 
 # Logs/state (optional depending on workflow)
 state/*.log
@@ -16,3 +21,20 @@ dist/
 build/
 *.exe
 *.obj
+
+# Generated audit artifacts (safe to regenerate)
+output/checklist_validation_run/
+output/family_orchestration_bot_contract.json
+output/family_orchestration_bot_contract_artifacts/
+output/family_orchestration_bot_fixcheck*/
+output/*_artifacts/
+output/repo_audit_runs/
+output/runs/
+output/tmp_*_events.jsonl
+output/tmp_*_result.json
+
+# Temporary work snapshots
+.tmp/authority_pass_repo/
+.tmp/clean_repo/
+.tmp/family_orchestration_bot_snapshot_clean/
+.tmp/semantic_debug/

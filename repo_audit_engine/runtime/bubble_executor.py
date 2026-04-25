@@ -6,6 +6,7 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+from time import perf_counter
 from typing import Any, Dict, List, Sequence, Tuple
 
 from repo_audit_engine.io.artifacts import write_json
@@ -44,6 +45,11 @@ def _node_id_from_label(label: str) -> str:
     return _node_id_from_event(path, function)
 
 
+def _is_scenario_entrypoint(entrypoint: str) -> bool:
+    normalized = str(entrypoint or "").strip()
+    return normalized.startswith("scenario:")
+
+
 def execute_runtime_bubble(
     repo_path: Path,
     output_dir: Path,
@@ -53,6 +59,11 @@ def execute_runtime_bubble(
     memory_cap_mb: int = 256,
     max_events: int = 20000,
     max_depth: int = 120,
+    total_node_count: int = 0,
+    baseline_runtime_hit_nodes: Sequence[str] | None = None,
+    coverage_stop_threshold: float = 0.25,
+    max_runtime_seconds: int = 45,
+    max_events_per_scenario: int = 1500,
 ) -> Dict[str, Any]:
     out_root = output_dir.resolve()
     out_root.mkdir(parents=True, exist_ok=True)
@@ -76,6 +87,16 @@ def execute_runtime_bubble(
                 "call_event_count": 0,
                 "import_event_count": 0,
                 "timeout_count": 0,
+                "line_event_count": 0,
+                "scenarios_executed": 0,
+                "successful_scenarios": 0,
+                "failed_scenarios": 0,
+                "new_nodes_covered": 0,
+                "coverage_delta": 0.0,
+                "coverage_ratio": 0.0,
+                "baseline_coverage_ratio": 0.0,
+                "coverage_stop_threshold": 0.0,
+                "stop_reason": "bubble_mode_disabled",
             },
         }
         write_json(flow_graph_path, flow_payload, pretty=True)
@@ -95,9 +116,48 @@ def execute_runtime_bubble(
     line_event_count = 0
     timeout_count = 0
 
+    baseline_hit_nodes = {
+        str(item).strip()
+        for item in (baseline_runtime_hit_nodes or [])
+        if str(item).strip()
+    }
+    baseline_hit_node_count = len(baseline_hit_nodes)
+
+    normalized_total_node_count = max(0, int(total_node_count))
+    normalized_coverage_stop_threshold = max(0.0, min(1.0, float(coverage_stop_threshold)))
+    normalized_max_runtime_seconds = max(10, int(max_runtime_seconds))
+    normalized_max_events_per_scenario = max(100, min(int(max_events), int(max_events_per_scenario)))
+
+    scenario_timeout_slice_seconds = max(1, min(int(timeout_seconds), 2))
+    max_scenario_runs_by_budget = max(
+        1,
+        int(normalized_max_runtime_seconds // scenario_timeout_slice_seconds),
+    )
+
+    scenarios_executed = 0
+    successful_scenarios = 0
+    failed_scenarios = 0
+    stop_reason = "completed"
+
+    run_started_at = perf_counter()
+
     with trace_jsonl_path.open("w", encoding="utf-8") as trace_handle:
         for run_index, entrypoint in enumerate(normalized_entrypoints, start=1):
+            elapsed_seconds = perf_counter() - run_started_at
+            if elapsed_seconds >= float(normalized_max_runtime_seconds):
+                stop_reason = "max_runtime_seconds_exceeded"
+                break
+
             run_id = f"run_{run_index:03d}"
+            is_scenario = _is_scenario_entrypoint(entrypoint)
+
+            if is_scenario and scenarios_executed >= max_scenario_runs_by_budget:
+                stop_reason = "scenario_budget_reached"
+                break
+
+            if is_scenario:
+                scenarios_executed += 1
+
             trace_summary: Dict[str, Any] = {
                 "entrypoint": entrypoint,
                 "status": "error",
@@ -113,6 +173,9 @@ def execute_runtime_bubble(
             run_line_count = 0
             events_file: Path | None = None
             persisted_events_file: Path | None = None
+            scenario_timeout_seconds = max(1, int(timeout_seconds))
+            if is_scenario:
+                scenario_timeout_seconds = max(1, min(int(timeout_seconds), scenario_timeout_slice_seconds))
 
             with tempfile.TemporaryDirectory(prefix="bubble_", dir=str(out_root)) as temp_dir:
                 sandbox_root = Path(temp_dir).resolve()
@@ -138,7 +201,11 @@ def execute_runtime_bubble(
                     "--memory-cap-mb",
                     str(int(memory_cap_mb)),
                     "--max-events",
-                    str(int(max_events)),
+                    str(
+                        int(normalized_max_events_per_scenario)
+                        if is_scenario
+                        else int(max_events)
+                    ),
                     "--max-depth",
                     str(int(max_depth)),
                 ]
@@ -150,7 +217,7 @@ def execute_runtime_bubble(
                         capture_output=True,
                         text=True,
                         check=False,
-                        timeout=max(1, int(timeout_seconds)),
+                        timeout=scenario_timeout_seconds,
                     )
 
                     if summary_file.exists():
@@ -174,7 +241,7 @@ def execute_runtime_bubble(
                         "imports": [],
                         "executed_modules": [],
                         "event_counts": {"call": 0, "import": 0, "return": 0, "line": 0},
-                        "runtime_seconds": float(timeout_seconds),
+                        "runtime_seconds": float(scenario_timeout_seconds),
                     }
 
                 if events_file.exists():
@@ -219,6 +286,7 @@ def execute_runtime_bubble(
                             "file": rel_file,
                             "function": function_name,
                             "line": int(payload.get("line", 0) or 0),
+                            "depth": int(payload.get("depth", 0) or 0),
                             "caller": caller_label,
                             "node": str(payload.get("node", "")),
                             "caller_node_id": caller_node_id,
@@ -289,6 +357,41 @@ def execute_runtime_bubble(
                 }
             )
 
+            if is_scenario:
+                if str(trace_summary.get("status", "")).strip().lower() == "ok":
+                    successful_scenarios += 1
+                else:
+                    failed_scenarios += 1
+
+            if normalized_total_node_count > 0 and normalized_coverage_stop_threshold > 0:
+                coverage_ratio = float(len(node_hits)) / float(max(1, normalized_total_node_count))
+                if coverage_ratio >= normalized_coverage_stop_threshold:
+                    stop_reason = "coverage_target_reached"
+                    break
+
+    final_coverage_ratio = 0.0
+    baseline_coverage_ratio = 0.0
+    if normalized_total_node_count > 0:
+        final_coverage_ratio = float(len(node_hits)) / float(max(1, normalized_total_node_count))
+        baseline_coverage_ratio = float(baseline_hit_node_count) / float(max(1, normalized_total_node_count))
+
+    new_nodes_covered = len({node for node in node_hits if node not in baseline_hit_nodes})
+    coverage_delta = final_coverage_ratio - baseline_coverage_ratio
+
+    scenario_warnings: List[str] = []
+    if scenarios_executed <= 0:
+        scenario_warnings.append("No runtime scenarios were executed.")
+    if scenarios_executed > 0 and coverage_delta <= 0.0:
+        scenario_warnings.append("Runtime coverage did not increase versus baseline.")
+    if scenarios_executed > 0 and failed_scenarios > 0:
+        scenario_warnings.append("One or more runtime scenarios failed and were skipped.")
+    if (
+        scenarios_executed > 0
+        and normalized_coverage_stop_threshold > 0
+        and final_coverage_ratio < normalized_coverage_stop_threshold
+    ):
+        scenario_warnings.append("Coverage target was not reached before runtime limits were hit.")
+
     node_rows = [
         {"id": node_id, "kind": "runtime_observed", "hit_count": count}
         for node_id, count in sorted(node_hits.items(), key=lambda item: item[0])
@@ -312,6 +415,19 @@ def execute_runtime_bubble(
             "import_event_count": import_event_count,
             "line_event_count": line_event_count,
             "timeout_count": timeout_count,
+            "scenarios_executed": scenarios_executed,
+            "successful_scenarios": successful_scenarios,
+            "failed_scenarios": failed_scenarios,
+            "new_nodes_covered": new_nodes_covered,
+            "coverage_delta": round(float(coverage_delta), 6),
+            "coverage_ratio": round(float(final_coverage_ratio), 6),
+            "baseline_coverage_ratio": round(float(baseline_coverage_ratio), 6),
+            "coverage_stop_threshold": round(float(normalized_coverage_stop_threshold), 3),
+            "max_runtime_seconds": normalized_max_runtime_seconds,
+            "max_events_per_scenario": normalized_max_events_per_scenario,
+            "max_scenario_runs_by_budget": max_scenario_runs_by_budget,
+            "stop_reason": stop_reason,
+            "warnings": scenario_warnings,
         },
     }
 

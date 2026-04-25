@@ -1,8 +1,8 @@
 {
-  "python_files_analyzed": 64,
-  "function_count": 400,
-  "class_count": 19,
-  "import_count": 429,
-  "call_count": 6461,
+  "python_files_analyzed": 75,
+  "function_count": 524,
+  "class_count": 20,
+  "import_count": 526,
+  "call_count": 8703,
   "analysis_path": "C:\\Users\\fb002895\\Desktop\\Personal\\repo-audit-engine\\output\\test_harness\\determinism_run_2_artifacts\\static_analysis.jsonl"
 }

@@ -1,9 +1,9 @@
 {
-  "node_count": 483,
-  "file_node_count": 64,
-  "function_class_node_count": 419,
-  "edge_count": 615,
-  "import_edge_count": 48,
-  "call_edge_count": 567,
+  "node_count": 619,
+  "file_node_count": 75,
+  "function_class_node_count": 544,
+  "edge_count": 837,
+  "import_edge_count": 67,
+  "call_edge_count": 770,
   "config_edge_count": 0
 }

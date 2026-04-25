@@ -13,6 +13,10 @@ from pathlib import Path
 from time import perf_counter
 from typing import Any, Dict, List, Set
 
+if __package__ is None or __package__ == "":
+    # Support direct script execution from bubble subprocesses.
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 
 def _frame_depth(frame) -> int:
     depth = 0
@@ -68,6 +72,17 @@ def _utc_timestamp() -> str:
 
 
 def _run_entrypoint(repo_path: Path, entrypoint: str) -> None:
+    if str(entrypoint).startswith("scenario:auto:"):
+        encoded_spec = str(entrypoint).split("scenario:auto:", 1)[1].strip()
+        from repo_audit_engine.runtime.scenario_runner import run_encoded_scenario
+
+        scenario_result = run_encoded_scenario(repo_path=repo_path, encoded_spec=encoded_spec)
+        if not bool(scenario_result.get("ok", False)):
+            scenario_id = str(scenario_result.get("scenario_id", "unknown")).strip() or "unknown"
+            error = str(scenario_result.get("error", "scenario_execution_failed")).strip()
+            raise RuntimeError(f"scenario_failed:{scenario_id}:{error}")
+        return
+
     if str(entrypoint).startswith("scenario:"):
         scenario_name = str(entrypoint).split(":", 1)[1].strip().lower() or "core-flow"
         _run_scenario(repo_path, scenario_name)
@@ -203,6 +218,10 @@ def _scenario_depth_probe_level3() -> None:
 def _run_scenario(repo_path: Path, scenario_name: str) -> None:
     normalized = str(scenario_name or "").strip().lower()
 
+    if normalized in {"depth-probe", "depth_probe"}:
+        _scenario_depth_probe()
+        return
+
     _scenario_depth_probe()
 
     if normalized in {"core-flow", "default"}:
@@ -317,6 +336,7 @@ def main(argv: List[str] | None = None) -> int:
             if event == "return":
                 node_label = _node_id(rel_file, function_name)
                 caller = call_stack[-2] if len(call_stack) >= 2 else "<entrypoint>"
+                depth = len(call_stack)
                 if call_stack:
                     call_stack.pop()
                 event_counts["return"] += 1
@@ -331,6 +351,7 @@ def main(argv: List[str] | None = None) -> int:
                         "caller_node_id": caller if caller != "<entrypoint>" else "",
                         "node": node_label,
                         "callee_node_id": node_label,
+                        "depth": depth,
                     }
                 )
                 return trace_callback
@@ -348,6 +369,7 @@ def main(argv: List[str] | None = None) -> int:
                         "line": lineno,
                         "caller": call_stack[-1] if call_stack else "<entrypoint>",
                         "caller_node_id": call_stack[-1] if call_stack else "",
+                        "depth": len(call_stack),
                     }
                 )
                 return trace_callback
@@ -367,6 +389,7 @@ def main(argv: List[str] | None = None) -> int:
             node_label = _node_id(rel_file, function_name)
             caller_node_id = call_stack[-1] if call_stack else ""
             caller = caller_node_id if caller_node_id else "<entrypoint>"
+            call_depth = len(call_stack) + 1
 
             event_counts["call"] += 1
             emit_event(
@@ -380,6 +403,7 @@ def main(argv: List[str] | None = None) -> int:
                     "node": node_label,
                     "caller_node_id": caller_node_id,
                     "callee_node_id": node_label,
+                    "depth": call_depth,
                 }
             )
             if node_label:

@@ -803,6 +803,20 @@ def _validate_json_schema(payload: Dict[str, Any], required_keys: Sequence[str])
     return isinstance(payload, dict) and all(key in payload for key in required_keys)
 
 
+def _contains_scoring_fields(payload: Any) -> bool:
+    if isinstance(payload, dict):
+        for key, value in payload.items():
+            normalized = str(key).strip().lower()
+            if normalized in {"score", "domain_score"}:
+                return True
+            if _contains_scoring_fields(value):
+                return True
+        return False
+    if isinstance(payload, list):
+        return any(_contains_scoring_fields(item) for item in payload)
+    return False
+
+
 def _validate_artifact_contract(payload: Dict[str, Any]) -> Dict[str, Any]:
     artifacts = payload.get("artifacts") if isinstance(payload.get("artifacts"), dict) else {}
 
@@ -909,9 +923,100 @@ def _validate_artifact_contract(payload: Dict[str, Any]) -> Dict[str, Any]:
     final_report_path = Path(str(artifacts.get("final_report_json", "")))
     if final_report_path.exists():
         final_payload = _load_json(final_report_path)
-        schema_validation["final_report_json"] = _validate_json_schema(
-            final_payload,
-            ["summary", "diagnostics", "trust", "stats", "runtime_execution_coverage"],
+        required_keys = [
+            "summary",
+            "diagnostics",
+            "trust",
+            "stats",
+            "runtime_execution_coverage",
+            "structural_audit",
+            "behavioral_audit",
+            "redundancy_overlap_audit",
+            "architectural_quality_audit",
+            "architect_auditor",
+            "design_quality_signals",
+            "audit_layers",
+        ]
+        base_schema_ok = _validate_json_schema(final_payload, required_keys)
+
+        layer_keys = [
+            "structural_audit",
+            "behavioral_audit",
+            "redundancy_overlap_audit",
+            "architectural_quality_audit",
+        ]
+        layer_schema_ok = all(
+            isinstance(final_payload.get(layer_name), dict)
+            and bool(str((final_payload.get(layer_name) or {}).get("title", "")).strip())
+            for layer_name in layer_keys
+        )
+
+        design_quality = final_payload.get("design_quality_signals") if isinstance(final_payload.get("design_quality_signals"), dict) else {}
+        principle_enforcement = (
+            design_quality.get("principle_enforcement")
+            if isinstance(design_quality.get("principle_enforcement"), dict)
+            else {}
+        )
+        required_principles = [
+            "intent_over_execution",
+            "structure_over_runtime_alone",
+            "multi_signal_confirmation_over_single_metric",
+        ]
+        principles_ok = all(
+            isinstance(principle_enforcement.get(principle), dict)
+            and bool((principle_enforcement.get(principle) or {}).get("enforced", False))
+            and isinstance((principle_enforcement.get(principle) or {}).get("status"), str)
+            for principle in required_principles
+        )
+
+        architect_auditor = final_payload.get("architect_auditor") if isinstance(final_payload.get("architect_auditor"), dict) else {}
+        questions = architect_auditor.get("questions") if isinstance(architect_auditor.get("questions"), dict) else {}
+        required_questions = [
+            "structure_matches_intended_architecture",
+            "responsibility_clean_or_duplicated",
+            "behavior_aligns_with_structure",
+        ]
+        questions_ok = all(
+            isinstance(questions.get(name), dict)
+            and isinstance((questions.get(name) or {}).get("status"), str)
+            and isinstance((questions.get(name) or {}).get("violations"), list)
+            for name in required_questions
+        )
+
+        hard_constraints = (
+            architect_auditor.get("hard_constraints")
+            if isinstance(architect_auditor.get("hard_constraints"), dict)
+            else {}
+        )
+        constraints_ok = all(
+            bool(hard_constraints.get(name, False))
+            for name in [
+                "no_new_scoring_systems",
+                "no_upstream_artifact_mutation",
+                "no_feedback_loops",
+                "deterministic_outputs",
+            ]
+        )
+
+        taxonomy = architect_auditor.get("violation_taxonomy") if isinstance(architect_auditor.get("violation_taxonomy"), list) else []
+        taxonomy_ok = taxonomy == [
+            "layer_violation",
+            "circular_dependency",
+            "redundant_domain",
+            "orphan_module",
+            "overcoupled_node",
+        ]
+
+        no_scoring_fields_ok = not _contains_scoring_fields(architect_auditor)
+
+        schema_validation["final_report_json"] = bool(
+            base_schema_ok
+            and layer_schema_ok
+            and principles_ok
+            and questions_ok
+            and constraints_ok
+            and taxonomy_ok
+            and no_scoring_fields_ok
         )
     else:
         schema_validation["final_report_json"] = False
@@ -1377,6 +1482,9 @@ def _build_classification_quality(
 ) -> Dict[str, Any]:
     heat_nodes = heat_payload.get("nodes") if isinstance(heat_payload.get("nodes"), list) else []
     distribution = heat_payload.get("distribution") if isinstance(heat_payload.get("distribution"), dict) else {}
+    heat_runtime_validation = (
+        heat_payload.get("runtime_validation") if isinstance(heat_payload.get("runtime_validation"), dict) else {}
+    )
 
     edge_rows = dependency_payload.get("edges") if isinstance(dependency_payload.get("edges"), list) else []
     local_edges = _extract_local_edge_set(edge_rows)
@@ -1411,13 +1519,17 @@ def _build_classification_quality(
             executable_references = _safe_int(
                 node.get("executable_references", evidence.get("executable_references", 0))
             )
+            inbound_edges = _safe_int(node.get("inbound_edges", evidence.get("inbound_edges", 0)))
+            reachable_from_runtime = bool(
+                node.get("reachable_from_runtime", evidence.get("reachable_from_runtime", False))
+            )
             non_executable_references = _safe_int(
                 node.get("non_executable_references", evidence.get("non_executable_references", 0))
             )
 
             # Under v2 rules, DEAD may keep non-executable references but cannot keep
-            # runtime hits or executable CALL references.
-            if runtime_hits > 0 or executable_references > 0:
+            # runtime hits, executable CALL references, runtime reachability, or inbound edges.
+            if runtime_hits > 0 or executable_references > 0 or reachable_from_runtime or inbound_edges > 0:
                 dead_conflict_nodes.append(node_id)
             if non_executable_references > 0:
                 dead_non_executable_nodes.append(node_id)
@@ -1438,16 +1550,24 @@ def _build_classification_quality(
     runtime_present = bool(runtime_validation.get("runtime_event_stream_present", False)) and _safe_int(
         runtime_summary.get("call_event_count", 0)
     ) > 0
+    classifier_runtime_validation_passed = bool(heat_runtime_validation.get("passed", True))
 
     issues: List[str] = []
-    if runtime_present and len(hot_nodes) == 0:
-        issues.append("Runtime events exist but no HOT nodes were classified.")
+    if runtime_present and len(hot_nodes) == 0 and len(warm_nodes) == 0:
+        issues.append("Runtime events exist but no HOT/WARM nodes were classified.")
+
+    if runtime_present and not classifier_runtime_validation_passed:
+        issues.append("Classifier runtime validation failed in heat payload.")
 
     if dead_conflict_nodes:
         issues.append(
             "DEAD nodes still have runtime hits or executable references: "
             f"{len(dead_conflict_nodes)}"
         )
+
+    dead_ratio = _safe_int(distribution.get("DEAD", 0)) / float(max(1, len(heat_nodes)))
+    if runtime_present and dead_ratio > 0.70:
+        issues.append(f"DEAD ratio remains high under runtime evidence: {dead_ratio:.3f}")
 
     if warm_unreachable_nodes:
         issues.append(
@@ -1463,6 +1583,8 @@ def _build_classification_quality(
         "distribution": {str(key): _safe_int(value) for key, value in sorted(distribution.items())},
         "hot_node_count": len(hot_nodes),
         "warm_node_count": len(warm_nodes),
+        "dead_ratio": round(dead_ratio, 6),
+        "classifier_runtime_validation_passed": classifier_runtime_validation_passed,
         "dead_referenced_count": len(dead_conflict_nodes),
         "dead_non_executable_count": len(dead_non_executable_nodes),
         "warm_unreachable_count": len(warm_unreachable_nodes),

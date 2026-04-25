@@ -31,6 +31,9 @@ class DiagnosticSynthesisLayer:
         "dependency_consistency": "RESOLVER",
         "topology_validation": "REACHABILITY",
         "semantic_observations": "SEMANTIC",
+        "architectural_intent": "ARCHITECTURE",
+        "semantic_consistency": "SEMANTIC",
+        "causal_flow": "PROCESS",
     }
 
     _ACTION_BY_ISSUE = {
@@ -47,6 +50,14 @@ class DiagnosticSynthesisLayer:
         "UNREACHABLE_NODES": "Restore missing bridge dependencies for isolated nodes or mark allowed isolation explicitly.",
         "UNEXPECTED_ORPHAN_SUBGRAPH": "Resolve namespace partitioning by introducing explicit bridge dependencies.",
         "CYCLE_POLICY_VIOLATION": "Add explicit cycle policy annotations or refactor cyclic ownership boundaries.",
+        "ARCHITECTURE_CONSTRAINT_VIOLATION": "Enforce layer-direction, ownership boundaries, and orchestrator-mediated state-change rules.",
+        "DUPLICATE_INTENT_CLUSTERS": "Merge duplicated conceptual clusters and align responsibilities to one owner/context.",
+        "FAKE_ABSTRACTION_COLLISION": "Normalize abstraction vocabulary so one concept root maps to one abstraction style.",
+        "NO_WORKFLOW_RECONSTRUCTION": "Increase runtime scenario breadth to reconstruct end-to-end causal workflows.",
+        "MISSING_API_BOUNDARY": "Ensure workflow traces include API boundary execution points.",
+        "MISSING_DOMAIN_DECISION_STAGE": "Route workflow execution through explicit domain-decision or orchestration stages.",
+        "MISSING_SIDE_EFFECT_OR_PERSISTENCE_STAGE": "Trace side-effect/persistence paths to verify end-to-end business workflow intent.",
+        "DIRECT_API_TO_PERSISTENCE_PATH": "Introduce orchestration/domain mediation between API boundaries and persistence writes.",
     }
 
     _SECTION_DOMAIN = {
@@ -54,6 +65,9 @@ class DiagnosticSynthesisLayer:
         "resolver_consistency": "dependency_consistency",
         "reachability_analysis": "topology_validation",
         "semantic_validation": "semantic_observations",
+        "architecture_constraints": "architectural_intent",
+        "semantic_consistency": "semantic_consistency",
+        "causal_flow": "causal_flow",
     }
 
     def run(

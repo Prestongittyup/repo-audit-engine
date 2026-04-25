@@ -1,0 +1,560 @@
+{
+  "schema_version": "1.0",
+  "summary": {
+    "runtime_signal_present": true,
+    "analysis_enforced": true,
+    "call_event_count": 1265,
+    "workflow_count": 15,
+    "role_coverage_ratio": 0.5,
+    "observed_roles": [
+      "domain_decision",
+      "orchestration",
+      "side_effect"
+    ],
+    "direct_api_to_persistence_count": 0,
+    "entrypoint_count": 9,
+    "domain_score": 0.775
+  },
+  "workflows": [
+    {
+      "run_id": "run_001",
+      "step_count": 11,
+      "role_sequence": [
+        "domain_decision",
+        "internal",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "internal"
+      ],
+      "narrative": "domain decision -> internal computation -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> internal computation",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_002",
+      "step_count": 11,
+      "role_sequence": [
+        "domain_decision",
+        "internal",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "internal"
+      ],
+      "narrative": "domain decision -> internal computation -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> internal computation",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_003",
+      "step_count": 11,
+      "role_sequence": [
+        "domain_decision",
+        "internal",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "internal"
+      ],
+      "narrative": "domain decision -> internal computation -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> internal computation",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_004",
+      "step_count": 11,
+      "role_sequence": [
+        "domain_decision",
+        "internal",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "internal"
+      ],
+      "narrative": "domain decision -> internal computation -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> internal computation",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_005",
+      "step_count": 11,
+      "role_sequence": [
+        "domain_decision",
+        "internal",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "internal"
+      ],
+      "narrative": "domain decision -> internal computation -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> internal computation",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_006",
+      "step_count": 1,
+      "role_sequence": [
+        "domain_decision"
+      ],
+      "narrative": "domain decision",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_007",
+      "step_count": 11,
+      "role_sequence": [
+        "domain_decision",
+        "internal",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "internal"
+      ],
+      "narrative": "domain decision -> internal computation -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> internal computation",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_008",
+      "step_count": 10,
+      "role_sequence": [
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration"
+      ],
+      "narrative": "domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_009",
+      "step_count": 7,
+      "role_sequence": [
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision"
+      ],
+      "narrative": "domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_010",
+      "step_count": 4,
+      "role_sequence": [
+        "domain_decision",
+        "side_effect",
+        "domain_decision",
+        "side_effect"
+      ],
+      "narrative": "domain decision -> side effect -> domain decision -> side effect",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_011",
+      "step_count": 1,
+      "role_sequence": [
+        "domain_decision"
+      ],
+      "narrative": "domain decision",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_012",
+      "step_count": 8,
+      "role_sequence": [
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration"
+      ],
+      "narrative": "domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_013",
+      "step_count": 1,
+      "role_sequence": [
+        "domain_decision"
+      ],
+      "narrative": "domain decision",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_014",
+      "step_count": 4,
+      "role_sequence": [
+        "domain_decision",
+        "internal",
+        "domain_decision",
+        "internal"
+      ],
+      "narrative": "domain decision -> internal computation -> domain decision -> internal computation",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    },
+    {
+      "run_id": "run_015",
+      "step_count": 4,
+      "role_sequence": [
+        "domain_decision",
+        "internal",
+        "domain_decision",
+        "internal"
+      ],
+      "narrative": "domain decision -> internal computation -> domain decision -> internal computation",
+      "sample_nodes": [
+        "file:repo_audit_engine/__init__.py",
+        "file:repo_audit_engine/runtime/__init__.py",
+        "file:repo_audit_engine/runtime/bubble_executor.py",
+        "file:repo_audit_engine/io/__init__.py",
+        "file:repo_audit_engine/io/artifacts.py",
+        "file:repo_audit_engine/io/jsonl_writer.py",
+        "file:repo_audit_engine/io/streaming.py",
+        "file:repo_audit_engine/manifest/__init__.py",
+        "file:repo_audit_engine/manifest/builder.py",
+        "file:repo_audit_engine/manifest/scanner.py"
+      ]
+    }
+  ],
+  "workflow_templates": [
+    {
+      "signature": "domain_decision>internal>orchestration>domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration>domain_decision>internal",
+      "count": 6,
+      "roles": [
+        "domain_decision",
+        "internal",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "internal"
+      ]
+    },
+    {
+      "signature": "domain_decision",
+      "count": 3,
+      "roles": [
+        "domain_decision"
+      ]
+    },
+    {
+      "signature": "domain_decision>internal>domain_decision>internal",
+      "count": 2,
+      "roles": [
+        "domain_decision",
+        "internal",
+        "domain_decision",
+        "internal"
+      ]
+    },
+    {
+      "signature": "domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration>domain_decision",
+      "count": 1,
+      "roles": [
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision"
+      ]
+    },
+    {
+      "signature": "domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration",
+      "count": 1,
+      "roles": [
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration"
+      ]
+    },
+    {
+      "signature": "domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration",
+      "count": 1,
+      "roles": [
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration",
+        "domain_decision",
+        "orchestration"
+      ]
+    },
+    {
+      "signature": "domain_decision>side_effect>domain_decision>side_effect",
+      "count": 1,
+      "roles": [
+        "domain_decision",
+        "side_effect",
+        "domain_decision",
+        "side_effect"
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "from_role": "domain_decision",
+      "to_role": "domain_decision",
+      "count": 56
+    },
+    {
+      "from_role": "orchestration",
+      "to_role": "domain_decision",
+      "count": 38
+    },
+    {
+      "from_role": "domain_decision",
+      "to_role": "orchestration",
+      "count": 34
+    },
+    {
+      "from_role": "domain_decision",
+      "to_role": "internal",
+      "count": 26
+    },
+    {
+      "from_role": "internal",
+      "to_role": "orchestration",
+      "count": 8
+    },
+    {
+      "from_role": "orchestration",
+      "to_role": "orchestration",
+      "count": 6
+    },
+    {
+      "from_role": "domain_decision",
+      "to_role": "side_effect",
+      "count": 4
+    },
+    {
+      "from_role": "internal",
+      "to_role": "internal",
+      "count": 3
+    },
+    {
+      "from_role": "internal",
+      "to_role": "domain_decision",
+      "count": 2
+    },
+    {
+      "from_role": "side_effect",
+      "to_role": "domain_decision",
+      "count": 1
+    }
+  ],
+  "issues": [
+    {
+      "type": "MISSING_API_BOUNDARY",
+      "severity": "MEDIUM",
+      "message": "No API boundary stage was detected in reconstructed workflows."
+    }
+  ],
+  "warnings": []
+}

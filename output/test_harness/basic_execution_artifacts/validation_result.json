@@ -5,7 +5,8 @@
   "policy_critical_failure": false,
   "trust_score": 0.952,
   "trust_breakdown": {
-    "formula": "trust_score = structural*0.35 + topology*0.25 + resolver*0.25 + semantic*0.15",
+    "formula": "base_trust = structural*0.35 + topology*0.25 + resolver*0.25 + semantic*0.15; if execution_confidence < min_execution_confidence then trust_score = base_trust * execution_confidence",
+    "base_trust_score": 0.952,
     "trust_score": 0.952,
     "weights": {
       "structural_integrity": 0.35,
@@ -17,7 +18,8 @@
       "structural_integrity": 1.0,
       "topology_validation": 0.997,
       "dependency_consistency": 0.855,
-      "semantic_observations": 0.928
+      "semantic_observations": 0.928,
+      "execution_confidence": 0.416
     },
     "weighted_contributions": {
       "structural_integrity": 0.35,
@@ -25,26 +27,36 @@
       "dependency_consistency": 0.214,
       "semantic_observations": 0.139
     },
+    "execution_adjustment": 1.0,
+    "execution_gate_applied": false,
+    "min_execution_confidence": 0.3,
     "penalties": {
       "structural_integrity_penalty": 0.0,
       "topology_validation_penalty": 0.003,
       "dependency_consistency_penalty": 0.145,
-      "semantic_observations_penalty": 0.072
+      "semantic_observations_penalty": 0.072,
+      "execution_confidence_penalty": 0.584
     },
     "scores": {
       "structural_integrity": 1.0,
       "dependency_consistency": 0.855,
       "topology_validation": 0.997,
       "semantic_observations": 0.928,
+      "execution_confidence": 0.416,
       "structural": 1.0,
       "reachability": 0.997,
       "resolver": 0.855,
       "semantic": 0.928,
+      "execution": 0.416,
       "trust": 0.952
     }
   },
   "failure_domains": [
+    "execution_confidence",
+    "architectural_intent",
     "dependency_consistency",
+    "semantic_consistency",
+    "causal_flow",
     "semantic_observations",
     "topology_validation",
     "structural_integrity"
@@ -52,59 +64,111 @@
   "failure_domains_ranked": [
     {
       "rank": 1,
-      "domain": "dependency_consistency",
-      "reason": "AST_DI_DIVERGENCE_TRACKED: AST and DI pair sets diverge; this is tracked as architecture drift.",
-      "impact_score": 0.036
+      "domain": "execution_confidence",
+      "reason": "Only a subset of configured entrypoints was observed in runtime execution.",
+      "impact_score": 0.117
     },
     {
       "rank": 2,
-      "domain": "semantic_observations",
-      "reason": "signal_detected",
-      "impact_score": 0.011
+      "domain": "architectural_intent",
+      "reason": "ARCHITECTURE_CONSTRAINT_VIOLATION: Architecture intent constraints were violated. Review layer direction, ownership boundaries, and orchestrator mediation rules.",
+      "impact_score": 0.063
     },
     {
       "rank": 3,
+      "domain": "dependency_consistency",
+      "reason": "AST_DI_DIVERGENCE_TRACKED: AST and DI pair sets diverge; this is tracked as architecture drift.",
+      "impact_score": 0.029
+    },
+    {
+      "rank": 4,
+      "domain": "semantic_consistency",
+      "reason": "DUPLICATE_INTENT_CLUSTERS: Conceptually overlapping cross-context clusters suggest duplicated or fragmented domain intent.",
+      "impact_score": 0.023
+    },
+    {
+      "rank": 5,
+      "domain": "causal_flow",
+      "reason": "MISSING_API_BOUNDARY: No API boundary stage was detected in reconstructed workflows.",
+      "impact_score": 0.022
+    },
+    {
+      "rank": 6,
+      "domain": "semantic_observations",
+      "reason": "signal_detected",
+      "impact_score": 0.007
+    },
+    {
+      "rank": 7,
       "domain": "topology_validation",
       "reason": "CYCLE_POLICY_VIOLATION: Cycle nodes violate cycle allowance policy flags.",
       "impact_score": 0.001
     },
     {
-      "rank": 4,
+      "rank": 8,
       "domain": "structural_integrity",
       "reason": "Cross-namespace edges detected. This is allowed but should be reviewed for ownership boundaries.",
       "impact_score": 0.0
     }
   ],
   "failure_analysis": {
-    "primary_cause": "dependency_consistency:AST_DI_DIVERGENCE_TRACKED: AST and DI pair sets diverge; this is tracked as architecture drift.",
+    "primary_cause": "execution_confidence:Only a subset of configured entrypoints was observed in runtime execution.",
     "ranked_domains": [
       {
         "rank": 1,
-        "domain": "dependency_consistency",
-        "reason": "AST_DI_DIVERGENCE_TRACKED: AST and DI pair sets diverge; this is tracked as architecture drift.",
-        "impact_score": 0.036
+        "domain": "execution_confidence",
+        "reason": "Only a subset of configured entrypoints was observed in runtime execution.",
+        "impact_score": 0.117
       },
       {
         "rank": 2,
-        "domain": "semantic_observations",
-        "reason": "signal_detected",
-        "impact_score": 0.011
+        "domain": "architectural_intent",
+        "reason": "ARCHITECTURE_CONSTRAINT_VIOLATION: Architecture intent constraints were violated. Review layer direction, ownership boundaries, and orchestrator mediation rules.",
+        "impact_score": 0.063
       },
       {
         "rank": 3,
+        "domain": "dependency_consistency",
+        "reason": "AST_DI_DIVERGENCE_TRACKED: AST and DI pair sets diverge; this is tracked as architecture drift.",
+        "impact_score": 0.029
+      },
+      {
+        "rank": 4,
+        "domain": "semantic_consistency",
+        "reason": "DUPLICATE_INTENT_CLUSTERS: Conceptually overlapping cross-context clusters suggest duplicated or fragmented domain intent.",
+        "impact_score": 0.023
+      },
+      {
+        "rank": 5,
+        "domain": "causal_flow",
+        "reason": "MISSING_API_BOUNDARY: No API boundary stage was detected in reconstructed workflows.",
+        "impact_score": 0.022
+      },
+      {
+        "rank": 6,
+        "domain": "semantic_observations",
+        "reason": "signal_detected",
+        "impact_score": 0.007
+      },
+      {
+        "rank": 7,
         "domain": "topology_validation",
         "reason": "CYCLE_POLICY_VIOLATION: Cycle nodes violate cycle allowance policy flags.",
         "impact_score": 0.001
       },
       {
-        "rank": 4,
+        "rank": 8,
         "domain": "structural_integrity",
         "reason": "Cross-namespace edges detected. This is allowed but should be reviewed for ownership boundaries.",
         "impact_score": 0.0
       }
     ],
     "failure_domains": [
+      "execution_confidence",
+      "architectural_intent",
       "dependency_consistency",
+      "semantic_consistency",
+      "causal_flow",
       "semantic_observations",
       "topology_validation",
       "structural_integrity"
@@ -118,7 +182,7 @@
       {
         "stage": "dependency_consistency",
         "failure": "AST_DI_DIVERGENCE_TRACKED: AST and DI pair sets diverge; this is tracked as architecture drift.",
-        "impact_score": 0.036
+        "impact_score": 0.029
       },
       {
         "stage": "topology_validation",
@@ -128,7 +192,27 @@
       {
         "stage": "semantic_observations",
         "failure": "signal_detected",
-        "impact_score": 0.011
+        "impact_score": 0.007
+      },
+      {
+        "stage": "execution_confidence",
+        "failure": "Only a subset of configured entrypoints was observed in runtime execution.",
+        "impact_score": 0.117
+      },
+      {
+        "stage": "architectural_intent",
+        "failure": "ARCHITECTURE_CONSTRAINT_VIOLATION: Architecture intent constraints were violated. Review layer direction, ownership boundaries, and orchestrator mediation rules.",
+        "impact_score": 0.063
+      },
+      {
+        "stage": "semantic_consistency",
+        "failure": "DUPLICATE_INTENT_CLUSTERS: Conceptually overlapping cross-context clusters suggest duplicated or fragmented domain intent.",
+        "impact_score": 0.023
+      },
+      {
+        "stage": "causal_flow",
+        "failure": "MISSING_API_BOUNDARY: No API boundary stage was detected in reconstructed workflows.",
+        "impact_score": 0.022
       }
     ],
     "scores": {
@@ -136,10 +220,12 @@
       "dependency_consistency": 0.855,
       "topology_validation": 0.997,
       "semantic_observations": 0.928,
+      "execution_confidence": 0.416,
       "structural": 1.0,
       "reachability": 0.997,
       "resolver": 0.855,
       "semantic": 0.928,
+      "execution": 0.416,
       "trust": 0.952
     }
   },
@@ -148,30 +234,41 @@
     "critical_failure": false,
     "hard_fail_reasons": [],
     "soft_fail_reasons": [
+      "Architectural intent score is below minimum threshold 0.600.",
       "Cycle policy violations detected (warning-level unless threshold escalates)."
     ],
     "thresholds": {
       "min_trust": 0.4,
+      "min_execution_confidence": 0.3,
       "max_missing_di_node_ratio": 0.5,
-      "max_unexpected_island_ratio": 0.4
+      "max_unexpected_island_ratio": 0.4,
+      "max_architecture_violation_ratio": 0.6,
+      "min_architecture_intent": 0.6,
+      "min_semantic_consistency": 0.55,
+      "min_causal_flow": 0.4
     },
     "policy_metrics": {
       "trust_score": 0.952,
+      "execution_confidence": 0.416,
       "missing_di_node_ratio": 0.0,
-      "unexpected_island_ratio": 0.0
+      "unexpected_island_ratio": 0.0,
+      "architecture_violation_ratio": 0.575,
+      "architecture_intent_score": 0.479,
+      "semantic_consistency_score": 0.707,
+      "causal_flow_score": 0.775
     }
   },
   "metrics": {
-    "node_count": 483,
-    "edge_count": 615,
-    "valid_node_count": 483,
+    "node_count": 619,
+    "edge_count": 837,
+    "valid_node_count": 619,
     "malformed_node_count": 0,
     "duplicate_node_count": 0,
     "invalid_namespace_count": 0,
     "malformed_edge_count": 0,
     "invalid_edge_type_count": 0,
     "unresolved_edge_count": 0,
-    "cross_namespace_edge_count": 28,
+    "cross_namespace_edge_count": 32,
     "invalid_edge_count": 0
   },
   "issues": [],
@@ -182,16 +279,16 @@
     "structural_integrity": {
       "domain": "structural_integrity",
       "metrics": {
-        "node_count": 483,
-        "edge_count": 615,
-        "valid_node_count": 483,
+        "node_count": 619,
+        "edge_count": 837,
+        "valid_node_count": 619,
         "malformed_node_count": 0,
         "duplicate_node_count": 0,
         "invalid_namespace_count": 0,
         "malformed_edge_count": 0,
         "invalid_edge_type_count": 0,
         "unresolved_edge_count": 0,
-        "cross_namespace_edge_count": 28,
+        "cross_namespace_edge_count": 32,
         "invalid_edge_ratio": 0.0,
         "malformed_node_ratio": 0.0,
         "domain_score": 1.0
@@ -204,14 +301,14 @@
     "dependency_consistency": {
       "domain": "dependency_consistency",
       "metrics": {
-        "resolver_edge_count": 615,
-        "graph_di_edge_count": 567,
-        "resolver_di_edge_count": 567,
-        "resolver_ast_edge_count": 48,
+        "resolver_edge_count": 837,
+        "graph_di_edge_count": 770,
+        "resolver_di_edge_count": 770,
+        "resolver_ast_edge_count": 67,
         "missing_di_nodes_count": 0,
-        "di_nodes_referenced_count": 384,
+        "di_nodes_referenced_count": 504,
         "missing_di_node_ratio": 0.0,
-        "ast_di_divergence_score": 0.723,
+        "ast_di_divergence_score": 0.724,
         "ast_di_overlap_score": 0.0,
         "graph_di_drift_score": 0.0,
         "resolver_coverage_score": 1.0,
@@ -224,7 +321,7 @@
           "type": "AST_DI_DIVERGENCE_TRACKED",
           "severity": "MEDIUM",
           "message": "AST and DI pair sets diverge; this is tracked as architecture drift.",
-          "count": 615,
+          "count": 837,
           "sample": [],
           "sample_nodes": []
         }
@@ -270,6 +367,58 @@
             "to": "canonical://function/repo_audit_engine/analysis/ast_parser.py/parse_python_source"
           },
           {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_detect_abstraction_collisions",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_tokenize_ordered"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_infer_context",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_normalize_path"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_infer_domain",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_tokenize"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/analyze_semantic_clusters",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_connected_components"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/analyze_semantic_clusters",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_detect_abstraction_collisions"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/analyze_semantic_clusters",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_empty_file_record"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/analyze_semantic_clusters",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_infer_context"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/analyze_semantic_clusters",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_infer_domain"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/analyze_semantic_clusters",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_normalize_path"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/analyze_semantic_clusters",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_safe_divide"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/analyze_semantic_clusters",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_tokenize"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/build_semantic_cluster_report",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/_load_jsonl_rows"
+          },
+          {
+            "from": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/build_semantic_cluster_report",
+            "to": "canonical://function/repo_audit_engine/analysis/semantic_clusters.py/analyze_semantic_clusters"
+          },
+          {
             "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_analyze_python_file",
             "to": "canonical://class/repo_audit_engine/analysis/static_analyzer.py/_CallVisitor"
           },
@@ -280,58 +429,6 @@
           {
             "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_call_name",
             "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_call_name"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/run_static_analysis",
-            "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_analyze_python_file"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/run_static_analysis",
-            "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_build_manifest_indexes"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/run_static_analysis",
-            "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_iter_manifest_records"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/run_static_analysis",
-            "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_resolve_module"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/visit_Call",
-            "to": "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_call_name"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/classification/dead_code.py/build_dead_code_report_from_artifact",
-            "to": "canonical://function/repo_audit_engine/classification/dead_code.py/build_dead_code_report"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_collect_all_nodes",
-            "to": "canonical://function/repo_audit_engine/classification/engine_v2.py/_normalize_node_id"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_collect_all_nodes",
-            "to": "canonical://function/src/stage_adapter.py/_normalize_path"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_collect_reference_evidence",
-            "to": "canonical://function/repo_audit_engine/classification/engine_v2.py/_normalize_node_id"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_collect_runtime_hits",
-            "to": "canonical://function/repo_audit_engine/classification/engine_v2.py/_node_id_from_runtime_row"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_collect_runtime_reachable_nodes",
-            "to": "canonical://function/repo_audit_engine/classification/engine_v2.py/_normalize_node_id"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_load_manifest_payload",
-            "to": "canonical://function/repo_audit_engine/graph/graph_builder.py/_iter_jsonl"
-          },
-          {
-            "from": "canonical://function/repo_audit_engine/classification/engine_v2.py/_load_manifest_payload",
-            "to": "canonical://function/src/stage_adapter.py/_normalize_path"
           }
         ],
         "resolver_ast_pairs_sample": [
@@ -340,12 +437,24 @@
             "to": "canonical://file/repo_audit_engine/cli.py"
           },
           {
+            "from": "canonical://file/repo_audit_engine/analysis/semantic_clusters.py",
+            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
             "from": "canonical://file/repo_audit_engine/analysis/static_analyzer.py",
+            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/architecture/constraints.py",
             "to": "canonical://file/repo_audit_engine/io/artifacts.py"
           },
           {
             "from": "canonical://file/repo_audit_engine/classification/dead_code.py",
             "to": "canonical://file/repo_audit_engine/io/artifacts.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/classification/engine_v2.py",
+            "to": "canonical://file/repo_audit_engine/classification/scoring.py"
           },
           {
             "from": "canonical://file/repo_audit_engine/classification/engine_v2.py",
@@ -401,7 +510,15 @@
           },
           {
             "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
+            "to": "canonical://file/repo_audit_engine/analysis/semantic_clusters.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
             "to": "canonical://file/repo_audit_engine/analysis/static_analyzer.py"
+          },
+          {
+            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
+            "to": "canonical://file/repo_audit_engine/architecture/constraints.py"
           },
           {
             "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
@@ -414,26 +531,6 @@
           {
             "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
             "to": "canonical://file/repo_audit_engine/diagnostics/reporter.py"
-          },
-          {
-            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
-            "to": "canonical://file/repo_audit_engine/graph/graph_builder.py"
-          },
-          {
-            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
-            "to": "canonical://file/repo_audit_engine/io/artifacts.py"
-          },
-          {
-            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
-            "to": "canonical://file/repo_audit_engine/manifest/builder.py"
-          },
-          {
-            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
-            "to": "canonical://file/repo_audit_engine/pipeline/stages.py"
-          },
-          {
-            "from": "canonical://file/repo_audit_engine/pipeline/orchestrator.py",
-            "to": "canonical://file/repo_audit_engine/pipeline/validation.py"
           }
         ]
       }
@@ -444,14 +541,14 @@
         "entrypoint_count": 9,
         "entrypoint_present_count": 0,
         "entrypoint_missing_count": 9,
-        "reachable_node_count": 483,
+        "reachable_node_count": 619,
         "unreachable_node_count": 0,
         "unreachable_nodes_ratio": 0.0,
-        "di_edge_count": 567,
+        "di_edge_count": 770,
         "di_unreachable_edge_count": 0,
         "di_unreachable_ratio": 0.0,
-        "cycle_node_count": 11,
-        "cycle_policy_violation_count": 11,
+        "cycle_node_count": 12,
+        "cycle_policy_violation_count": 12,
         "disconnected_island_count": 0,
         "isolated_module_count": 0,
         "orphan_subgraph_count": 0,
@@ -462,7 +559,7 @@
         "cyclic_island_node_count": 0,
         "unexpected_island_node_count": 0,
         "unexpected_island_ratio": 0.0,
-        "cycle_violation_ratio": 0.023,
+        "cycle_violation_ratio": 0.019,
         "domain_score": 0.997
       },
       "issues": [
@@ -472,12 +569,13 @@
           "type": "CYCLE_POLICY_VIOLATION",
           "severity": "MEDIUM",
           "message": "Cycle nodes violate cycle allowance policy flags.",
-          "count": 11,
+          "count": 12,
           "sample": [
             "canonical://function/repo_audit_engine/analysis/static_analyzer.py/_call_name",
             "canonical://function/repo_audit_engine/cli.py/__init__",
             "canonical://function/repo_audit_engine/core/errors.py/__init__",
             "canonical://function/repo_audit_engine/pipeline/orchestrator.py/__init__",
+            "canonical://function/repo_audit_engine/runtime/scenario_runner.py/_safe_value_for_annotation",
             "canonical://function/tests/test_pipeline_e2e.py/_find_key_paths",
             "canonical://function/tests/test_pipeline_e2e.py/_is_number",
             "canonical://function/tests/test_pipeline_e2e.py/_strip_timestamps",
@@ -491,6 +589,7 @@
             "canonical://function/repo_audit_engine/cli.py/__init__",
             "canonical://function/repo_audit_engine/core/errors.py/__init__",
             "canonical://function/repo_audit_engine/pipeline/orchestrator.py/__init__",
+            "canonical://function/repo_audit_engine/runtime/scenario_runner.py/_safe_value_for_annotation",
             "canonical://function/tests/test_pipeline_e2e.py/_find_key_paths",
             "canonical://function/tests/test_pipeline_e2e.py/_is_number",
             "canonical://function/tests/test_pipeline_e2e.py/_strip_timestamps",
@@ -550,6 +649,7 @@
           ],
           "reachable_nodes": [
             "canonical://class/repo_audit_engine/analysis/static_analyzer.py/_CallVisitor",
+            "canonical://class/repo_audit_engine/classification/engine_v2.py/ClassificationError",
             "canonical://class/repo_audit_engine/classification/engine_v2.py/EvidenceClassifier",
             "canonical://class/repo_audit_engine/cli.py/PipelineStageError",
             "canonical://class/repo_audit_engine/core/config.py/PipelineConfig",
@@ -572,8 +672,7 @@
             "canonical://file/repo_audit_engine/__main__.py",
             "canonical://file/repo_audit_engine/analysis/__init__.py",
             "canonical://file/repo_audit_engine/analysis/ast_parser.py",
-            "canonical://file/repo_audit_engine/analysis/static_analyzer.py",
-            "canonical://file/repo_audit_engine/analysis/symbol_extractor.py"
+            "canonical://file/repo_audit_engine/analysis/semantic_clusters.py"
           ],
           "unreachable_nodes": [],
           "di_unreachable_edges": []
@@ -584,6 +683,7 @@
             "canonical://function/repo_audit_engine/cli.py/__init__",
             "canonical://function/repo_audit_engine/core/errors.py/__init__",
             "canonical://function/repo_audit_engine/pipeline/orchestrator.py/__init__",
+            "canonical://function/repo_audit_engine/runtime/scenario_runner.py/_safe_value_for_annotation",
             "canonical://function/tests/test_pipeline_e2e.py/_find_key_paths",
             "canonical://function/tests/test_pipeline_e2e.py/_is_number",
             "canonical://function/tests/test_pipeline_e2e.py/_strip_timestamps",
@@ -597,6 +697,7 @@
             "canonical://function/repo_audit_engine/cli.py/__init__",
             "canonical://function/repo_audit_engine/core/errors.py/__init__",
             "canonical://function/repo_audit_engine/pipeline/orchestrator.py/__init__",
+            "canonical://function/repo_audit_engine/runtime/scenario_runner.py/_safe_value_for_annotation",
             "canonical://function/tests/test_pipeline_e2e.py/_find_key_paths",
             "canonical://function/tests/test_pipeline_e2e.py/_is_number",
             "canonical://function/tests/test_pipeline_e2e.py/_strip_timestamps",
@@ -614,7 +715,7 @@
       "metrics": {
         "semantic_note_count": 1,
         "semantic_warning_count": 0,
-        "ast_di_divergence_score": 0.723,
+        "ast_di_divergence_score": 0.724,
         "domain_score": 0.928
       },
       "issues": [],
@@ -628,7 +729,1268 @@
           "orphan_subgraph": 0,
           "cyclic_island": 0
         },
-        "ast_di_divergence_score": 0.723
+        "ast_di_divergence_score": 0.724
+      }
+    },
+    "execution_confidence": {
+      "domain": "execution_confidence",
+      "metrics": {
+        "runtime_source": "runtime_trace",
+        "call_event_count": 1278,
+        "coverage_ratio": 0.134,
+        "overlap_ratio": 0.021,
+        "runtime_confidence": 1.0,
+        "edge_confidence": 0.416,
+        "execution_confidence": 0.416,
+        "entrypoint_count": 9,
+        "executed_entrypoint_count": 4,
+        "entrypoint_execution_ratio": 0.444,
+        "hot_count": 1,
+        "warm_count": 84,
+        "cold_count": 391,
+        "dead_count": 156,
+        "min_execution_confidence": 0.3,
+        "domain_score": 0.416
+      },
+      "issues": [],
+      "warnings": [
+        "Only a subset of configured entrypoints was observed in runtime execution."
+      ],
+      "details": {
+        "formula": {
+          "runtime_confidence": "min(1.0, coverage_ratio * 10.0)",
+          "edge_confidence": "min(1.0, overlap_ratio * 20.0)",
+          "execution_confidence": "min(runtime_confidence, edge_confidence)"
+        },
+        "gate": {
+          "threshold": 0.3,
+          "applied": false
+        }
+      }
+    },
+    "architectural_intent": {
+      "domain": "architectural_intent",
+      "metrics": {
+        "violation_count": 150,
+        "violation_ratio": 0.575,
+        "constraint_coverage_ratio": 0.394,
+        "boundary_crossing_count": 149,
+        "domain_score": 0.479
+      },
+      "issues": [
+        {
+          "domain": "architectural_intent",
+          "layer": "architectural_intent",
+          "type": "ARCHITECTURE_CONSTRAINT_VIOLATION",
+          "severity": "HIGH",
+          "message": "Architecture intent constraints were violated. Review layer direction, ownership boundaries, and orchestrator mediation rules.",
+          "count": 150,
+          "sample": [
+            "file:repo_audit_engine/runtime/tracer.py",
+            "file:repo_audit_engine/__main__.py",
+            "file:repo_audit_engine/analysis/semantic_clusters.py",
+            "file:repo_audit_engine/analysis/static_analyzer.py",
+            "file:repo_audit_engine/architecture/constraints.py",
+            "file:repo_audit_engine/classification/dead_code.py",
+            "file:repo_audit_engine/classification/engine_v2.py",
+            "file:repo_audit_engine/classification/engine_v2.py",
+            "file:repo_audit_engine/classification/heat_engine.py",
+            "file:repo_audit_engine/cli.py",
+            "file:repo_audit_engine/cli.py",
+            "file:repo_audit_engine/cli.py",
+            "file:repo_audit_engine/cli.py",
+            "file:repo_audit_engine/diagnostics/reporter.py",
+            "file:repo_audit_engine/graph/graph_builder.py",
+            "file:repo_audit_engine/manifest/builder.py",
+            "file:repo_audit_engine/manifest/writer.py",
+            "file:repo_audit_engine/pipeline/__init__.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py"
+          ],
+          "sample_nodes": [
+            "file:repo_audit_engine/runtime/tracer.py",
+            "file:repo_audit_engine/__main__.py",
+            "file:repo_audit_engine/analysis/semantic_clusters.py",
+            "file:repo_audit_engine/analysis/static_analyzer.py",
+            "file:repo_audit_engine/architecture/constraints.py",
+            "file:repo_audit_engine/classification/dead_code.py",
+            "file:repo_audit_engine/classification/engine_v2.py",
+            "file:repo_audit_engine/classification/engine_v2.py",
+            "file:repo_audit_engine/classification/heat_engine.py",
+            "file:repo_audit_engine/cli.py",
+            "file:repo_audit_engine/cli.py",
+            "file:repo_audit_engine/cli.py",
+            "file:repo_audit_engine/cli.py",
+            "file:repo_audit_engine/diagnostics/reporter.py",
+            "file:repo_audit_engine/graph/graph_builder.py",
+            "file:repo_audit_engine/manifest/builder.py",
+            "file:repo_audit_engine/manifest/writer.py",
+            "file:repo_audit_engine/pipeline/__init__.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py",
+            "file:repo_audit_engine/pipeline/orchestrator.py"
+          ]
+        }
+      ],
+      "warnings": [
+        "Cross-owner dependencies were detected outside explicit contract/event boundaries."
+      ],
+      "details": {
+        "intent_model": {
+          "layer_counts": {
+            "domain": 10,
+            "infra": 68,
+            "orchestration": 58,
+            "shared": 18,
+            "test": 90,
+            "unknown": 375
+          },
+          "context_counts": {
+            "__init__.py": 1,
+            "__main__.py": 1,
+            "analysis/__init__.py": 1,
+            "analysis/ast_parser.py": 3,
+            "analysis/semantic_clusters.py": 13,
+            "analysis/static_analyzer.py": 15,
+            "analysis/symbol_extractor.py": 2,
+            "architecture/__init__.py": 1,
+            "architecture/constraints.py": 25,
+            "classification/__init__.py": 1,
+            "classification/dead_code.py": 3,
+            "classification/engine_v2.py": 30,
+            "classification/heat_engine.py": 4,
+            "classification/scoring.py": 2,
+            "cli.py": 26,
+            "conftest.py": 1,
+            "core/__init__.py": 1,
+            "core/config.py": 2,
+            "core/errors.py": 4,
+            "core/models.py": 2,
+            "core/types.py": 1,
+            "deterministic_stress_harness.py": 34,
+            "diagnostics/__init__.py": 1,
+            "diagnostics/explainability.py": 2,
+            "diagnostics/reporter.py": 31,
+            "diagnostics/root_cause.py": 2,
+            "graph/__init__.py": 1,
+            "graph/graph_builder.py": 6,
+            "graph/graph_models.py": 3,
+            "graph/graph_utils.py": 3,
+            "io/__init__.py": 1,
+            "io/artifacts.py": 5,
+            "io/jsonl_writer.py": 3,
+            "io/streaming.py": 2,
+            "layer3_py_ast_resolver.py": 2,
+            "manifest/__init__.py": 1,
+            "manifest/builder.py": 10,
+            "manifest/scanner.py": 2,
+            "manifest/writer.py": 3,
+            "pipeline/__init__.py": 1,
+            "pipeline/context.py": 2,
+            "pipeline/orchestrator.py": 10,
+            "pipeline/stages.py": 2,
+            "pipeline/validation.py": 43,
+            "runtime/__init__.py": 1,
+            "runtime/bubble_executor.py": 5,
+            "runtime/causal_flow.py": 12,
+            "runtime/sandbox.py": 3,
+            "runtime/scenario_runner.py": 30,
+            "runtime/tracer.py": 17,
+            "stage_adapter.py": 24,
+            "test_architecture_constraint_engine.py": 4,
+            "test_causal_flow.py": 4,
+            "test_classification_engine_v2.py": 16,
+            "test_e2e_pipeline_audit.py": 3,
+            "test_execution_confidence.py": 6,
+            "test_full_pipeline.py": 3,
+            "test_graph.py": 3,
+            "test_heat_classification.py": 4,
+            "test_manifest.py": 2,
+            "test_pipeline_e2e.py": 26,
+            "test_runtime_bubble.py": 3,
+            "test_runtime_scenario_runner.py": 6,
+            "test_semantic_clustering.py": 5,
+            "test_verification_intent_extensions.py": 4,
+            "tools/repo_structure_audit.py": 66,
+            "utils/__init__.py": 1,
+            "utils/filesystem.py": 4,
+            "utils/hashing.py": 2,
+            "utils/io.py": 3,
+            "utils/paths.py": 3,
+            "utils/timing.py": 5,
+            "verification_authority_gate.py": 6,
+            "verification_runner.py": 35,
+            "verification_runner_negative_fixtures.py": 4
+          },
+          "owner_counts": {
+            "repo_audit_engine/__init__.py": 1,
+            "repo_audit_engine/__main__.py": 1,
+            "repo_audit_engine/analysis": 34,
+            "repo_audit_engine/architecture": 26,
+            "repo_audit_engine/classification": 40,
+            "repo_audit_engine/cli.py": 26,
+            "repo_audit_engine/core": 10,
+            "repo_audit_engine/diagnostics": 36,
+            "repo_audit_engine/graph": 13,
+            "repo_audit_engine/io": 11,
+            "repo_audit_engine/manifest": 16,
+            "repo_audit_engine/pipeline": 58,
+            "repo_audit_engine/runtime": 68,
+            "repo_audit_engine/utils": 18,
+            "src/deterministic_stress_harness.py": 34,
+            "src/layer3_py_ast_resolver.py": 2,
+            "src/stage_adapter.py": 24,
+            "src/verification_authority_gate.py": 6,
+            "src/verification_runner.py": 35,
+            "src/verification_runner_negative_fixtures.py": 4,
+            "tests/conftest.py": 1,
+            "tests/test_architecture_constraint_engine.py": 4,
+            "tests/test_causal_flow.py": 4,
+            "tests/test_classification_engine_v2.py": 16,
+            "tests/test_e2e_pipeline_audit.py": 3,
+            "tests/test_execution_confidence.py": 6,
+            "tests/test_full_pipeline.py": 3,
+            "tests/test_graph.py": 3,
+            "tests/test_heat_classification.py": 4,
+            "tests/test_manifest.py": 2,
+            "tests/test_pipeline_e2e.py": 26,
+            "tests/test_runtime_bubble.py": 3,
+            "tests/test_runtime_scenario_runner.py": 6,
+            "tests/test_semantic_clustering.py": 5,
+            "tests/test_verification_intent_extensions.py": 4,
+            "tools": 66
+          },
+          "classified_nodes": 244,
+          "total_nodes": 619,
+          "constraint_coverage_ratio": 0.394
+        },
+        "rule_violation_counts": {
+          "LAYER_DIRECTION_VIOLATION": 1,
+          "OWNERSHIP_BOUNDARY_CROSSING": 149
+        },
+        "top_violations": [
+          {
+            "rule_id": "LAYER_DIRECTION_VIOLATION",
+            "severity": "HIGH",
+            "reason": "infra depends on orchestration, which violates the architectural dependency direction.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/runtime/tracer.py",
+            "target_node_id": "file:repo_audit_engine/pipeline/validation.py",
+            "source_path": "repo_audit_engine/runtime/tracer.py",
+            "target_path": "repo_audit_engine/pipeline/validation.py",
+            "source_layer": "infra",
+            "target_layer": "orchestration",
+            "source_context": "runtime/tracer.py",
+            "target_context": "pipeline/validation.py",
+            "source_owner": "repo_audit_engine/runtime",
+            "target_owner": "repo_audit_engine/pipeline"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/__main__.py",
+            "target_node_id": "file:repo_audit_engine/cli.py",
+            "source_path": "repo_audit_engine/__main__.py",
+            "target_path": "repo_audit_engine/cli.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "__main__.py",
+            "target_context": "cli.py",
+            "source_owner": "repo_audit_engine/__main__.py",
+            "target_owner": "repo_audit_engine/cli.py"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/analysis/semantic_clusters.py",
+            "target_node_id": "file:repo_audit_engine/io/artifacts.py",
+            "source_path": "repo_audit_engine/analysis/semantic_clusters.py",
+            "target_path": "repo_audit_engine/io/artifacts.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "analysis/semantic_clusters.py",
+            "target_context": "io/artifacts.py",
+            "source_owner": "repo_audit_engine/analysis",
+            "target_owner": "repo_audit_engine/io"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/analysis/static_analyzer.py",
+            "target_node_id": "file:repo_audit_engine/io/artifacts.py",
+            "source_path": "repo_audit_engine/analysis/static_analyzer.py",
+            "target_path": "repo_audit_engine/io/artifacts.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "analysis/static_analyzer.py",
+            "target_context": "io/artifacts.py",
+            "source_owner": "repo_audit_engine/analysis",
+            "target_owner": "repo_audit_engine/io"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/architecture/constraints.py",
+            "target_node_id": "file:repo_audit_engine/io/artifacts.py",
+            "source_path": "repo_audit_engine/architecture/constraints.py",
+            "target_path": "repo_audit_engine/io/artifacts.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "architecture/constraints.py",
+            "target_context": "io/artifacts.py",
+            "source_owner": "repo_audit_engine/architecture",
+            "target_owner": "repo_audit_engine/io"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/classification/dead_code.py",
+            "target_node_id": "file:repo_audit_engine/io/artifacts.py",
+            "source_path": "repo_audit_engine/classification/dead_code.py",
+            "target_path": "repo_audit_engine/io/artifacts.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "classification/dead_code.py",
+            "target_context": "io/artifacts.py",
+            "source_owner": "repo_audit_engine/classification",
+            "target_owner": "repo_audit_engine/io"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/classification/engine_v2.py",
+            "target_node_id": "file:repo_audit_engine/graph/graph_utils.py",
+            "source_path": "repo_audit_engine/classification/engine_v2.py",
+            "target_path": "repo_audit_engine/graph/graph_utils.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "classification/engine_v2.py",
+            "target_context": "graph/graph_utils.py",
+            "source_owner": "repo_audit_engine/classification",
+            "target_owner": "repo_audit_engine/graph"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/classification/engine_v2.py",
+            "target_node_id": "file:repo_audit_engine/io/artifacts.py",
+            "source_path": "repo_audit_engine/classification/engine_v2.py",
+            "target_path": "repo_audit_engine/io/artifacts.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "classification/engine_v2.py",
+            "target_context": "io/artifacts.py",
+            "source_owner": "repo_audit_engine/classification",
+            "target_owner": "repo_audit_engine/io"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/classification/heat_engine.py",
+            "target_node_id": "file:repo_audit_engine/io/artifacts.py",
+            "source_path": "repo_audit_engine/classification/heat_engine.py",
+            "target_path": "repo_audit_engine/io/artifacts.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "classification/heat_engine.py",
+            "target_context": "io/artifacts.py",
+            "source_owner": "repo_audit_engine/classification",
+            "target_owner": "repo_audit_engine/io"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/cli.py",
+            "target_node_id": "file:repo_audit_engine/diagnostics/reporter.py",
+            "source_path": "repo_audit_engine/cli.py",
+            "target_path": "repo_audit_engine/diagnostics/reporter.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "cli.py",
+            "target_context": "diagnostics/reporter.py",
+            "source_owner": "repo_audit_engine/cli.py",
+            "target_owner": "repo_audit_engine/diagnostics"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/cli.py",
+            "target_node_id": "file:repo_audit_engine/io/artifacts.py",
+            "source_path": "repo_audit_engine/cli.py",
+            "target_path": "repo_audit_engine/io/artifacts.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "cli.py",
+            "target_context": "io/artifacts.py",
+            "source_owner": "repo_audit_engine/cli.py",
+            "target_owner": "repo_audit_engine/io"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/cli.py",
+            "target_node_id": "file:repo_audit_engine/pipeline/orchestrator.py",
+            "source_path": "repo_audit_engine/cli.py",
+            "target_path": "repo_audit_engine/pipeline/orchestrator.py",
+            "source_layer": "unknown",
+            "target_layer": "orchestration",
+            "source_context": "cli.py",
+            "target_context": "pipeline/orchestrator.py",
+            "source_owner": "repo_audit_engine/cli.py",
+            "target_owner": "repo_audit_engine/pipeline"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/cli.py",
+            "target_node_id": "file:repo_audit_engine/pipeline/validation.py",
+            "source_path": "repo_audit_engine/cli.py",
+            "target_path": "repo_audit_engine/pipeline/validation.py",
+            "source_layer": "unknown",
+            "target_layer": "orchestration",
+            "source_context": "cli.py",
+            "target_context": "pipeline/validation.py",
+            "source_owner": "repo_audit_engine/cli.py",
+            "target_owner": "repo_audit_engine/pipeline"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/diagnostics/reporter.py",
+            "target_node_id": "file:repo_audit_engine/io/artifacts.py",
+            "source_path": "repo_audit_engine/diagnostics/reporter.py",
+            "target_path": "repo_audit_engine/io/artifacts.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "diagnostics/reporter.py",
+            "target_context": "io/artifacts.py",
+            "source_owner": "repo_audit_engine/diagnostics",
+            "target_owner": "repo_audit_engine/io"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/graph/graph_builder.py",
+            "target_node_id": "file:repo_audit_engine/io/artifacts.py",
+            "source_path": "repo_audit_engine/graph/graph_builder.py",
+            "target_path": "repo_audit_engine/io/artifacts.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "graph/graph_builder.py",
+            "target_context": "io/artifacts.py",
+            "source_owner": "repo_audit_engine/graph",
+            "target_owner": "repo_audit_engine/io"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/manifest/builder.py",
+            "target_node_id": "file:repo_audit_engine/io/artifacts.py",
+            "source_path": "repo_audit_engine/manifest/builder.py",
+            "target_path": "repo_audit_engine/io/artifacts.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "manifest/builder.py",
+            "target_context": "io/artifacts.py",
+            "source_owner": "repo_audit_engine/manifest",
+            "target_owner": "repo_audit_engine/io"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/manifest/writer.py",
+            "target_node_id": "file:repo_audit_engine/io/artifacts.py",
+            "source_path": "repo_audit_engine/manifest/writer.py",
+            "target_path": "repo_audit_engine/io/artifacts.py",
+            "source_layer": "unknown",
+            "target_layer": "unknown",
+            "source_context": "manifest/writer.py",
+            "target_context": "io/artifacts.py",
+            "source_owner": "repo_audit_engine/manifest",
+            "target_owner": "repo_audit_engine/io"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/pipeline/__init__.py",
+            "target_node_id": "file:repo_audit_engine/diagnostics/reporter.py",
+            "source_path": "repo_audit_engine/pipeline/__init__.py",
+            "target_path": "repo_audit_engine/diagnostics/reporter.py",
+            "source_layer": "orchestration",
+            "target_layer": "unknown",
+            "source_context": "pipeline/__init__.py",
+            "target_context": "diagnostics/reporter.py",
+            "source_owner": "repo_audit_engine/pipeline",
+            "target_owner": "repo_audit_engine/diagnostics"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/pipeline/orchestrator.py",
+            "target_node_id": "file:repo_audit_engine/analysis/semantic_clusters.py",
+            "source_path": "repo_audit_engine/pipeline/orchestrator.py",
+            "target_path": "repo_audit_engine/analysis/semantic_clusters.py",
+            "source_layer": "orchestration",
+            "target_layer": "unknown",
+            "source_context": "pipeline/orchestrator.py",
+            "target_context": "analysis/semantic_clusters.py",
+            "source_owner": "repo_audit_engine/pipeline",
+            "target_owner": "repo_audit_engine/analysis"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/pipeline/orchestrator.py",
+            "target_node_id": "file:repo_audit_engine/analysis/static_analyzer.py",
+            "source_path": "repo_audit_engine/pipeline/orchestrator.py",
+            "target_path": "repo_audit_engine/analysis/static_analyzer.py",
+            "source_layer": "orchestration",
+            "target_layer": "unknown",
+            "source_context": "pipeline/orchestrator.py",
+            "target_context": "analysis/static_analyzer.py",
+            "source_owner": "repo_audit_engine/pipeline",
+            "target_owner": "repo_audit_engine/analysis"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/pipeline/orchestrator.py",
+            "target_node_id": "file:repo_audit_engine/architecture/constraints.py",
+            "source_path": "repo_audit_engine/pipeline/orchestrator.py",
+            "target_path": "repo_audit_engine/architecture/constraints.py",
+            "source_layer": "orchestration",
+            "target_layer": "unknown",
+            "source_context": "pipeline/orchestrator.py",
+            "target_context": "architecture/constraints.py",
+            "source_owner": "repo_audit_engine/pipeline",
+            "target_owner": "repo_audit_engine/architecture"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/pipeline/orchestrator.py",
+            "target_node_id": "file:repo_audit_engine/classification/dead_code.py",
+            "source_path": "repo_audit_engine/pipeline/orchestrator.py",
+            "target_path": "repo_audit_engine/classification/dead_code.py",
+            "source_layer": "orchestration",
+            "target_layer": "unknown",
+            "source_context": "pipeline/orchestrator.py",
+            "target_context": "classification/dead_code.py",
+            "source_owner": "repo_audit_engine/pipeline",
+            "target_owner": "repo_audit_engine/classification"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/pipeline/orchestrator.py",
+            "target_node_id": "file:repo_audit_engine/classification/heat_engine.py",
+            "source_path": "repo_audit_engine/pipeline/orchestrator.py",
+            "target_path": "repo_audit_engine/classification/heat_engine.py",
+            "source_layer": "orchestration",
+            "target_layer": "unknown",
+            "source_context": "pipeline/orchestrator.py",
+            "target_context": "classification/heat_engine.py",
+            "source_owner": "repo_audit_engine/pipeline",
+            "target_owner": "repo_audit_engine/classification"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/pipeline/orchestrator.py",
+            "target_node_id": "file:repo_audit_engine/diagnostics/reporter.py",
+            "source_path": "repo_audit_engine/pipeline/orchestrator.py",
+            "target_path": "repo_audit_engine/diagnostics/reporter.py",
+            "source_layer": "orchestration",
+            "target_layer": "unknown",
+            "source_context": "pipeline/orchestrator.py",
+            "target_context": "diagnostics/reporter.py",
+            "source_owner": "repo_audit_engine/pipeline",
+            "target_owner": "repo_audit_engine/diagnostics"
+          },
+          {
+            "rule_id": "OWNERSHIP_BOUNDARY_CROSSING",
+            "severity": "LOW",
+            "reason": "Cross-owner dependency is not mediated by an explicit contract/event boundary.",
+            "edge_type": "IMPORT",
+            "source_node_id": "file:repo_audit_engine/pipeline/orchestrator.py",
+            "target_node_id": "file:repo_audit_engine/graph/graph_builder.py",
+            "source_path": "repo_audit_engine/pipeline/orchestrator.py",
+            "target_path": "repo_audit_engine/graph/graph_builder.py",
+            "source_layer": "orchestration",
+            "target_layer": "unknown",
+            "source_context": "pipeline/orchestrator.py",
+            "target_context": "graph/graph_builder.py",
+            "source_owner": "repo_audit_engine/pipeline",
+            "target_owner": "repo_audit_engine/graph"
+          }
+        ]
+      }
+    },
+    "semantic_consistency": {
+      "domain": "semantic_consistency",
+      "metrics": {
+        "cluster_count": 7,
+        "cross_context_cluster_count": 4,
+        "duplicate_intent_cluster_count": 2,
+        "abstraction_collision_count": 0,
+        "domain_score": 0.707
+      },
+      "issues": [
+        {
+          "domain": "semantic_consistency",
+          "layer": "semantic_consistency",
+          "type": "DUPLICATE_INTENT_CLUSTERS",
+          "severity": "MEDIUM",
+          "message": "Conceptually overlapping cross-context clusters suggest duplicated or fragmented domain intent.",
+          "count": 2,
+          "sample": [
+            "repo_audit_engine/io/jsonl_writer.py",
+            "repo_audit_engine/io/streaming.py",
+            "repo_audit_engine/pipeline/validation.py",
+            "src/verification_runner.py"
+          ],
+          "sample_nodes": [
+            "repo_audit_engine/io/jsonl_writer.py",
+            "repo_audit_engine/io/streaming.py",
+            "repo_audit_engine/pipeline/validation.py",
+            "src/verification_runner.py"
+          ]
+        }
+      ],
+      "warnings": [],
+      "details": {
+        "duplicate_intent_clusters": [
+          {
+            "id": "cluster-036",
+            "member_count": 3,
+            "members": [
+              "repo_audit_engine/io/jsonl_writer.py",
+              "repo_audit_engine/io/streaming.py",
+              "repo_audit_engine/manifest/writer.py"
+            ],
+            "contexts": [
+              "io",
+              "manifest"
+            ],
+            "cross_context": true,
+            "average_similarity": 0.661,
+            "top_terms": [
+              "annotations",
+              "any",
+              "audit",
+              "dict",
+              "engine",
+              "future",
+              "isinstance",
+              "jsonl",
+              "path",
+              "pathlib",
+              "repo",
+              "typing"
+            ],
+            "dominant_domain": "general",
+            "duplicate_intent_risk": true
+          },
+          {
+            "id": "cluster-043",
+            "member_count": 2,
+            "members": [
+              "repo_audit_engine/pipeline/validation.py",
+              "src/verification_runner.py"
+            ],
+            "contexts": [
+              "pipeline",
+              "src"
+            ],
+            "cross_context": true,
+            "average_similarity": 0.606,
+            "top_terms": [
+              "add",
+              "adjacency",
+              "all",
+              "allowed",
+              "analysis",
+              "annotations",
+              "any",
+              "append",
+              "apply",
+              "bfs",
+              "bool",
+              "build"
+            ],
+            "dominant_domain": "observability",
+            "duplicate_intent_risk": true
+          }
+        ],
+        "abstraction_collisions": []
+      }
+    },
+    "causal_flow": {
+      "domain": "causal_flow",
+      "metrics": {
+        "runtime_signal_present": true,
+        "analysis_enforced": true,
+        "workflow_count": 15,
+        "role_coverage_ratio": 0.5,
+        "direct_api_to_persistence_count": 0,
+        "domain_score": 0.775
+      },
+      "issues": [
+        {
+          "domain": "causal_flow",
+          "layer": "causal_flow",
+          "type": "MISSING_API_BOUNDARY",
+          "severity": "MEDIUM",
+          "message": "No API boundary stage was detected in reconstructed workflows.",
+          "count": 1,
+          "sample": [],
+          "sample_nodes": []
+        }
+      ],
+      "warnings": [],
+      "details": {
+        "observed_roles": [
+          "domain_decision",
+          "orchestration",
+          "side_effect"
+        ],
+        "workflow_templates": [
+          {
+            "signature": "domain_decision>internal>orchestration>domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration>domain_decision>internal",
+            "count": 6,
+            "roles": [
+              "domain_decision",
+              "internal",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "internal"
+            ]
+          },
+          {
+            "signature": "domain_decision",
+            "count": 3,
+            "roles": [
+              "domain_decision"
+            ]
+          },
+          {
+            "signature": "domain_decision>internal>domain_decision>internal",
+            "count": 2,
+            "roles": [
+              "domain_decision",
+              "internal",
+              "domain_decision",
+              "internal"
+            ]
+          },
+          {
+            "signature": "domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration>domain_decision",
+            "count": 1,
+            "roles": [
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision"
+            ]
+          },
+          {
+            "signature": "domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration",
+            "count": 1,
+            "roles": [
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration"
+            ]
+          },
+          {
+            "signature": "domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration>domain_decision>orchestration",
+            "count": 1,
+            "roles": [
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration"
+            ]
+          },
+          {
+            "signature": "domain_decision>side_effect>domain_decision>side_effect",
+            "count": 1,
+            "roles": [
+              "domain_decision",
+              "side_effect",
+              "domain_decision",
+              "side_effect"
+            ]
+          }
+        ],
+        "sample_workflows": [
+          {
+            "run_id": "run_001",
+            "step_count": 11,
+            "role_sequence": [
+              "domain_decision",
+              "internal",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "internal"
+            ],
+            "narrative": "domain decision -> internal computation -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> internal computation",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_002",
+            "step_count": 11,
+            "role_sequence": [
+              "domain_decision",
+              "internal",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "internal"
+            ],
+            "narrative": "domain decision -> internal computation -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> internal computation",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_003",
+            "step_count": 11,
+            "role_sequence": [
+              "domain_decision",
+              "internal",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "internal"
+            ],
+            "narrative": "domain decision -> internal computation -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> internal computation",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_004",
+            "step_count": 11,
+            "role_sequence": [
+              "domain_decision",
+              "internal",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "internal"
+            ],
+            "narrative": "domain decision -> internal computation -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> internal computation",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_005",
+            "step_count": 11,
+            "role_sequence": [
+              "domain_decision",
+              "internal",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "internal"
+            ],
+            "narrative": "domain decision -> internal computation -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> internal computation",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_006",
+            "step_count": 1,
+            "role_sequence": [
+              "domain_decision"
+            ],
+            "narrative": "domain decision",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_007",
+            "step_count": 11,
+            "role_sequence": [
+              "domain_decision",
+              "internal",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "internal"
+            ],
+            "narrative": "domain decision -> internal computation -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> internal computation",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_008",
+            "step_count": 10,
+            "role_sequence": [
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration"
+            ],
+            "narrative": "domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_009",
+            "step_count": 7,
+            "role_sequence": [
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision"
+            ],
+            "narrative": "domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_010",
+            "step_count": 4,
+            "role_sequence": [
+              "domain_decision",
+              "side_effect",
+              "domain_decision",
+              "side_effect"
+            ],
+            "narrative": "domain decision -> side effect -> domain decision -> side effect",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_011",
+            "step_count": 1,
+            "role_sequence": [
+              "domain_decision"
+            ],
+            "narrative": "domain decision",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_012",
+            "step_count": 8,
+            "role_sequence": [
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration",
+              "domain_decision",
+              "orchestration"
+            ],
+            "narrative": "domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration -> domain decision -> orchestration",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_013",
+            "step_count": 1,
+            "role_sequence": [
+              "domain_decision"
+            ],
+            "narrative": "domain decision",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_014",
+            "step_count": 4,
+            "role_sequence": [
+              "domain_decision",
+              "internal",
+              "domain_decision",
+              "internal"
+            ],
+            "narrative": "domain decision -> internal computation -> domain decision -> internal computation",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          },
+          {
+            "run_id": "run_015",
+            "step_count": 4,
+            "role_sequence": [
+              "domain_decision",
+              "internal",
+              "domain_decision",
+              "internal"
+            ],
+            "narrative": "domain decision -> internal computation -> domain decision -> internal computation",
+            "sample_nodes": [
+              "file:repo_audit_engine/__init__.py",
+              "file:repo_audit_engine/runtime/__init__.py",
+              "file:repo_audit_engine/runtime/bubble_executor.py",
+              "file:repo_audit_engine/io/__init__.py",
+              "file:repo_audit_engine/io/artifacts.py",
+              "file:repo_audit_engine/io/jsonl_writer.py",
+              "file:repo_audit_engine/io/streaming.py",
+              "file:repo_audit_engine/manifest/__init__.py",
+              "file:repo_audit_engine/manifest/builder.py",
+              "file:repo_audit_engine/manifest/scanner.py"
+            ]
+          }
+        ]
       }
     }
   }

@@ -1,7 +1,7 @@
 {
-  "file_count": 74,
-  "python_file_count": 64,
-  "total_bytes": 525016,
+  "file_count": 86,
+  "python_file_count": 75,
+  "total_bytes": 722402,
   "entrypoints": [
     "repo_audit_engine/__main__.py",
     "repo_audit_engine/cli.py",
@@ -16,7 +16,8 @@
   "language_counts": {
     "json": 2,
     "md": 2,
-    "python": 64,
+    "ps1": 1,
+    "python": 75,
     "tag": 1,
     "txt": 1,
     "unknown": 4
