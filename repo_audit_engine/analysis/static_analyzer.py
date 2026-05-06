@@ -168,6 +168,101 @@ def _resolve_module(module_name: str, module_index: Dict[str, str]) -> str:
     return ""
 
 
+def _build_import_resolution_context(imports_with_resolution: List[Dict[str, Any]]) -> Dict[str, Dict[str, set[str]]]:
+    prefix_to_paths: Dict[str, set[str]] = {}
+    symbol_to_paths: Dict[str, set[str]] = {}
+
+    for item in imports_with_resolution:
+        payload = item if isinstance(item, dict) else {}
+        module_name = str(payload.get("module", "")).strip()
+        alias_name = str(payload.get("alias", "")).strip()
+        resolved_path = str(payload.get("resolved_path", "")).strip()
+        if not resolved_path:
+            continue
+
+        module_parts = [part.strip() for part in module_name.split(".") if part.strip()]
+        if module_parts:
+            module_root = module_parts[0]
+            module_leaf = module_parts[-1]
+            prefix_to_paths.setdefault(module_root, set()).add(resolved_path)
+            prefix_to_paths.setdefault(module_leaf, set()).add(resolved_path)
+            symbol_to_paths.setdefault(module_leaf, set()).add(resolved_path)
+
+            if len(module_parts) >= 2:
+                prefix_to_paths.setdefault(module_parts[-2], set()).add(resolved_path)
+
+        if alias_name:
+            prefix_to_paths.setdefault(alias_name, set()).add(resolved_path)
+            symbol_to_paths.setdefault(alias_name, set()).add(resolved_path)
+
+    return {
+        "prefix_to_paths": prefix_to_paths,
+        "symbol_to_paths": symbol_to_paths,
+    }
+
+
+def _choose_unique_symbol_match(matches: List[Dict[str, str]]) -> str:
+    if not matches:
+        return ""
+
+    if len(matches) == 1:
+        return str(matches[0].get("node_id", "")).strip()
+
+    function_matches = [item for item in matches if str(item.get("kind", "")).strip() == "function"]
+    if len(function_matches) == 1:
+        return str(function_matches[0].get("node_id", "")).strip()
+
+    class_matches = [item for item in matches if str(item.get("kind", "")).strip() == "class"]
+    if len(class_matches) == 1:
+        return str(class_matches[0].get("node_id", "")).strip()
+
+    return ""
+
+
+def _resolve_call_target(
+    *,
+    file_path: str,
+    callee: str,
+    symbol_name: str,
+    matches: List[Dict[str, str]],
+    import_context: Dict[str, Dict[str, set[str]]],
+) -> str:
+    if not matches:
+        return ""
+
+    direct_choice = _choose_unique_symbol_match(matches)
+    if direct_choice:
+        return direct_choice
+
+    local_matches = [item for item in matches if str(item.get("path", "")).strip() == file_path]
+    local_choice = _choose_unique_symbol_match(local_matches)
+    if local_choice:
+        return local_choice
+
+    prefix_to_paths = import_context.get("prefix_to_paths", {})
+    symbol_to_paths = import_context.get("symbol_to_paths", {})
+
+    call_prefix = ""
+    if "." in callee:
+        call_prefix = callee.split(".", 1)[0].strip()
+
+    if call_prefix:
+        candidate_paths = prefix_to_paths.get(call_prefix, set())
+        narrowed = [item for item in matches if str(item.get("path", "")).strip() in candidate_paths]
+        narrowed_choice = _choose_unique_symbol_match(narrowed)
+        if narrowed_choice:
+            return narrowed_choice
+
+    candidate_paths = symbol_to_paths.get(symbol_name, set()) if symbol_name else set()
+    if candidate_paths:
+        narrowed = [item for item in matches if str(item.get("path", "")).strip() in candidate_paths]
+        narrowed_choice = _choose_unique_symbol_match(narrowed)
+        if narrowed_choice:
+            return narrowed_choice
+
+    return ""
+
+
 def _analyze_python_file(file_path: Path) -> Dict[str, Any]:
     source = file_path.read_text(encoding="utf-8", errors="replace")
     if not source.strip():
@@ -262,6 +357,8 @@ def run_static_analysis(
                     }
                 )
 
+            import_context = _build_import_resolution_context(imports_with_resolution)
+
             calls_with_resolution: List[Dict[str, Any]] = []
             for item in analysis["calls"]:
                 payload = item if isinstance(item, dict) else {}
@@ -269,9 +366,13 @@ def run_static_analysis(
                 caller = str(payload.get("caller", "<module>")).strip() or "<module>"
                 symbol_name = callee.split(".")[-1] if callee else ""
                 matches = list(symbol_index.get(symbol_name, [])) if symbol_name else []
-                resolved_node_id = ""
-                if len(matches) == 1:
-                    resolved_node_id = str(matches[0].get("node_id", ""))
+                resolved_node_id = _resolve_call_target(
+                    file_path=rel_path,
+                    callee=callee,
+                    symbol_name=symbol_name,
+                    matches=matches,
+                    import_context=import_context,
+                )
 
                 calls_with_resolution.append(
                     {

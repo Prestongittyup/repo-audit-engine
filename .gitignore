@@ -23,6 +23,7 @@ build/
 *.obj
 
 # Generated audit artifacts (safe to regenerate)
+output/
 output/checklist_validation_run/
 output/family_orchestration_bot_contract.json
 output/family_orchestration_bot_contract_artifacts/

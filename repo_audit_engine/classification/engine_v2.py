@@ -166,21 +166,41 @@ class EvidenceClassifier:
         runtime_hit_total = sum(int(value) for value in runtime_hits.values())
         hot_count = int(distribution.get("HOT", 0))
         warm_count = int(distribution.get("WARM", 0))
-        if hot_count == 0 and warm_count == 0:
-            raise ClassificationError(
-                "No active code detected - runtime signal invalid or mapping broken"
-            )
+        classification_warnings: List[str] = []
 
-        if runtime_hit_total > 0 and hot_count == 0 and warm_count == 0:
-            raise ClassificationError(
-                "Classification sanity check failed: runtime evidence exists but no HOT/WARM nodes were produced."
-            )
+        if hot_count == 0 and warm_count == 0:
+            if runtime_hit_total > 0:
+                classification_warnings.append("runtime_evidence_without_hot_or_warm_nodes")
+            else:
+                classification_warnings.append("no_hot_or_warm_nodes_detected")
+
+            for row in rows:
+                payload = row if isinstance(row, dict) else {}
+                base_confidence = float(payload.get("confidence", 0.0) or 0.0)
+                payload["confidence"] = round(min(base_confidence, 0.45), 3)
+
+                adjustments = payload.get("adjustments") if isinstance(payload.get("adjustments"), list) else []
+                if "no_hot_or_warm_distribution_confidence_capped" not in adjustments:
+                    adjustments.append("no_hot_or_warm_distribution_confidence_capped")
+                if adjustments:
+                    payload["adjustments"] = adjustments
 
         dead_ratio = self._safe_divide(int(distribution.get("DEAD", 0)), max(1, len(rows)))
         if bool(runtime_validation.get("passed", False)) and dead_ratio > self.MAX_DEAD_RATIO_WITH_RUNTIME:
             raise ClassificationError(
                 "Classification sanity check failed: DEAD ratio exceeds threshold despite valid runtime signal."
             )
+
+        if classification_warnings:
+            runtime_validation_payload = dict(runtime_validation) if isinstance(runtime_validation, Mapping) else {}
+            issues = runtime_validation_payload.get("issues") if isinstance(runtime_validation_payload.get("issues"), list) else []
+            for warning in classification_warnings:
+                if warning not in issues:
+                    issues.append(warning)
+            runtime_validation_payload["issues"] = issues
+            runtime_validation_payload["classification_warnings"] = classification_warnings
+            runtime_validation_payload["passed"] = False
+            runtime_validation = runtime_validation_payload
 
         return {
             "classifier": "EvidenceClassifier",
@@ -545,26 +565,6 @@ class EvidenceClassifier:
             if isinstance(value, str) and value.strip().isdigit():
                 return max(0, int(value.strip()))
         return 0
-
-    def _collect_runtime_hits(
-        self,
-        runtime_trace_rows: Iterable[Mapping[str, Any]],
-        canonical_lookup: Mapping[str, str],
-    ) -> Dict[str, int]:
-        hits: Dict[str, int] = {}
-
-        for item in runtime_trace_rows:
-            row = item if isinstance(item, Mapping) else {}
-            if str(row.get("event", "")).strip().lower() != "call":
-                continue
-
-            node_id = self._node_id_from_runtime_row(row, canonical_lookup)
-            if not node_id:
-                continue
-
-            hits[node_id] = int(hits.get(node_id, 0)) + 1
-
-        return hits
 
     def _normalized_count(self, value: int, maximum: int) -> float:
         numerator = max(0, int(value))

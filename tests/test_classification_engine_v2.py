@@ -334,3 +334,44 @@ def test_node_rows_include_confidence_and_evidence_strength(tmp_path: Path) -> N
         assert 0.0 <= float(confidence) <= 1.0
         assert isinstance(evidence_strength, dict)
         assert set(evidence_strength.keys()) == {"runtime", "graph", "static"}
+
+
+def test_no_hot_or_warm_distribution_is_warning_not_fatal(tmp_path: Path) -> None:
+    dependency_payload = {
+        "nodes": [
+            {"id": "file:src/app.py", "kind": "file"},
+            {"id": "function:src/app.py:helper", "kind": "function"},
+        ],
+        "edges": [
+            {"source": "file:src/app.py", "target": "function:src/app.py:helper", "type": "CALL"}
+        ],
+    }
+    flow_payload = {
+        "bubble_mode": True,
+        "entrypoint_runs": [],
+        "nodes": [],
+        "edges": [],
+        "summary": {"run_count": 0, "call_event_count": 0, "import_event_count": 0, "timeout_count": 0},
+    }
+
+    heat = _classify_from_artifacts(
+        tmp_path=tmp_path,
+        dependency_payload=dependency_payload,
+        flow_payload=flow_payload,
+        trace_rows=[],
+        manifest_payload={"entrypoints": ["src/app.py"]},
+    )
+
+    distribution = heat.get("distribution") if isinstance(heat.get("distribution"), dict) else {}
+    assert int(distribution.get("HOT", 0) or 0) == 0
+    assert int(distribution.get("WARM", 0) or 0) == 0
+
+    runtime_validation = heat.get("runtime_validation") if isinstance(heat.get("runtime_validation"), dict) else {}
+    issues = runtime_validation.get("issues") if isinstance(runtime_validation.get("issues"), list) else []
+    assert "no_hot_or_warm_nodes_detected" in [str(item) for item in issues]
+
+    rows = heat.get("nodes") if isinstance(heat.get("nodes"), list) else []
+    assert rows
+    for row in rows:
+        payload = row if isinstance(row, dict) else {}
+        assert float(payload.get("confidence", 0.0) or 0.0) <= 0.45

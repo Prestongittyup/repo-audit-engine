@@ -50,6 +50,9 @@ DEFAULT_SKIP_SUFFIXES = {
     ".avi",
 }
 
+ENGINE_ROOT = Path(__file__).resolve().parents[2]
+ENGINE_IGNORE_PATTERNS_PATH = ENGINE_ROOT / "config" / "ignore_patterns.txt"
+
 
 def _to_posix(path: Path) -> str:
     return path.as_posix()
@@ -83,11 +86,11 @@ def _module_name_from_path(rel_path: str) -> str:
     return module
 
 
-def _load_ignore_patterns(repo_path: Path) -> Tuple[set[str], set[str]]:
+def _load_ignore_patterns() -> Tuple[set[str], set[str]]:
     skip_dirs = set(DEFAULT_SKIP_DIRS)
     skip_suffixes = set(DEFAULT_SKIP_SUFFIXES)
 
-    config_path = repo_path / "config" / "ignore_patterns.txt"
+    config_path = ENGINE_IGNORE_PATTERNS_PATH
     if not config_path.exists():
         return skip_dirs, skip_suffixes
 
@@ -125,7 +128,7 @@ def _entrypoint_heuristics(
         reasons.append("explicit_config")
 
     filename = Path(rel_path).name.lower()
-    if filename in {"main.py", "app.py", "cli.py", "run.py"}:
+    if filename in {"__main__.py", "main.py", "app.py", "cli.py", "run.py"}:
         reasons.append("filename_heuristic")
 
     if has_main_guard:
@@ -252,7 +255,7 @@ def build_manifest(
 
     explicit = {str(item).strip() for item in (explicit_entrypoints or []) if str(item).strip()}
 
-    skip_dirs, skip_suffixes = _load_ignore_patterns(repo_root)
+    skip_dirs, skip_suffixes = _load_ignore_patterns()
 
     manifest_path = output_root / "manifest.jsonl"
     summary_path = output_root / "manifest_summary.json"

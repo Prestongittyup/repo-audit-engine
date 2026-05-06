@@ -141,14 +141,35 @@ def _mode_order(mode: str) -> List[str]:
 
 
 def _default_bubble_entrypoints(repo_root: Path, manifest_summary: Dict[str, Any]) -> List[str]:
-    del repo_root, manifest_summary
+    candidates: List[str] = []
 
-    candidates: List[str] = [
-        # Scenario entrypoints intentionally drive meaningful internal flows
-        # instead of only bootstrap/import noise.
-        "scenario:core-flow",
-        "scenario:cli-smoke",
-    ]
+    inferred_entrypoints = manifest_summary.get("entrypoints") if isinstance(manifest_summary, dict) else []
+    if isinstance(inferred_entrypoints, list):
+        preferred_filenames = ("__main__.py", "main.py", "app.py", "cli.py", "run.py")
+        prioritized = sorted(
+            [str(item).strip() for item in inferred_entrypoints if str(item).strip()],
+            key=lambda item: (
+                0
+                if Path(item).name.lower() in preferred_filenames
+                else 1,
+                str(item).lower(),
+            ),
+        )
+
+        for entrypoint in prioritized:
+            candidate_path = (repo_root / entrypoint).resolve()
+            if candidate_path.exists() and candidate_path.is_file():
+                candidates.append(entrypoint)
+
+    if not candidates:
+        for filename in ("__main__.py", "main.py", "app.py", "cli.py", "run.py"):
+            candidate_path = (repo_root / filename).resolve()
+            if candidate_path.exists() and candidate_path.is_file():
+                candidates.append(filename)
+
+    if not candidates:
+        # Last-resort deterministic probe when no plausible target entrypoint exists.
+        candidates.append("scenario:depth-probe")
 
     # Keep deterministic ordering and de-duplication.
     ordered: List[str] = []
@@ -332,12 +353,16 @@ def run_staged_pipeline(
                     scenario_plan = build_runtime_scenario_plan(
                         dependency_graph_path=graph_path,
                         manifest_summary_path=manifest_summary_path,
+                        manifest_path=Path(stage_data["manifest"]["manifest_path"]),
                         output_dir=out_root,
                         execution_flow_graph_path=_runtime_plan_existing_flow_path(out_root, min_mtime=run_reference_mtime),
                         max_scenarios=100,
+                        max_entrypoints=5,
+                        max_seed_scenarios=40,
                         coverage_stop_threshold=0.25,
-                        max_runtime_seconds=max(30, min(60, int(timeout_seconds))),
-                        max_events_per_scenario=min(int(max_events), 1500),
+                        max_runtime_seconds=max(120, min(300, int(timeout_seconds) * 6)),
+                        max_events_per_scenario=min(int(max_events), 600),
+                        max_entrypoint_seconds=max(1, min(int(timeout_seconds), 3)),
                     )
                     run_entrypoints = [
                         str(item).strip()
@@ -346,7 +371,7 @@ def run_staged_pipeline(
                     ]
 
             if not run_entrypoints and isinstance(inferred_entrypoints, list):
-                run_entrypoints = [str(item).strip() for item in inferred_entrypoints if str(item).strip()][:1]
+                run_entrypoints = [str(item).strip() for item in inferred_entrypoints if str(item).strip()][:5]
             if not run_entrypoints:
                 run_entrypoints = _default_bubble_entrypoints(repo_root, manifest_summary if isinstance(manifest_summary, dict) else {})
 
@@ -366,8 +391,10 @@ def run_staged_pipeline(
                 total_node_count=int(scenario_summary.get("total_node_count", 0) or 0),
                 baseline_runtime_hit_nodes=scenario_plan.get("baseline_runtime_hit_nodes", []),
                 coverage_stop_threshold=float(scenario_summary.get("coverage_stop_threshold", 0.25) or 0.25),
-                max_runtime_seconds=int(scenario_summary.get("max_runtime_seconds", max(30, min(60, int(timeout_seconds)))) or max(30, min(60, int(timeout_seconds)))),
-                max_events_per_scenario=int(scenario_summary.get("max_events_per_scenario", min(int(max_events), 1500)) or min(int(max_events), 1500)),
+                max_runtime_seconds=int(scenario_summary.get("max_runtime_seconds", max(120, min(300, int(timeout_seconds) * 6))) or max(120, min(300, int(timeout_seconds) * 6))),
+                max_events_per_scenario=int(scenario_summary.get("max_events_per_scenario", min(int(max_events), 600)) or min(int(max_events), 600)),
+                max_entrypoint_seconds=int(scenario_summary.get("max_entrypoint_seconds", max(1, min(int(timeout_seconds), 3))) or max(1, min(int(timeout_seconds), 3))),
+                runtime_plan=scenario_plan,
             )
             stage_data["bubble"] = runtime_result
 
@@ -422,6 +449,14 @@ def run_staged_pipeline(
             if runtime_trace_ref:
                 runtime_trace_path = Path(runtime_trace_ref)
 
+            bubble_summary = (
+                stage_data.get("bubble", {}).get("flow_graph", {}).get("summary", {})
+                if isinstance(stage_data.get("bubble"), dict)
+                else {}
+            )
+            # Runtime is evidence and should never hard-fail classification fusion.
+            enforce_runtime_signal = False
+
             try:
                 heat_result = classify_code_heat_from_artifacts(
                     graph_path=Path(stage_data["graph"]["graph_path"]),
@@ -429,7 +464,7 @@ def run_staged_pipeline(
                     output_dir=out_root,
                     runtime_flow_graph_path=runtime_graph_path,
                     runtime_trace_path=runtime_trace_path,
-                    enforce_runtime_signal=True,
+                    enforce_runtime_signal=enforce_runtime_signal,
                 )
             except Exception as exc:  # noqa: BLE001
                 raise PipelineExecutionError("classification", str(exc)) from exc

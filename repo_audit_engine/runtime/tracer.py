@@ -67,6 +67,17 @@ def _node_id(rel_file: str, function_name: str) -> str:
     return f"file:{normalized_file}"
 
 
+def _resolve_return_stack_state(call_stack: List[str], node_label: str) -> tuple[str, int, bool]:
+    stack_depth = len(call_stack)
+    if node_label and call_stack and call_stack[-1] == node_label:
+        caller_node_id = call_stack[-2] if len(call_stack) >= 2 else ""
+        call_stack.pop()
+        return caller_node_id, stack_depth, True
+
+    caller_node_id = call_stack[-1] if call_stack else ""
+    return caller_node_id, stack_depth, False
+
+
 def _utc_timestamp() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
 
@@ -335,10 +346,8 @@ def main(argv: List[str] | None = None) -> int:
 
             if event == "return":
                 node_label = _node_id(rel_file, function_name)
-                caller = call_stack[-2] if len(call_stack) >= 2 else "<entrypoint>"
-                depth = len(call_stack)
-                if call_stack:
-                    call_stack.pop()
+                caller_node_id, depth, popped = _resolve_return_stack_state(call_stack, node_label)
+                caller = caller_node_id if caller_node_id else "<entrypoint>"
                 event_counts["return"] += 1
                 emit_event(
                     {
@@ -348,10 +357,11 @@ def main(argv: List[str] | None = None) -> int:
                         "file": rel_file,
                         "line": lineno,
                         "caller": caller,
-                        "caller_node_id": caller if caller != "<entrypoint>" else "",
+                        "caller_node_id": caller_node_id,
                         "node": node_label,
                         "callee_node_id": node_label,
                         "depth": depth,
+                        "stack_frame_popped": popped,
                     }
                 )
                 return trace_callback

@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Sequence, Tuple
 
+from repo_audit_engine.graph.graph_utils import canonical_id as build_canonical_id, node_id as build_node_id
 from repo_audit_engine.io.artifacts import write_json
 
 
@@ -19,25 +20,6 @@ def _iter_jsonl(path: Path) -> Iterable[Dict[str, Any]]:
                 continue
             if isinstance(payload, dict):
                 yield payload
-
-
-def _canonical_id(node_kind: str, rel_path: str, name: str = "") -> str:
-    normalized_path = rel_path.strip().replace("\\", "/")
-    if name:
-        normalized_name = name.strip().replace("/", "_")
-        return f"canonical://{node_kind}/{normalized_path}/{normalized_name}"
-    return f"canonical://{node_kind}/{normalized_path}"
-
-
-def _node_id(node_kind: str, rel_path: str, name: str = "") -> str:
-    normalized_path = str(rel_path or "").strip().replace("\\", "/")
-    if normalized_path.startswith("./"):
-        normalized_path = normalized_path[2:]
-
-    normalized_name = str(name or "").strip()
-    if name:
-        return f"{node_kind}:{normalized_path}:{normalized_name}"
-    return f"{node_kind}:{normalized_path}"
 
 
 def _edge_tuple(source: str, target: str, edge_type: str, evidence: str) -> Tuple[str, str, str, str]:
@@ -58,6 +40,7 @@ def build_dependency_graph(
     file_nodes: Dict[str, Dict[str, Any]] = {}
     symbol_nodes: Dict[str, Dict[str, Any]] = {}
     edges: set[Tuple[str, str, str, str]] = set()
+    pending_call_edges: List[Dict[str, str]] = []
 
     for row in _iter_jsonl(manifest_path):
         rel_path = str(row.get("path", "")).strip()
@@ -67,12 +50,12 @@ def build_dependency_graph(
         if language != "python":
             continue
 
-        node_id = _node_id("file", rel_path)
+        node_id = build_node_id("file", rel_path)
         file_nodes[node_id] = {
             "id": node_id,
             "kind": "file",
             "path": rel_path,
-            "canonical_id": _canonical_id("file", rel_path),
+            "canonical_id": build_canonical_id("file", rel_path),
         }
 
     symbols_by_file: Dict[str, set[str]] = {}
@@ -82,6 +65,10 @@ def build_dependency_graph(
         if not rel_path:
             continue
 
+        source_file_id = build_node_id("file", rel_path)
+        if source_file_id not in file_nodes:
+            continue
+
         symbols_for_file = symbols_by_file.setdefault(rel_path, set())
 
         for function in row.get("functions", []) or []:
@@ -89,13 +76,13 @@ def build_dependency_graph(
             name = str(item.get("name", "")).strip()
             if not name:
                 continue
-            node_id = _node_id("function", rel_path, name)
+            node_id = build_node_id("function", rel_path, name)
             symbol_nodes[node_id] = {
                 "id": node_id,
                 "kind": "function",
                 "path": rel_path,
                 "name": name,
-                "canonical_id": _canonical_id("function", rel_path, name),
+                "canonical_id": build_canonical_id("function", rel_path, name),
             }
             symbols_for_file.add(name)
 
@@ -104,24 +91,15 @@ def build_dependency_graph(
             name = str(item.get("name", "")).strip()
             if not name:
                 continue
-            node_id = _node_id("class", rel_path, name)
+            node_id = build_node_id("class", rel_path, name)
             symbol_nodes[node_id] = {
                 "id": node_id,
                 "kind": "class",
                 "path": rel_path,
                 "name": name,
-                "canonical_id": _canonical_id("class", rel_path, name),
+                "canonical_id": build_canonical_id("class", rel_path, name),
             }
             symbols_for_file.add(name)
-
-    for row in _iter_jsonl(static_analysis_path):
-        rel_path = str(row.get("file_path", "")).strip()
-        if not rel_path:
-            continue
-
-        source_file_id = _node_id("file", rel_path)
-        if source_file_id not in file_nodes:
-            continue
 
         local_symbols = symbols_by_file.get(rel_path, set())
 
@@ -130,7 +108,7 @@ def build_dependency_graph(
             resolved_path = str(payload.get("resolved_path", "")).strip()
             if not resolved_path:
                 continue
-            target_file_id = _node_id("file", resolved_path)
+            target_file_id = build_node_id("file", resolved_path)
             if target_file_id not in file_nodes:
                 continue
             edges.add(_edge_tuple(source_file_id, target_file_id, "IMPORT", "static_import"))
@@ -146,8 +124,8 @@ def build_dependency_graph(
             else:
                 caller_name = caller.split(".")[-1]
                 if caller_name in local_symbols:
-                    candidate_function_id = _node_id("function", rel_path, caller_name)
-                    candidate_class_id = _node_id("class", rel_path, caller_name)
+                    candidate_function_id = build_node_id("function", rel_path, caller_name)
+                    candidate_class_id = build_node_id("class", rel_path, caller_name)
                     if candidate_function_id in symbol_nodes:
                         caller_node_id = candidate_function_id
                     elif candidate_class_id in symbol_nodes:
@@ -157,20 +135,14 @@ def build_dependency_graph(
                 else:
                     caller_node_id = source_file_id
 
-            target_node_id = ""
-            if resolved_node_id and resolved_node_id in symbol_nodes:
-                target_node_id = resolved_node_id
-            elif callee:
-                callee_name = callee.split(".")[-1]
-                local_function_id = _node_id("function", rel_path, callee_name)
-                local_class_id = _node_id("class", rel_path, callee_name)
-                if local_function_id in symbol_nodes:
-                    target_node_id = local_function_id
-                elif local_class_id in symbol_nodes:
-                    target_node_id = local_class_id
-
-            if target_node_id:
-                edges.add(_edge_tuple(caller_node_id, target_node_id, "CALL", "static_call"))
+            pending_call_edges.append(
+                {
+                    "caller_node_id": caller_node_id,
+                    "callee": callee,
+                    "resolved_node_id": resolved_node_id,
+                    "rel_path": rel_path,
+                }
+            )
 
         for raw_ref in row.get("config_references", []) or []:
             value = str(raw_ref).strip().replace("\\", "/")
@@ -178,9 +150,34 @@ def build_dependency_graph(
                 continue
             if value.startswith("./"):
                 value = value[2:]
-            target_file_id = _node_id("file", value)
+            target_file_id = build_node_id("file", value)
             if target_file_id in file_nodes:
                 edges.add(_edge_tuple(source_file_id, target_file_id, "CONFIG", "config_reference"))
+
+    for item in pending_call_edges:
+        payload = item if isinstance(item, dict) else {}
+        caller_node_id = str(payload.get("caller_node_id", "")).strip()
+        rel_path = str(payload.get("rel_path", "")).strip()
+        callee = str(payload.get("callee", "")).strip()
+        resolved_node_id = str(payload.get("resolved_node_id", "")).strip()
+
+        if not caller_node_id:
+            continue
+
+        target_node_id = ""
+        if resolved_node_id and resolved_node_id in symbol_nodes:
+            target_node_id = resolved_node_id
+        elif callee:
+            callee_name = callee.split(".")[-1]
+            local_function_id = build_node_id("function", rel_path, callee_name)
+            local_class_id = build_node_id("class", rel_path, callee_name)
+            if local_function_id in symbol_nodes:
+                target_node_id = local_function_id
+            elif local_class_id in symbol_nodes:
+                target_node_id = local_class_id
+
+        if target_node_id:
+            edges.add(_edge_tuple(caller_node_id, target_node_id, "CALL", "static_call"))
 
     nodes = list(file_nodes.values()) + list(symbol_nodes.values())
     nodes.sort(key=lambda item: (str(item.get("kind", "")), str(item.get("id", ""))))
@@ -223,8 +220,8 @@ def build_dependency_graph(
             validation_edge_type = "IMPORT"
             resolver_source = "AST"
         elif edge_type == "CALL":
-            validation_edge_type = "DI"
-            resolver_source = "DI"
+            validation_edge_type = "CALL"
+            resolver_source = "AST"
         elif edge_type == "CONFIG":
             validation_edge_type = "CONFIG"
             resolver_source = "CONFIG"

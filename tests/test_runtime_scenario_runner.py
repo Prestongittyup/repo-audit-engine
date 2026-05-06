@@ -15,6 +15,13 @@ def _write_json(path: Path, payload: dict) -> None:
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
 
 
+def _write_jsonl(path: Path, rows: list[dict]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as handle:
+        for row in rows:
+            handle.write(json.dumps(row, ensure_ascii=True, sort_keys=True) + "\n")
+
+
 def _encoded_spec(entrypoint: str) -> str:
     return str(entrypoint).split("scenario:auto:", 1)[1]
 
@@ -25,16 +32,22 @@ def test_build_runtime_scenario_plan_filters_and_scores_nodes(tmp_path: Path) ->
             {"id": "file:src/app.py", "kind": "file"},
             {"id": "function:src/app.py:main", "kind": "function"},
             {"id": "function:src/app.py:worker", "kind": "function"},
+            {"id": "file:apps/api/router.py", "kind": "file"},
+            {"id": "function:apps/api/router.py:create_router", "kind": "function"},
+            {"id": "file:scripts/cli_tool.py", "kind": "file"},
+            {"id": "function:scripts/cli_tool.py:main", "kind": "function"},
             {"id": "class:src/runner.py:Runner", "kind": "class"},
             {"id": "function:tests/test_app.py:test_worker", "kind": "function"},
         ],
         "edges": [
             {"source": "function:src/app.py:main", "target": "function:src/app.py:worker", "type": "CALL"},
             {"source": "function:src/app.py:main", "target": "class:src/runner.py:Runner", "type": "CALL"},
+            {"source": "function:src/app.py:main", "target": "function:apps/api/router.py:create_router", "type": "CALL"},
+            {"source": "function:scripts/cli_tool.py:main", "target": "function:src/app.py:worker", "type": "CALL"},
             {"source": "class:src/runner.py:Runner", "target": "function:src/app.py:worker", "type": "CALL"},
         ],
     }
-    manifest_summary = {"entrypoints": ["src/app.py"]}
+    manifest_summary = {"entrypoints": ["src/app.py", "apps/api/router.py"]}
     existing_flow = {
         "node_hits": {
             "function:src/app.py:main": 1,
@@ -50,34 +63,84 @@ def test_build_runtime_scenario_plan_filters_and_scores_nodes(tmp_path: Path) ->
 
     dependency_graph_path = tmp_path / "dependency_graph.json"
     manifest_summary_path = tmp_path / "manifest_summary.json"
+    manifest_path = tmp_path / "manifest.jsonl"
     existing_flow_path = tmp_path / "execution_flow_graph.json"
 
     _write_json(dependency_graph_path, dependency_graph)
     _write_json(manifest_summary_path, manifest_summary)
+    _write_jsonl(
+        manifest_path,
+        [
+            {
+                "path": "src/app.py",
+                "language": "python",
+                "module": "src.app",
+                "imports": ["fastapi"],
+                "entrypoint_reasons": ["main_guard"],
+            },
+            {
+                "path": "apps/api/router.py",
+                "language": "python",
+                "module": "apps.api.router",
+                "imports": ["fastapi"],
+                "entrypoint_reasons": [],
+            },
+            {
+                "path": "scripts/cli_tool.py",
+                "language": "python",
+                "module": "scripts.cli_tool",
+                "imports": ["argparse"],
+                "entrypoint_reasons": [],
+            },
+            {
+                "path": "tests/test_app.py",
+                "language": "python",
+                "module": "tests.test_app",
+                "imports": [],
+                "entrypoint_reasons": [],
+            },
+        ],
+    )
     _write_json(existing_flow_path, existing_flow)
 
     plan = build_runtime_scenario_plan(
         dependency_graph_path=dependency_graph_path,
         manifest_summary_path=manifest_summary_path,
+        manifest_path=manifest_path,
         output_dir=tmp_path,
         execution_flow_graph_path=existing_flow_path,
-        max_scenarios=3,
+        max_entrypoints=4,
+        max_seed_scenarios=3,
     )
 
     assert (tmp_path / "runtime_scenario_plan.json").exists()
 
     entrypoints = plan.get("entrypoints")
     assert isinstance(entrypoints, list)
-    assert entrypoints[0] == "scenario:depth-probe"
+    assert 3 <= len(entrypoints) <= 5
+    assert "src/app.py" in entrypoints
+    assert "scripts/cli_tool.py" in entrypoints
+    assert all(not str(item).startswith("scenario:auto:") for item in entrypoints)
+
+    forced_probes = plan.get("forced_probes")
+    assert isinstance(forced_probes, list)
+    assert forced_probes
+    assert all(str(item).startswith("scenario:auto:") for item in forced_probes)
+
+    call_adjacency = plan.get("call_adjacency")
+    assert isinstance(call_adjacency, dict)
+    assert call_adjacency
 
     scenarios = plan.get("scenarios")
     assert isinstance(scenarios, list)
     assert len(scenarios) <= 3
-    assert all(str(item.get("path", "")).startswith("src/") for item in scenarios)
     assert all(not str(item.get("path", "")).startswith("tests/") for item in scenarios)
 
     summary = plan.get("summary")
     assert isinstance(summary, dict)
+    assert str(summary.get("strategy", "")) == "focused_expansion"
+    assert int(summary.get("selected_entrypoint_count", 0) or 0) >= 3
+    assert int(summary.get("max_expansion_depth", 0) or 0) >= 3
     assert float(summary.get("baseline_coverage_ratio", 0.0)) > 0.0
 
 
